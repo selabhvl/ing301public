@@ -5,8 +5,8 @@ class TestExercise1(unittest.TestCase):
 
     def test_max_pair(self):
         self.assertEqual(exercise1.max_pair(('Hallo',3),("World",5)), ("World",5))
-        self.assertEqual(exercise1.max_pair(('Hei',0), ('Hei',0), ('Hei',0)))
-        self.assertEqual(exercise1.max_pair(('smaller',-10), ('larger',10), ('larger',10)))
+        self.assertEqual(exercise1.max_pair(('Hei',0), ('Hei',0)), ('Hei',0))
+        self.assertEqual(exercise1.max_pair(('smaller',-10), ('larger',10)), ('larger',10))
     
     def test_make_index(self):
         input = ['the', 'quick', 'brown', 'fox', 'the', 'jumps', 'over', 'the', 'brown', 'wall']

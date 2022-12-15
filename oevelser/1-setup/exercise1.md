@@ -75,6 +75,25 @@ Det åpner seg et nytt vindu. Her kunne du gi et nytt navn til repository kopien
 
 ![Create Fork Skjermbilde](../../ressurser/images/github-fork-create.jpg)
 
+Du vil bli ledet videre til en side som viser en fullstending kopi av `ing301public` berre at denne tilhører din egen brukerkonto.
+
+Klikk nå den grønne `Code` knappen og kopier den URLen du ser i den dialogen som åpner seg.
+
+Lag nå en mappe på din harddisk på filsti som er lett å huske, f.eks. `C:\Users\<dinbrukernavn>\ING301\` (eller `/home/<dinbrukernavn>/ING301/` på Linux/Mac). 
+Åpner en _Terminal vindu_ og navigere til denne filstien.
+
+Nå er det på tide å sjekke ut ING301 repo'en. Bruke følgende kommando:
+```bash
+git clone <Github URL du har kopiert tidligere>
+```
+
+For å også ha en kobling til den opprinellige kodebasen fra HVL, også kjør følgende kommando rett etterpå:
+
+```bash
+git remote add -m main hvl https://github.com/selabhvl/ing301public
+git pull hvl main
+```
+
 ## Steg 3: Skrive og teste Python kode
 
 Nå er det på tide å sette i gang for fult! Vi skal skrive vår første kode i ING301!
