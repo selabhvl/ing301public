@@ -6,7 +6,7 @@ Velkommen til ING301 sin sentrale oppbevaringsplass for kodeeksempler fra forele
 
 **Uken** | **Dato** | **Tema** | **Kode++** | **Lesestoff** | **Frister**
 ---------|----------|----------|------------|-------------- |---------------
-2 | 10.01.23 | _Getting started_ | [link](./uke1-introduksjon/uke1.md) |  | 
+2 | 10.01.23 | Kom i gang | [link](./uke1-introduksjon/uke1.md) |  | 
 3 | 17.01.23 | Innføring Objektorientering |  | kap. 14 i _Practical Programming_ | [Øvelse 1: Sø 22.01](./oevelser/1-setup/exercise1.md)
 4 | 24.01.23 | Objektorientert Programmering | | |
 5 | 31.01.23 | Objektorientert Programmering | | |

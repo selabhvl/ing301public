@@ -4,7 +4,7 @@ Velkommen til første uke med undervisning i ING301.
 Målet med denne første _obligatoriske_ øvelsen er få å sikre at alle har et arbeidsområdet der de kan utvikle Python kode og dele koden med andre.
 I tilegg skal vi ta en liten repitisjon av noen sentrale konsepter fra ING301.
 
-Innleveringsfristen er **XX.XX.XXXX kl00:00**
+Innleveringsfristen er **22.01.2023 kl 23:59 (CET)**
 
 ## Steg 1: Kom i gang
 
