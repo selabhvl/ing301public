@@ -17,7 +17,7 @@ Velkommen til ING301 sin sentrale oppbevaringsplass for kodeeksempler fra forele
 10 | 07.03.23 | TCP/IP networking and protocol layering | | |
 11 | 14.03.23 | Network applications and socket programming | | |
 12 | 21.03.23 | HTTP and REST web services | | | Prosjekt Del C: Sø 26.03
-13 | 28.03.23 | Structured computer organisation and architecture O | | |
+13 | 28.03.23 | Structured computer organisation and architecture | | |
 14 | | **Påskeferie** | | |
 15 | 11.04.23 | Operating systems and services | | |
 16 | 18.04.23 | IoT devices with sensors and actuators | | | Prosjekt Del D: Sø 23.04
