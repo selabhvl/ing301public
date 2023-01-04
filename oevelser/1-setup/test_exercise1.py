@@ -16,7 +16,8 @@ class TestExercise1(unittest.TestCase):
             'the' : 3,
             'quick' : 1,
             'jumps' : 1,
-            'wall' : 1
+            'wall' : 1,
+            'over' : 1
         }
         self.assertEqual(exercise1.make_index(input), expected)
     
