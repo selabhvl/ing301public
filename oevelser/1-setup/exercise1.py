@@ -1,99 +1,101 @@
-# Dette Starterkoden for første øvelsen i ING 301 #
-
-###################################################################################
-# Her kommer det litt glue-kode som vi har gitt deg som rammerverk                #
-# Bare ignorer dette for nå og bare konsentrere deg på det som kommer lenger nede #
-###################################################################################
-
 from pathlib import Path
-
-def to_tokens(text):
-    result = []
-    text = text.strip()
-    word = ''
-    for c in text:
-        if c.isspace() or c == ';' or c == ',' or c == '.' or c == ':' or c == '?':
-            if len(word) != 0:
-                result.append(word.lower())
-            word = ''
-        else:
-            word += c
-    if len(word) != 0:
-        result.append(word.lower())
-    return result
+# Dette er Starterkoden til den første øvelsen i ING 301
+#
+# Du skal utvikle en programm som finner det hyppigste ordet i en gitt tekstfil.
+# Dette høres kanskje litt komplisiert ut, men fortvil ikke!
+# Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
+# noen enkelte funskjoner som trengs for det hele til å virke.
+# Enhver funksjon kommer med en dokumentasjon som forklarer hva skal gjøres.
 
 
-def findmax(index):
-    max = ("Filen var tom !!!", -1)
-    for pair in index.items():
-        max = max_pair(max, pair)
-    return max
-
-
-def findmax_file(address):
-    file_content = read_file(address)
-    word_list = to_tokens(file_content)
-    index = make_index(word_list)
-    index = clear_index(index)
-    max_pair = findmax(index)
-    print(max_pair)
-    return max_pair[0]
-
-
-############################################
-#                                          #
-# Her begynner koden du skal viderutvikle! #
-#                                          #
-############################################
-
-FYLLORD = ['og','dei','i','eg','som','det','han','til','skal','på','for','då','ikkje','var','vera']
-
-
-def max_pair(par_1, par_2):
+def read_file(file_name):
     """
-      TODO: Denne funksjonen forventer å få to par (tuple) som inputt.
-      Paret består av et ord og et tall, f eks. ("Hei", 42).
-      Funksjonen må gi tilbake det paret som inneholde det større tallet!
+    Denne funksjonen får en filnavn som argument og skal gi
+    tilbake en liste av string som representere linjene i filen.
     """
-    return NotImplemented  # TODO: Du må fjerne denne linjen og skrive noe eget som fungerer !
+    # Tipps: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
+    return NotImplemented  # TODO: Du må erstatte denne linjen
 
 
-def make_index(ordlist):
+def lines_to_words(lines):
     """
-        TODO: Denne funksjonen forventer å få en liste av ord som inputt.
-        Som resultat må funksjonen gi tilbake en 'indeks'.
-        Dvs. en dictionary som har 'ord' fra den gitte listen som nøkkel.
-        Verdien til en nøkkel er et tall som sier hvor ofte ordet ble
-        nevnt i gitte listen. 
+    Denne funksjonen får en liste med string som innputt (dvs. linjene av tekstfilen som har nettopp blitt lest inn)
+    og deler linjene opp i enkelte ord. Enhver linje blir delt opp der det er blanktegn (= whitespaces).
+    Desto videre er vi bare interessert i faktiske ord, dvs. alle punkt (.), kolon (:), semikolon (;),
+    kommaer (,), spørsmåls- (?) og utrogstegn (!) skal fjernes underveis.
+    Til synvede og sist skal alle ord i den resulterende listen være skrevet i små bokstav slik at "Odin" og "odin"
+    blir behandlet likt.
 
-        Tipps: Bruk max_pair metoden fra før!
+    F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
     """
-    result = { }
-    # TODO: Din kode her! Kanskje starte med en løkke ;-)
-    return result
+    # Tipps: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
+    # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
+    # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
+    return NotImplemented  # TODO: Du må erstatte denne linjen
 
 
-def clear_index(index):
-    """ TODO: Her må du gjøre et eller annet for å blit kvitt 
-        fylleord som "og", "skal", "eller" i indeksen
+def compute_frequency(words):
     """
-    return index
+    Denne funksjonen tar inn en liste med ord og så lager den en frekvenstabell ut av den. En frekvenstabell
+    teller hvor ofte enhver ord dykket opp i den opprinnelige innputt listen. Frekvenstabllen
+    blir realisert gjennom Python dictionaires: https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 
-
-def read_file(adresse):
-    """ TODO: Denne funksjonen får en filsystem-adresse som argument.
-        Som resultat skulle den gi tilbake en string som representere
-        innholdet til den filen som befinner seg bak gitt adresse.
+    F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return "" # TODO: Du må erstatte denne linjen
+    return NotImplemented  # TODO: Du må erstatte denne linjen
 
+
+FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
+
+
+def remove_filler_words(frequency_table):
+    """
+    Ofte inneholder tekst koblingsord som "og", "eller", "jeg", "da". Disse er ikke så spennende når man vil
+    analysere innholdet til en tekst. Derfor vil vi gjerne fjerne dem fra vår frekvenstabell.
+    Vi har gitt deg en liste med slike koblingsord i variablen FILL_WORDS ovenfor.
+    Målet med denne funksjonen er at den skal få en frekvenstabll som innputt og så fjerne alle nøkkelord
+    som også finnes i FILL_WORDS.
+    """
+    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+
+def largest_pair(par_1, par_2):
+    """
+    Denne funksjonen får som innputt to tupler/par (https://docs.python.org/3/library/stdtypes.html#tuple) der deb
+    første komponenten er en string (et ord) og den andre komponenten er en integer (heltall).
+    Denne funksjonen skal sammenligne denne heltall komponenten i begge parene og så gi tilbake det paret der
+    tallet er størst.
+    """
+    # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
+    # kanskje du vil skrive noen flere test metoder ?!
+    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+
+def find_most_frequent(frequency_table):
+    """
+    Nå er det på tide å sette sammen alle bitene du har laget.
+    Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
+    """
+    # Tipps: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
+    # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
+    return NotImplemented  # TODO: Du må erstatte denne linjen
 
 ############################################################
 #                                                          #
-#### Her slutter delen av filen som er relevant for deg ####
+# Her slutter dendelen av filen som er relevant for deg ;-)#
 #                                                          #
 ############################################################
+
+
+def main():
+    file = str(Path(__file__).parent.absolute()) + "/voluspaa.txt"
+    lines = read_file(file)
+    words = lines_to_words(lines)
+    table = compute_frequency(words)
+    table = remove_filler_words(table)
+    most_frequent = find_most_frequent(table)
+    print(f"The most frequent word in {file} is '{most_frequent}'")
+
 
 if __name__ == '__main__':
-    file = str(Path(__file__).parent.absolute()) + "/voluspaa.txt"
-    print(f"The most frequent word in {file} is '{findmax_file(file)}'")
+    main()
