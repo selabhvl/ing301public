@@ -1,7 +1,7 @@
 from pathlib import Path
 # Dette er Starterkoden til den første øvelsen i ING 301
 #
-# Du skal utvikle en programm som finner det hyppigste ordet i en gitt tekstfil.
+# Du skal utvikle et programm som finner det hyppigste ordet i en gitt tekstfil.
 # Dette høres kanskje litt komplisiert ut, men fortvil ikke!
 # Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
 # noen enkelte funskjoner som trengs for det hele til å virke.
@@ -10,25 +10,25 @@ from pathlib import Path
 
 def read_file(file_name):
     """
-    Denne funksjonen får en filnavn som argument og skal gi
-    tilbake en liste av string som representere linjene i filen.
+    Denne funksjonen får et filnavn som argument og skal gi
+    tilbake en liste av tekststrenger som representerer linjene i filen.
     """
-    # Tipps: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
+    # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
     return NotImplemented  # TODO: Du må erstatte denne linjen
 
 
 def lines_to_words(lines):
     """
-    Denne funksjonen får en liste med string som innputt (dvs. linjene av tekstfilen som har nettopp blitt lest inn)
+    Denne funksjonen får en liste med strenger som input (dvs. linjene av tekstfilen som har nettopp blitt lest inn)
     og deler linjene opp i enkelte ord. Enhver linje blir delt opp der det er blanktegn (= whitespaces).
-    Desto videre er vi bare interessert i faktiske ord, dvs. alle punkt (.), kolon (:), semikolon (;),
-    kommaer (,), spørsmåls- (?) og utrogstegn (!) skal fjernes underveis.
-    Til synvede og sist skal alle ord i den resulterende listen være skrevet i små bokstav slik at "Odin" og "odin"
+    Desto videre er vi bare interessert i faktiske ord, dvs. alle punktum (.), kolon (:), semikolon (;),
+    kommaer (,), spørsmåls- (?) og utråbstegn (!) skal fjernes underveis.
+    Til sist skal alle ord i den resulterende listen være skrevet i små bokstav slik at "Odin" og "odin"
     blir behandlet likt.
 
     F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
     """
-    # Tipps: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
+    # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
     return NotImplemented  # TODO: Du må erstatte denne linjen
@@ -37,7 +37,7 @@ def lines_to_words(lines):
 def compute_frequency(words):
     """
     Denne funksjonen tar inn en liste med ord og så lager den en frekvenstabell ut av den. En frekvenstabell
-    teller hvor ofte enhver ord dykket opp i den opprinnelige innputt listen. Frekvenstabllen
+    teller hvor ofte hvert ord dykket opp i den opprinnelige innputt listen. Frekvenstabllen
     blir realisert gjennom Python dictionaires: https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
@@ -53,17 +53,17 @@ def remove_filler_words(frequency_table):
     Ofte inneholder tekst koblingsord som "og", "eller", "jeg", "da". Disse er ikke så spennende når man vil
     analysere innholdet til en tekst. Derfor vil vi gjerne fjerne dem fra vår frekvenstabell.
     Vi har gitt deg en liste med slike koblingsord i variablen FILL_WORDS ovenfor.
-    Målet med denne funksjonen er at den skal få en frekvenstabll som innputt og så fjerne alle nøkkelord
-    som også finnes i FILL_WORDS.
+    Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
+    som finnes i FILL_WORDS.
     """
     return NotImplemented  # TODO: Du må erstatte denne linjen
 
 
 def largest_pair(par_1, par_2):
     """
-    Denne funksjonen får som innputt to tupler/par (https://docs.python.org/3/library/stdtypes.html#tuple) der deb
+    Denne funksjonen får som input to tupler/par (https://docs.python.org/3/library/stdtypes.html#tuple) der den
     første komponenten er en string (et ord) og den andre komponenten er en integer (heltall).
-    Denne funksjonen skal sammenligne denne heltall komponenten i begge parene og så gi tilbake det paret der
+    Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
     tallet er størst.
     """
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
@@ -76,7 +76,7 @@ def find_most_frequent(frequency_table):
     Nå er det på tide å sette sammen alle bitene du har laget.
     Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
     """
-    # Tipps: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
+    # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
     return NotImplemented  # TODO: Du må erstatte denne linjen
 

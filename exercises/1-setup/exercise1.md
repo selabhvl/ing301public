@@ -1,51 +1,55 @@
-# Øvelser Uke 1
+# Oppgaver - Uke 2
 
 Velkommen til første uke med undervisning i ING301.
-Målet med denne første _obligatoriske_ øvelsen er få å sikre at alle har et arbeidsområdet der de kan utvikle Python kode og dele koden med andre.
-I tilegg skal vi ta en liten repitisjon av noen sentrale konsepter fra ING301.
 
-Innleveringsfristen er **22.01.2023 kl 23:59 (CET)**
+Målet med denne første _obligatoriske_ oppgave er å sikre at alle har et fungerende utviklingsmiljø for Python programmering og dele koden med andre.
+
+I tilegg skal vi ta en liten repitisjon av noen Python begreper fra ING201.
+
+Innleveringsfrist: se Canvas.
 
 ## Steg 1: Kom i gang
 
-Før vi begynner må vi være sikre at alle installert alle verktøyene som trengs. Det vil si
-- En aktuell versjon av [Python](https://www.python.org/). Den mest aktuelle versjonen akkurat nå er _3.10.7_. Hvis du har allerede installert Python på din maskin, sjekk at den har et versjonsnummer som begynner på _3_!
-- Det versjoneringssystemet [Git](https://git-scm.com/). 
+Før vi begynner må vi være sikre at alle har installert verktøyene som trengs. Det vil si
+- En aktuell versjon av [Python](https://www.python.org/). Den mest aktuelle versjonen akkurat nå er _3.11.1_. Hvis du har allerede installert Python på din maskin, sjekk at den har et versjonsnummer som begynner på _3_!
+- Versjoneringssystemet for kode [Git](https://git-scm.com/). 
 
-Installasjonsinstruks for de forsjellige operativsystemer finnder du nedenfor
+Se også **video på Canvas** om installasjon av Python programmeringsmiljø.
+
+Lenker til installasjonsinstruks for de forsjellige operativsystemer finder du nedenfor
 
 ### Windows
 
-[Python Installasjon](../../uke1-introduksjon/install_python_windows.md)
+- [Python Installasjon](../../uke2-introduksjon/install_python_windows.md)
 
-[Git Installasjon](../../uke1-introduksjon/install_git_windows.md)
+- [Git Installasjon](../../uke2-introduksjon/install_git_windows.md)
 
 ### Mac OS X
 
-[Python Installasjon](../../uke1-introduksjon/install_python_mac.md)
+[Python Installasjon](../../uke2-introduksjon/install_python_mac.md)
 
-[Git Installasjon](../../uke1-introduksjon/install_git_mac.md)
+[Git Installasjon](../../uke2-introduksjon/install_git_mac.md)
 
 ### Linux
 
-[Python Installasjon](../../uke1-introduksjon/install_python_linux.md)
+[Python Installasjon](../../uke2-introduksjon/install_python_linux.md)
 
-[Git Installasjon](../../uke1-introduksjon/install_git_linux.md)
+[Git Installasjon](../../uke2-introduksjon/install_git_linux.md)
 
-## IDE og andre grafiske verktøy
+### IDE og andre grafiske verktøy
 
 Det er fult mulig å skrive kode i Python i en tekseditor som `vim` eller `emacs` og betjene git gjennom kommandolinjen (Windows sitt _Notepad_ anbefales derimot ikke i det hele tatt). 
 Men generelt anbefaler vi at du bruker en IDE og/eller andre verktøy som tilbyr en grafisk brukergrensesnitt (GUI).
 
 Vi anbefaler
 
-[Visual Studio Code](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 
-[JetBrains PyCharm](https://www.jetbrains.com/pycharm/)
+- [JetBrains PyCharm](https://www.jetbrains.com/pycharm/)
 
 som IDE og
 
-[GitHub for Desktop](https://desktop.github.com/)
+- [GitHub for Desktop](https://desktop.github.com/)
 
 for å jobbe med git/GitHub.
 
@@ -63,7 +67,7 @@ Du blir bedt til å gi fra deg en epost adresse (Du kan bruke din HVL-epost-adre
 
 Pass på at lagrer dine pålogginsinformasjon på et sikkert sted (f.eks. ved å bruke en _Password Manager_).
 
-### 2.2 Forke ing301public
+### 2.2 Forke ing301public repository
 
 Sjekk at du er logget på GitHub og besøk: https://github.com/selabhvl/ing301public
 
@@ -98,7 +102,9 @@ git pull hvl main
 
 Nå er det på tide å sette i gang for fult! Vi skal skrive vår første kode i ING301!
 
-Forutsetningen er at du har klart å sjekke ut en lokal kopi av din "_forked_" versjon av `ing301public`. Du skal nå åpne denne mappen i en IDE:
+Forutsetningen er at du har klart å sjekke ut en lokal kopi av din "_forked_" versjon av `ing301public`. 
+
+Du skal nå åpne denne `ing301public`-mappen i en IDE:
 
 **VS Code**
 ```
@@ -111,18 +117,18 @@ File > Open > (navigate to the ing301public folder on your disk) > Trust Project
 ```
 
 Uansett på hvilket IDE du bruker, på venstre siden skulle du se "filtræet" med selve `ing301public` mappen som rot. 
-I dette træet navigare ned til `oevleser/exercise1.py`. 
+I dette træet navigere ned til `exercises/exercise1.py`. 
 Både VS Code og PyCharm tilbyr en mulighet til å direkte "kjøre" filen fra editoren (_Bare trykk på den "Spill av" knappen_).
 Alternativt kan du kjøre filen fra en _Terminal_ slikt:
 ```
 python3 <filsti her>/exercise1.py
 ```
 
-som resultat burde du se noe slikt:
+som resultat skal du se noe slikt:
 ```
-The most frequent word in <filsti på din maskin>/ing301public/oevelser/1-setup/voluspaa.txt is 'Filen var tom !!!'
- ~/Documents/teaching/
+The most frequent word in <filsti på din maskin>/ing301public/exercises/1-setup/voluspaa.txt is 'NotImplemented'
 ```
 
-Dette betyr at du er klar til å skrive Python kode men programmet du skal utvikle i denne første øvelsen er ikke ferdig implementert ennå.
-Din oppgave å skrive noen sentrale funskjoner som er nødvendig til finne det mest hyppige ord i en gitt fil.
+Dette betyr at du er klar til å skrive Python kode, men programmet i denne første oppgave er ikke ferdig implementert ennå.
+
+Din neste oppgave (i uke 3) er å skrive de sentrale funskjoner som er nødvendig til finne det mest hyppige ord i en gitt fil.

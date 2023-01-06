@@ -1,6 +1,6 @@
 # ING 301
 
-Velkommen til ING301 sin sentrale oppbevaringsplass for kodeeksempler fra forelesningene, starterkode for (ikke) obligtoriske øvelser og mer
+Velkommen til ING301 sin sentrale oppbevaringsplass for kodeeksempler fra forelesningene, start-kode for øvelser og mer
 
 ## Oversikt
 
