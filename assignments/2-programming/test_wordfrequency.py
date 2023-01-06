@@ -1,22 +1,22 @@
 import unittest
-import exercise1 as e
+import wordfrequency as wf
 
 
-class TestExercise1(unittest.TestCase):
+class TestAssignment2(unittest.TestCase):
 
     def test_read_file(self):
         expected = ["Det er\n", "bare\n", "noen få ord her!\n"]
-        self.assertEqual(expected, e.read_file("small.txt"))
+        self.assertEqual(expected, wf.read_file("small.txt"))
 
     def test_lines_to_words(self):
-        self.assertEqual(["born", "åt", "heimdall"], e.lines_to_words(["born åt Heimdall;"]))
-        self.assertEqual(["du", "bad", "meg", "koma", "odin"], e.lines_to_words(["du bad meg koma, Odin,\n"]))
-        self.assertEqual([], e.lines_to_words([";,.:?!"]))
-        self.assertEqual(["nothinghappenshere"], e.lines_to_words(["nOtHingHAPPENshere\n"]))
-        self.assertEqual(["words", "on", "two", "lines"], e.lines_to_words(["words on\n", "two, lines!"]))
+        self.assertEqual(["born", "åt", "heimdall"], wf.lines_to_words(["born åt Heimdall;"]))
+        self.assertEqual(["du", "bad", "meg", "koma", "odin"], wf.lines_to_words(["du bad meg koma, Odin,\n"]))
+        self.assertEqual([], wf.lines_to_words([";,.:?!"]))
+        self.assertEqual(["nothinghappenshere"], wf.lines_to_words(["nOtHingHAPPENshere\n"]))
+        self.assertEqual(["words", "on", "two", "lines"], wf.lines_to_words(["words on\n", "two, lines!"]))
 
     def test_compute_frequency(self):
-        self.assertEqual(e.compute_frequency(['hei', 'verden', 'hei']), {'hei': 2, 'verden': 1})
+        self.assertEqual(wf.compute_frequency(['hei', 'verden', 'hei']), {'hei': 2, 'verden': 1})
         test_data = ['the', 'quick', 'brown', 'fox', 'the', 'jumps', 'over', 'the', 'brown', 'wall']
         expected = {
             'fox': 1,
@@ -27,8 +27,8 @@ class TestExercise1(unittest.TestCase):
             'wall': 1,
             'over': 1
         }
-        self.assertEqual(expected, e.compute_frequency(test_data))
-        self.assertEqual(e.compute_frequency([]), {})
+        self.assertEqual(expected, wf.compute_frequency(test_data))
+        self.assertEqual(wf.compute_frequency([]), {})
 
     def test_remove_filler_words(self):
         data = {
@@ -44,10 +44,10 @@ class TestExercise1(unittest.TestCase):
             'ulv': 1,
             'gud': 3
         }
-        self.assertEqual(expected, e.remove_filler_words(data))
+        self.assertEqual(expected, wf.remove_filler_words(data))
 
     def test_largest_pair(self):
-        self.assertEqual(("World", 5), e.largest_pair(('Hallo', 3), ("World", 5)))
+        self.assertEqual(("World", 5), wf.largest_pair(('Hallo', 3), ("World", 5)))
         # kanskje du vil utvide test casene her
 
     def test_find_most_frequent(self):
@@ -57,9 +57,9 @@ class TestExercise1(unittest.TestCase):
             'oftest': 9000,
             'answer': 42
         }
-        self.assertEqual('oftest', e.find_most_frequent(data))
+        self.assertEqual('oftest', wf.find_most_frequent(data))
         del data['oftest']
-        self.assertEqual('answer', e.find_most_frequent(data))
+        self.assertEqual('answer', wf.find_most_frequent(data))
 
 
 if __name__ == '__main__':
