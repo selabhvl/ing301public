@@ -1,134 +1,101 @@
-# Oppgaver - Uke 2
-
-Velkommen til første uke med undervisning i ING301.
-
-Målet med denne første _obligatoriske_ oppgave er å sikre at alle har et fungerende utviklingsmiljø for Python programmering og dele koden med andre.
-
-I tilegg skal vi ta en liten repitisjon av noen Python begreper fra ING201.
-
-Innleveringsfrist: se Canvas.
-
-## Steg 1: Kom i gang
-
-Før vi begynner må vi være sikre at alle har installert verktøyene som trengs. Det vil si
-- En aktuell versjon av [Python](https://www.python.org/). Den mest aktuelle versjonen akkurat nå er _3.11.1_. Hvis du har allerede installert Python på din maskin, sjekk at den har et versjonsnummer som begynner på _3_!
-- Versjoneringssystemet for kode [Git](https://git-scm.com/). 
-
-Se også **video på Canvas** om installasjon av Python programmeringsmiljø.
-
-Lenker til installasjonsinstruks for de forsjellige operativsystemer finder du nedenfor
-
-### Windows
-
-- [Python Installasjon](../../uke2-introduksjon/install_python_windows.md)
-
-- [Git Installasjon](../../uke2-introduksjon/install_git_windows.md)
-
-### Mac OS X
-
-[Python Installasjon](../../uke2-introduksjon/install_python_mac.md)
-
-[Git Installasjon](../../uke2-introduksjon/install_git_mac.md)
-
-### Linux
-
-[Python Installasjon](../../uke2-introduksjon/install_python_linux.md)
-
-[Git Installasjon](../../uke2-introduksjon/install_git_linux.md)
-
-### IDE og andre grafiske verktøy
-
-Det er fult mulig å skrive kode i Python i en tekseditor som `vim` eller `emacs` og betjene git gjennom kommandolinjen (Windows sitt _Notepad_ anbefales derimot ikke i det hele tatt). 
-Men generelt anbefaler vi at du bruker en IDE og/eller andre verktøy som tilbyr en grafisk brukergrensesnitt (GUI).
-
-Vi anbefaler
-
-- [Visual Studio Code](https://code.visualstudio.com/)
-
-- [JetBrains PyCharm](https://www.jetbrains.com/pycharm/)
-
-som IDE og
-
-- [GitHub for Desktop](https://desktop.github.com/)
-
-for å jobbe med git/GitHub.
+from pathlib import Path
+# Dette er Starterkoden til den første øvelsen i ING 301
+#
+# Du skal utvikle et programm som finner det hyppigste ordet i en gitt tekstfil.
+# Dette høres kanskje litt komplisiert ut, men fortvil ikke!
+# Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
+# noen enkelte funskjoner som trengs for det hele til å virke.
+# Enhver funksjon kommer med en dokumentasjon som forklarer hva skal gjøres.
 
 
-## Steg 2: Lage GitHub bruker og "forke" en repository
+def read_file(file_name):
+    """
+    Denne funksjonen får et filnavn som argument og skal gi
+    tilbake en liste av tekststrenger som representerer linjene i filen.
+    """
+    # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
+    return NotImplemented  # TODO: Du må erstatte denne linjen
 
-### 2.1 Lage en ny GitHub bruker
-(Skulle du allerede ha en GitHub bruker fra før kan du hoppe direkte til 2.2)
 
-Først, gå til https://github.com/ i din nettleser!
+def lines_to_words(lines):
+    """
+    Denne funksjonen får en liste med strenger som input (dvs. linjene av tekstfilen som har nettopp blitt lest inn)
+    og deler linjene opp i enkelte ord. Enhver linje blir delt opp der det er blanktegn (= whitespaces).
+    Desto videre er vi bare interessert i faktiske ord, dvs. alle punktum (.), kolon (:), semikolon (;),
+    kommaer (,), spørsmåls- (?) og utråbstegn (!) skal fjernes underveis.
+    Til sist skal alle ord i den resulterende listen være skrevet i små bokstav slik at "Odin" og "odin"
+    blir behandlet likt.
 
-På hovedsiden trykker du nå på _Sign Up_.
+    F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
+    """
+    # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
+    # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
+    # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
+    return NotImplemented  # TODO: Du må erstatte denne linjen
 
-Du blir bedt til å gi fra deg en epost adresse (Du kan bruke din HVL-epost-adresse) og sette et password.
 
-Pass på at lagrer dine pålogginsinformasjon på et sikkert sted (f.eks. ved å bruke en _Password Manager_).
+def compute_frequency(words):
+    """
+    Denne funksjonen tar inn en liste med ord og så lager den en frekvenstabell ut av den. En frekvenstabell
+    teller hvor ofte hvert ord dykket opp i den opprinnelige innputt listen. Frekvenstabllen
+    blir realisert gjennom Python dictionaires: https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 
-### 2.2 Forke ing301public repository
+    F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
+    """
+    return NotImplemented  # TODO: Du må erstatte denne linjen
 
-Sjekk at du er logget på GitHub og besøk: https://github.com/selabhvl/ing301public
 
-Oppe til høyre finner du en knapp `Fork`. Trykk på den!
+FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
 
-![Forke en Repository på Github Skjermbilde](../../ressurser/images/github-forking.jpg)
 
-Det åpner seg et nytt vindu. Her kunne du gi et nytt navn til repository kopien som blir laget nå. Men du kan bruke standardinstillingene og trykke på `Create fork`.
+def remove_filler_words(frequency_table):
+    """
+    Ofte inneholder tekst koblingsord som "og", "eller", "jeg", "da". Disse er ikke så spennende når man vil
+    analysere innholdet til en tekst. Derfor vil vi gjerne fjerne dem fra vår frekvenstabell.
+    Vi har gitt deg en liste med slike koblingsord i variablen FILL_WORDS ovenfor.
+    Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
+    som finnes i FILL_WORDS.
+    """
+    return NotImplemented  # TODO: Du må erstatte denne linjen
 
-![Create Fork Skjermbilde](../../ressurser/images/github-fork-create.jpg)
 
-Du vil bli ledet videre til en side som viser en fullstending kopi av `ing301public` berre at denne tilhører din egen brukerkonto.
+def largest_pair(par_1, par_2):
+    """
+    Denne funksjonen får som input to tupler/par (https://docs.python.org/3/library/stdtypes.html#tuple) der den
+    første komponenten er en string (et ord) og den andre komponenten er en integer (heltall).
+    Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
+    tallet er størst.
+    """
+    # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
+    # kanskje du vil skrive noen flere test metoder ?!
+    return NotImplemented  # TODO: Du må erstatte denne linjen
 
-Klikk nå den grønne `Code` knappen og kopier den URLen du ser i den dialogen som åpner seg.
 
-Lag nå en mappe på din harddisk på filsti som er lett å huske, f.eks. `C:\Users\<dinbrukernavn>\ING301\` (eller `/home/<dinbrukernavn>/ING301/` på Linux/Mac). 
-Åpner en _Terminal vindu_ og navigere til denne filstien.
+def find_most_frequent(frequency_table):
+    """
+    Nå er det på tide å sette sammen alle bitene du har laget.
+    Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
+    """
+    # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
+    # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
+    return NotImplemented  # TODO: Du må erstatte denne linjen
 
-Nå er det på tide å sjekke ut ING301 repo'en. Bruke følgende kommando:
-```bash
-git clone <Github URL du har kopiert tidligere>
-```
+############################################################
+#                                                          #
+# Her slutter dendelen av filen som er relevant for deg ;-)#
+#                                                          #
+############################################################
 
-For å også ha en kobling til den opprinellige kodebasen fra HVL, også kjør følgende kommando rett etterpå:
 
-```bash
-git remote add -m main hvl https://github.com/selabhvl/ing301public
-git pull hvl main
-```
+def main():
+    file = str(Path(__file__).parent.absolute()) + "/voluspaa.txt"
+    lines = read_file(file)
+    words = lines_to_words(lines)
+    table = compute_frequency(words)
+    table = remove_filler_words(table)
+    most_frequent = find_most_frequent(table)
+    print(f"The most frequent word in {file} is '{most_frequent}'")
 
-## Steg 3: Skrive og teste Python kode
 
-Nå er det på tide å sette i gang for fult! Vi skal skrive vår første kode i ING301!
-
-Forutsetningen er at du har klart å sjekke ut en lokal kopi av din "_forked_" versjon av `ing301public`. 
-
-Du skal nå åpne denne `ing301public`-mappen i en IDE:
-
-**VS Code**
-```
-File > Open Folder ... > (navigate to the ing301public folder on your disk) > "Yes, I trust the authors"
-```
-
-**PyCharm**
-```
-File > Open > (navigate to the ing301public folder on your disk) > Trust Project > This Window (if you are asked)
-```
-
-Uansett på hvilket IDE du bruker, på venstre siden skulle du se "filtræet" med selve `ing301public` mappen som rot. 
-I dette træet navigere ned til `exercises/exercise1.py`. 
-Både VS Code og PyCharm tilbyr en mulighet til å direkte "kjøre" filen fra editoren (_Bare trykk på den "Spill av" knappen_).
-Alternativt kan du kjøre filen fra en _Terminal_ slikt:
-```
-python3 <filsti her>/exercise1.py
-```
-
-som resultat skal du se noe slikt:
-```
-The most frequent word in <filsti på din maskin>/ing301public/exercises/1-setup/voluspaa.txt is 'NotImplemented'
-```
-
-Dette betyr at du er klar til å skrive Python kode, men programmet i denne første oppgave er ikke ferdig implementert ennå.
-
-Din neste oppgave (i uke 3) er å skrive de sentrale funskjoner som er nødvendig til finne det mest hyppige ord i en gitt fil.
+if __name__ == '__main__':
+    main()
