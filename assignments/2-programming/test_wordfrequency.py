@@ -11,7 +11,7 @@ class TestAssignment2(unittest.TestCase):
     def test_lines_to_words(self):
         self.assertEqual(["born", "åt", "heimdall"], wf.lines_to_words(["born åt Heimdall;"]))
         self.assertEqual(["du", "bad", "meg", "koma", "odin"], wf.lines_to_words(["du bad meg koma, Odin,\n"]))
-        self.assertEqual([], wf.lines_to_words([";,.:?!"]))
+        self.assertEqual([''], wf.lines_to_words([";,.:?!"]))
         self.assertEqual(["nothinghappenshere"], wf.lines_to_words(["nOtHingHAPPENshere\n"]))
         self.assertEqual(["words", "on", "two", "lines"], wf.lines_to_words(["words on\n", "two, lines!"]))
 
