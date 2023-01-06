@@ -19,7 +19,7 @@ Før du installere noe kan du fakstisk teste om du kanskje allerede har Python p
 ```bash
 python3 -V
 ```
-i Terminal og trykk på `<Enter>`. Hvis du har Python så vil gi deg den presise Python Subversion tilbak (f. eks. `Python 3.10.6`). 
+i Terminal og trykk på `<Enter>`. Hvis du har Python så vil gi deg den presise Python Subversion tilbake (f. eks. `Python 3.10.6`). 
 
 Hvis ikke, så må du laste ned Python:
 Skriv 
