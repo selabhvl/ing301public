@@ -8,15 +8,14 @@
 - Lage egen github konto og oppbevaringsplass for kode i faget og lære "add to index", "commit" og "push" 
 
 
-# Personal TODOs
+# Personal TODOs Patrick
 
-- Installasjoninstruks
-    - Windows
-    - Mac
-    - Linux
+
 - Git Innføring
     - Slides
     - Videoer: status, add, commit
     - Videoer: push, pull, fork,  merge
 - Python repitisjon
     - slides
+    - Deler fra GPS Prosjektet
+- Oblig 1
