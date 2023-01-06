@@ -2,7 +2,7 @@
 
 Formålet med oppgaven er en kort repetisjon av programmering i Python.
 
-Implementer metodene i [exercise1-py] https://github.com/selabhvl/ing301public/blob/main/exercises/1-setup/exercise1.py og test at de fungerer ved å bruke enhetstestene i [text_exercise1.py](https://github.com/selabhvl/ing301public/blob/main/exercises/1-setup/test_exercise1.py).
+Implementer metodene i [wordfrequency.py](https://github.com/selabhvl/ing301public/blob/main/assignments/2-programming/wordfrequency.py) og test at de fungerer ved å bruke enhetstestene i [text_wordfrequency.py](https://github.com/selabhvl/ing301public/blob/main/assignments/2-programming/test_wordfrequency.py).
 
 Fler detaljer omkring prosess med innlevering av koden kommer innen lenge.
 
