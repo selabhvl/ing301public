@@ -1,9 +1,9 @@
-# Prosjektoppgave: Smart Home
+# Programmeringsprosjekt: Smart Home
 
 Det obligatoriske prosjekt i ING301 er bygget rundt den samme case-studien: 
 Å bygge en system som kan styre en "_Smart Home_" sammenlignbar med f.eks. [Home Assistant](https://www.home-assistant.io/).
 
-![Smart Home Infografikk](../ressurser/images/smart-home.jpg)
+![Smart Home Infografikk](../resources/images/smart-home.jpg)
 
 ## Beskrivelse
 

@@ -1,5 +1,1 @@
 # Python Kunnskap
-
-- funksjoner
-- lister 
-- 
