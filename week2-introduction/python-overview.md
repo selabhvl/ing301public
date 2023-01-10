@@ -1,18 +1,21 @@
 # Python 
 
-Denne siden er tenkt som veldig kjapt innføring repitisjon av sentrale elementer i Python programmerinsspråket.
-Noen konsepter er omskrivet veldig grovt og vi viser til forskjellige kapittler i boken _Practical Programming_.
-Vi anbefaler derfor at du supplerer denne teksten her med andre ressurser, f.eks:
 
-- [Python Tutorial på W3Schools](https://www.w3schools.com/python/)
+Denne siden er tenkt som veldig kjapt innføring repetisjon av sentrale elementer i Python programmeringsspråket. 
+Noen konsepter er omskrevet veldig grovt og vi viser til forskjellige kapitler i boken _Practical Programming_.
+Vi anbefaler derfor at du supplerer denne teksten her med andre ressurser, f.eks.:
+
+
+- [Python Lærepgrogram på W3Schools](https://www.w3schools.com/python/)
 - [Python Standard Bibliotek Oversikt](https://docs.python.org/3/library/index.html)
-- [Det offisielle Python Tutorial](https://docs.python.org/3/tutorial/index.html)
-- også vil du sannsynligvis finne masse andre Python tutorials 
+- [Det offisielle Python Lærepgrogram](https://docs.python.org/3/tutorial/index.html)
+- også vil du sannsynligvis finne masse andre Python lærepgrogram 
 
 ## Utføre Python kode
 
-Python er en _tolket_ programmeringsspråk. Det vil si at en spesiell programm: _fortolkeren_ (engl. interpreter)
-leser inn instruksjonene og utføre tilsvarende kommandoer.
+Python er en _tolket_ programmeringsspråk. 
+Det vil si at en spesiell program: _fortolkeren_ (engl. interpreter) leser inn instruksjonene og utføre tilsvarende kommandoer.
+
 
 Når du har installert Python kan du åpne fortolkeren ved å åpne en Terminal og skriver
 ```bash
@@ -37,18 +40,21 @@ Hei verden
 3.0
 >>> quit()
 ```
+
 Som su ser kan du avslutte fortolkeren ved å skrive `quit()`.
 
-Det å utvikle større programmer direkte i fortolkeren kan risk bli svært uoversiktlig.
-Derfor skriver man Python kode vanligvis i filer.
-En slik fil blir kalt _Script_.
+Det å utvikle større programmer direkte i fortolkeren kan rask bli svært uoversiktlig. 
+Derfor skriver man Python kode vanligvis i filer. 
+En slik fil blir kalt _Script_. 
 En Skript er en vanlig tekstfil med et navn som slutter på `.py` og inneholder en sekvens av Python kommandoer.
+
 
 ## Uttrykk
 
 Vi anbefaler nå at du åpner opp din favoritt teksteditor elle ennå bedre: en IDE som _PyCharm_ eller _VS Code_.
-For å følge med, lag en ny Python fil med valgfri navn (f.eks. `firststeps.py`) og åpner denne file i editoren.
-Til å begynne, kan du prøve deg på [det programmet](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) som var grunnlag for mange utviklerkarrierer:
+For å følge med, lag en ny Python fil med valgfri navn (f.eks.`firststeps.py`) og åpner den file i editoren. 
+Til å begynne, kan du prøve deg på det [det programmet](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) som var grunnlag for mange utviklerkarrierer:
+
 ```python
 print("Hello, World!")
 ```
@@ -58,13 +64,14 @@ $ python firststeps.py  # python3 under Linux/Mac
 ```
 i Terminal eller hvis du bruker en IDE kan du kjøre file direkte fra teksteditor vinduet.
 
-For å forklare litt mer hva du nettop har laget:
+For å forklare litt mer om hva du nettopp har laget:
+
 - Du har skrevet din første Python script som består an en enkelt kommando
-- Kammandoen kaller den [innbyggete funksjonen](https://docs.python.org/3/library/functions.html) `print()`
-- `print`-funksjonen har et argument (det som står i paranteser), nemlig en tekst (`"Hello, World!"`).
+- Kommandoen kaller den [innbyggete funksjonen](https://docs.python.org/3/library/functions.html) `print()`
+- `print`-funksjonen har et argument (det som står i parenteser), nemlig en tekst (`"Hello, World!"`).
 - Effekten av å kalle funksjonen er at den skriver ut argumentet på [standard out](https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout)), altså det som kommer tilbake fra kommandolinjen.
 
-Framover vil vi bruke `print()` veldig ofte for å vise hva som framgår i våres programmer.
+Framover skal vi bruke `print()` veldig ofte for å vise hva som foregår i våres programmer.
 
 La oss nå også overføre den beregningen vi hadde gjort direkte i fortolkeren inn i vår ny script fil.
 ```python
@@ -75,35 +82,36 @@ Hva skjer hvis du kjører filen nå?
 
 Savner du noe?
 
-Det er fordi når du kjører en hel fil med fortolkeren så vil hele file utført som ett men uten at du blir informert over alle resultater som oppstår inn i mellom.
+
+Det er fordi når du kjører en hel fil med fortolkeren så vil hele file utført som ett men uten at du blir informert over alle resultater som oppstår inn i mellom. 
 Uttrykket `2 + 3` beskriver en operasjon (addisjon) mellom to heltall verdier. 
-Når dette uttrykket blir "kjørt" så blir den evaluert, noe som produserer et nytt heltall (`5`).
-Men siden vi gjør ikke noe mer med det så forsvinner resultatet bare uten effekt.
-For å bruke det videre må vi enten bruke det direkte i en funksjon eller vi lagre resultatet i en _variable_ for å kunne bruke det senere.
+Når dette uttrykket blir "kjørt" så blir den evaluert, noe som produserer et nytt heltall (5). 
+Men siden vi gjør ikke noe mer med det, så forsvinner resultatet bare uten effekt. 
+For å bruke det videre må vi enten bruke det direkte i en funksjon eller vi lagrer resultatet i en _variable_ for å kunne bruke det senere.
 
 ```python
 print("Hello, World!")
 2 + 3  # beregne et uttrykk, men uten å lagre resultatet => ingen effekt
-print(2 - 3)  # beregne et uttrukk og gi det til print() funksjonen
+print(2 - 3)  # beregne et uttrykk og gi det til print() funksjonen
 x = 2 * 3  # igjen beregne et uttrykk, men denne gangen lagret i en variable
 print(x)  # bruke variablen
 ```
 
 ## Variable og Datatyper
 
-Uten å nevne det eksplisitt har vi allerede brukt forskjellige Python datatyper:
-Vi har brukt forskjellige tall: `2`, `3` og en kort tekst: `"Hello, World!"`.
-Alle har til felles at de representerer faste _verdier_.
-I programmeringsspråk sin verden så kaller men disse ofte for _literaler_ eller _konstanter_.
+Uten å nevne det eksplisitt har vi allerede brukt forskjellige Python datatyper: 
+Vi har brukt forskjellige tall: `2`, `3` og en kort tekst: `"Hello, World!"`. 
+Alle har til felles at de representerer faste _verdier_. 
+I programmeringsspråk sin verden så kaller men disse ofte for _konstanter_.
 
-Men hvorfor kunne vi skrive direkte skrive `2` men får skrive en tekst så måtte vi bruke `""` rundt?!
+Men hvorfor kunne vi skrive direkte skrive `2` men får skrive en tekst så måtte vi bruke `""` rundt?! 
 Det er fordi de har forskjellige typer! 
-Kanksje du husker når realfaglæreren maste med hvilket enhet når hen spurte etter lengde, hastighet, kraft ...
+Kanskje du husker når realfaglæreren maste med hvilket enhet når hen spurte etter lengde, hastighet, kraft ... 
 Like som du ikke kan bare plusse på en hastighet med en elektrisk spenning så har verdier i programmeringsspråk forskjellige _"enheter"_, eller _typer_ som vi kaller dem.
 
 Heldigvis er mengden av disse elementare typene relativt liten.
 I Python finnes det:
-- Tekst, dvs. en sekvens av tegn (engl. characters) sam avgrenset med en innledende `"` og en avsluttende `"` (alternativt kan du bruke `''`). På engeksl kalles denne typen ofte for _stringg_ og i Python heter den `str`. 
+- Tekst, dvs. en sekvens av tegn (engl. characters) som avgrenses med en innledende `"` og en avsluttende `"` (alternativt kan du bruke `''`). På engelsk kalles denne typen ofte for _string_ og i Python heter den `str`.
 - Heltall (som kan være positivt eller negativt), På engelsk kaller man dem for _integer_ og i Python heter de `int`.
 - Kommatall (men istedenfor komma så bruker man en desimalpunkt `.` => amerikansk skrivemåte), På engelsk kaller man dem for _floating point numbers_ og i Python heter de `float`.
 - Sannhetsverdi: Det finnes akkurat to sannhetsverdier: `True` og `False`. På engelsk kalles dem _boolean values_ og i Python heter de `bool`.
@@ -121,10 +129,12 @@ print(type(kommatall))
 print(type(tekst))
 print(type(sannhet))
 ```
-Som du ser har vi innført en ny innbygget funksjon (`type()`) som du kan bruke å finne ut hva som er typen til en literal eller variable skulle du være usikker.
 
-Avhengig av typen, finnes det forskjelliger operatorer og funksjoner som kan brukes.
-Legg til følgende operasjoner og prøv å gjette hva som vil bli returnert av programmet før du kjører den
+Som du ser har vi innført en ny innbygget funksjon (`type()`) som du kan bruke å finne ut hva som er typen til en konstante eller variable skulle du være usikker.
+
+Avhengig av typen, finnes det forskjelligere operatorer og funksjoner som kan brukes. 
+Legg til følgende operasjoner og prøv å gjette hva som vil bli returnert av programmet før du kjører den.
+
 ```python
 print(heltall - 1)
 print(kommatall ** 2)
@@ -179,8 +189,8 @@ Den sannhetsverdi datatypen `bool` tilbyr tre operasjoner: `and`, `or` og `not`.
 Oppførelsen til disse operasjoner kan beskrives med _sannhetstabeller_:
 
 #### `and`
- |  | Resultat
--|--|----------
+Venstre | Høyre   | Resultat
+------|---------|----------
 `False` | `False` | `False`
 `False` | `True`  | `False`
 `True`  | `False` | `False`
@@ -188,8 +198,8 @@ Oppførelsen til disse operasjoner kan beskrives med _sannhetstabeller_:
 
 #### `or`
 
- |  | Resultat
--|--|----------
+Venstre | Høyre    | Resultat
+------|---------|----------
 `False` | `False` | `False`
 `False` | `True`  | `True`
 `True`  | `False` | `True`

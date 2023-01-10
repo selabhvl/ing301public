@@ -120,7 +120,7 @@ python3 <filsti her>/assignments/1-install/testinstall.py
 
 som resultat skulle du se noe slikt:
 ```
-Congratulations you are running Pythin in version 3....
+Congratulations you are running Python in version 3....
 [Clang ..............]
 and also your repository layout looks alright!
 ```
