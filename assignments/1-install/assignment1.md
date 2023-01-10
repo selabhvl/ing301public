@@ -20,21 +20,21 @@ Lenker til installasjonsinstruks for de forsjellige operativsystemer finder du n
 
 ### Windows
 
-- [Python Installasjon](../../uke2-introduksjon/install_python_windows.md)
+- [Python Installasjon](../../week2-introduction/install_python_windows.md)
 
-- [Git Installasjon](../../uke2-introduksjon/install_git_windows.md)
+- [Git Installasjon](../../week2-introduction/install_git_windows.md)
 
 ### Mac OS X
 
-[Python Installasjon](../../uke2-introduksjon/install_python_mac.md)
+[Python Installasjon](../../week2-introduction/install_python_mac.md)
 
-[Git Installasjon](../../uke2-introduksjon/install_git_mac.md)
+[Git Installasjon](../../week2-introduction/install_git_mac.md)
 
 ### Linux
 
-[Python Installasjon](../../uke2-introduksjon/install_python_linux.md)
+[Python Installasjon](../../week2-introduction/install_python_linux.md)
 
-[Git Installasjon](../../uke2-introduksjon/install_git_linux.md)
+[Git Installasjon](../../week2-introduction/install_git_linux.md)
 
 ### IDE og andre grafiske verktøy
 
@@ -91,12 +91,6 @@ Nå er det på tide å sjekke ut ING301 repo'en. Bruke følgende kommando:
 git clone <Github URL du har kopiert tidligere>
 ```
 
-For å også ha en kobling til den opprinellige kodebasen fra HVL, også kjør følgende kommando rett etterpå:
-
-```bash
-git remote add -m main hvl https://github.com/selabhvl/ing301public
-git pull hvl main
-```
 
 ## Steg 3: Skrive og teste Python kode
 
