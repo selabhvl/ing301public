@@ -1,40 +1,85 @@
+import re
 from pathlib import Path
-
+from string import punctuation
 
 # Dette er Starterkoden til den første øvelsen i ING 301
 #
-# Du skal utvikle et programm som finner det hyppigste ordet i en gitt tekstfil.
+# Du skal utvikle et programm som finner det mest brukte(hyppigste) ordet i en gitt tekstfil.
 # Dette høres kanskje litt komplisiert ut, men fortvil ikke!
 # Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
 # noen enkelte funskjoner som trengs for det hele til å virke.
 # Enhver funksjon kommer med en dokumentasjon som forklarer hva skal gjøres.
 
+'''
+# Fra forelesning
+file = open("file/location", "r")
+lines = file.readLines()
+counter = 0
+gps_points = []
+for line in lines:
+    if counter > 0:
+        gps_points.append(line)
+    counter += 1
+
+first = gps_points[0]
+first_split = first.split(',')
+first_timestamp = first.split(0)
+print(first_timestamp)
+print(type(first_timestamp))
+'''
+
 
 def read_file(file_name):
+    myLines = []
+    file = open(file_name, "r")
+
+    for line in file:
+        myLines.append(line.strip()) #Through some magic this removes newlines in our list.
+
+    filetext = file.read()
+    print(myLines)
     """
     Denne funksjonen får et filnavn som argument og skal gi
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
-    # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
-
+    return myLines  # TODO: Should be working
 
 def lines_to_words(lines):
+    doneList = []
+    for word in lines:
+        r = re.compile(r'[\s{}]+'.format(re.escape(punctuation)))
+        wordList = r.split(word)
+        doneList += wordList
+        # wordList = [words.split(punctuation) for words in line.split()]
+
+    wordListLower = [element.lower() for element in doneList]
+
+    #finalWordList = list(dict.fromkeys(wordListLower))
+    print("lines to words returns: ")
+
+    for item in wordListLower:
+        print(item)
+    return wordListLower
+
     """
     Denne funksjonen får en liste med strenger som input (dvs. linjene av tekstfilen som har nettopp blitt lest inn)
     og deler linjene opp i enkelte ord. Enhver linje blir delt opp der det er blanktegn (= whitespaces).
+
     Desto videre er vi bare interessert i faktiske ord, dvs. alle punktum (.), kolon (:), semikolon (;),
     kommaer (,), spørsmåls- (?) og utråbstegn (!) skal fjernes underveis.
+
     Til sist skal alle ord i den resulterende listen være skrevet i små bokstav slik at "Odin" og "odin"
     blir behandlet likt.
+
     OBS! Pass også på at du ikke legge til tomme ord (dvs. "" eller '' skal ikke være med) i resultatlisten!
 
     F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
     """
+
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    # return NotImplemented  # TODO: Du må erstatte denne linjen
 
 
 def compute_frequency(words):
@@ -45,7 +90,18 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    frequency = dict()
+    for word in words:
+        if word in frequency:
+            frequency[word] += 1
+        else:
+            frequency[word] = 1
+
+    print("Compute frequency returns")
+    for item in frequency:
+        print(item)
+
+    return frequency
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -59,7 +115,19 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    #noFill = {key.remove(FILL_WORDS):value for key, value in frequency_table.items()}
+    #no idea if this works at all
+    table = frequency_table
+    for word, count in list(table.items()):
+        for fillWord in FILL_WORDS:
+            if word == fillWord:
+                del table[word]
+
+    print("Remove_filler_words returns")
+    for item in table:
+        print(item)
+
+    return table #this should work?
 
 
 def largest_pair(par_1, par_2):
