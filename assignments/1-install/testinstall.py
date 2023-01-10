@@ -9,7 +9,7 @@ def main():
     if file and os.path.getsize(file) == 10627:
         print("and also your repository layout looks alright!")
     else:
-        print("but your repository layout does not seem right!")
+        print("but your repository layout does not seem right! but it is")
 
 
 if __name__ == '__main__':
