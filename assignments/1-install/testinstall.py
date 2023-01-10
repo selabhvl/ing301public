@@ -10,6 +10,7 @@ def main():
         print("and also your repository layout looks alright!")
     else:
         print("your files do not look correct at all!")
+        print("test123")
 
 
 if __name__ == '__main__':
