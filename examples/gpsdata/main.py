@@ -1,6 +1,7 @@
 import dataconverter
 import gpscomputer
 import gpsfiles
+import visualise
 
 # https://www.w3schools.com/python/
 # https://github.com/dat100hib/dat100-prosjekt/blob/master/docs/introduksjon.md
@@ -8,35 +9,29 @@ import gpsfiles
 
 GPS_DATA_FILES = ['short', 'medium', 'long', 'vm']
 
+GPS_DATA_FILE = GPS_DATA_FILES[3]
 
-def run_analysis(data_file):
-    # TODO: You can try implementing the functions in 'dataconverter' and 'gpscomputer' to
-    #  challenge yourself and practice some Python. Alternatively you can lookup a demo solution
-    #  by looking into the branch 'gpscomputer' on the remote 'hvl' repository.
-
-    # read the GPS data from the csv file
-    gps_csv_data = gpsfiles.read_gps_file(data_file)
-    # extract and convert the relevant part (time, latitude, longitude, elevation)
-    gps_data = dataconverter.convert_data(gps_csv_data)
-    # output summary and graphs
-    gpscomputer.print_summary(gps_data)
-
+WEIGHT = 80.0
 
 if __name__ == '__main__':
-    print("""
-    Hei! and welcome to the GPS Track Analyzer!
-    Please enter a number to select a data set you want to analyze:
-    1: Short Track
-    2: Medium Track
-    3: Long Track
-    4: World Championship Track
-    or enter anything else to quit...
-    """)
-    user_input = input()
-    if len(user_input) > 0 and user_input.isdigit() and 0 < int(user_input) < 5:
-        selection = int(user_input) - 1
-        file = GPS_DATA_FILES[selection]
-        print(f"Selected dataset: {file}")
-        run_analysis(file)
-    else:
-        print("Exiting")
+
+    # read the GPS data from the csv file
+    gps_csv_data = gpsfiles.read_gps_file(GPS_DATA_FILE)
+
+    for line in gps_csv_data:
+        print(line)
+
+    # extract and convert the relevant part (time, latitude, longitude, elevation)
+    gps_data = dataconverter.convert_data(gps_csv_data)
+
+    for point in gps_data:
+        print(point)
+
+    # output summary and graphs
+    gpscomputer.print_summary(WEIGHT, gps_data)
+
+    visualise.plot_route(gps_data)
+    visualise.plot_elevation(gps_data)
+    visualise.plot_speeds(gps_data)
+
+
