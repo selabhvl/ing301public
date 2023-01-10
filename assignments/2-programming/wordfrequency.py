@@ -47,23 +47,24 @@ def remove_filler_words(frequency_table):
     return frequency_table
 
 
-def largest_pair(par_1, par_2): 
+def largest_pair(par_1, par_2):
     if par_1[1] > par_2[1]:
         return par_1
     elif par_1[1] < par_2[1]:
         return par_2
-    elif par_1[1] == par_2[1]:
-        return "The two pairs are equal"
+    else:
+        if par_1[0] < par_2[0]:
+            return par_1
+        else:
+            return par_2
+
 
 
 def find_most_frequent(frequency_table):
-    most_frequent_word = None
-    highest_frequency = 0
+    most_frequent = ("", 0)
     for word, frequency in frequency_table.items():
-        if frequency > highest_frequency:
-            highest_frequency = frequency
-            most_frequent_word = word
-    return most_frequent_word
+        most_frequent = largest_pair((word, frequency), most_frequent)
+    return most_frequent[0]
     
 ############################################################
 #                                                          #
