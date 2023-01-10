@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 
 # Dette er Starterkoden til den første øvelsen i ING 301
@@ -16,9 +17,10 @@ def read_file(file_name):
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
-
-
+    x = open(file_name, encoding="utf8")
+    y = x.readlines()
+    x.close()
+    return y
 def lines_to_words(lines):
     """
     Denne funksjonen får en liste med strenger som input (dvs. linjene av tekstfilen som har nettopp blitt lest inn)
@@ -34,9 +36,29 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    i=0
+    # compile regex
+    regex = re.compile('[^a-zA-Z\sæøåÆØÅ]')
+    # makes array
+    words_string = ""
+    nothing = False
+    # generates string from lines with only 1 space between all words
+    for item in lines:
+        item = regex.sub('', item).lower()
+        item = item.strip()
+        if i > 0 and len(item) > 0:
+            words_string += " " + item
+        elif i == 0 and len(item) > 0:
+            words_string += item
+        elif i == 0:
+            nothing = True
 
-
+        i += 1
+    if nothing:
+        return []
+    else:
+        arr = words_string.split(' ')
+        return arr
 def compute_frequency(words):
     """
     Denne funksjonen tar inn en liste med ord og så lager den en frekvenstabell ut av den. En frekvenstabell
@@ -45,11 +67,13 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
-
-
-FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
-
+    x = {}
+    for items in words:
+        if items in x.keys():
+            x[items] += 1
+        else:
+            x[items] = 1
+    return x
 
 def remove_filler_words(frequency_table):
     """
@@ -59,9 +83,13 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    a = frequency_table
+    FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
+    for item in FILL_WORDS:
+        if item in frequency_table:
+            frequency_table.pop(item)
 
-
+    return frequency_table
 def largest_pair(par_1, par_2):
     """
     Denne funksjonen får som input to tupler/par (https://docs.python.org/3/library/stdtypes.html#tuple) der den
@@ -71,9 +99,14 @@ def largest_pair(par_1, par_2):
     """
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
-
-
+    [key1, value1] = par_1
+    [key2, value2] = par_2
+    if value1 > value2:
+        return par_1
+    elif value1 < value2:
+        return par_2
+    else:
+        return ("NIL",-1)
 def find_most_frequent(frequency_table):
     """
     Nå er det på tide å sette sammen alle bitene du har laget.
@@ -81,7 +114,7 @@ def find_most_frequent(frequency_table):
     """
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    return max(frequency_table, key=frequency_table.get)
 
 
 ############################################################
@@ -99,7 +132,6 @@ def main():
     table = remove_filler_words(table)
     most_frequent = find_most_frequent(table)
     print(f"The most frequent word in {file} is '{most_frequent}'")
-
 
 if __name__ == '__main__':
     main()
