@@ -77,7 +77,7 @@ Oppe til høyre finner du en knapp `Fork`. Trykk på den!
 
 Det åpner seg et nytt vindu. Her kunne du gi et nytt navn til repository kopien som blir laget nå. Men du kan bruke standardinstillingene og trykke på `Create fork`.
 
-![Create Fork Skjermbilde](../../resources/images/ressurser/images/github-fork-create.jpg)
+![Create Fork Skjermbilde](../../resources/images/github-fork-create.jpg)
 
 Du vil bli ledet videre til en side som viser en fullstending kopi av `ing301public` berre at denne tilhører din egen brukerkonto.
 
