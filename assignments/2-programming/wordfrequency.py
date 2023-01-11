@@ -120,8 +120,6 @@ def find_most_frequent(frequency_table):
     for i in range(counter):
         values.append(frequency_table.get(keys[i],None))
 
-    for x in values:
-        print(x)
     max_val = max(values)
 
     for i in range(counter):
