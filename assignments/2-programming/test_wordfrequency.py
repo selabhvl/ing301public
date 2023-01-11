@@ -1,6 +1,6 @@
 import unittest
-#import wordfrequency as wf
-wf = __import__("exercise1-solution")
+import wordfrequency as wf
+#wf = __import__("exercise1-solution")
 
 class TestAssignment2(unittest.TestCase):
 
@@ -48,6 +48,7 @@ class TestAssignment2(unittest.TestCase):
 
     def test_largest_pair(self):
         self.assertEqual(("World", 5), wf.largest_pair(('Hallo', 3), ("World", 5)))
+        self.assertEqual("like store", wf.largest_pair(('Hallo', 5), ("World", 5)))
         # kanskje du vil utvide test casene her
 
     def test_find_most_frequent(self):
