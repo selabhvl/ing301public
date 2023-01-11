@@ -16,7 +16,13 @@ def read_file(file_name):
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    openfile = open(file_name, 'r')         # Opner fila.
+    textstrings_list = openfile.readlines() # Lager ein liste der kvart objekt er starten på ei ny linje.
+    openfile.close()                        # Lukker fila.
+    #for lines in textstrings_list:
+        #print(lines)
+    return textstrings_list  # TODO: Du må erstatte denne linjen - - - DONE
 
 
 def lines_to_words(lines):
@@ -34,6 +40,12 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
+
+    for index in lines:
+        wordlist = index.split()
+    for word in wordlist:
+        wordlist = word.strip("!")
+    print(wordlist)
     return NotImplemented  # TODO: Du må erstatte denne linjen
 
 
