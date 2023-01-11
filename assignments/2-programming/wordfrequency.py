@@ -53,11 +53,7 @@ def largest_pair(par_1, par_2):
     elif par_1[1] < par_2[1]:
         return par_2
     else:
-        if par_1[0] < par_2[0]:
-            return par_1
-        else:
-            return par_2
-
+        return par_1
 
 
 def find_most_frequent(frequency_table):
