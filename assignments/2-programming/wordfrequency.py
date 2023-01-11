@@ -36,7 +36,18 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    data = []
+    for i in lines:
+        data += i.split()
+
+    ret_data = []
+    for i in data:
+        temp_data = i.lower().strip('.,:;!? ')
+        if len(temp_data) > 0:
+            ret_data.append(temp_data)
+
+    return ret_data
 
 
 def compute_frequency(words):
