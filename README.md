@@ -1,4 +1,4 @@
-# ING 301
+# ING 301: Datateknologi og videregående programmering for ingeniører
 
 Velkommen til ING301 sin sentrale oppbevaringsplass for kodeeksempler fra forelesningene, start-kode for øvelser og mer
 
@@ -6,9 +6,9 @@ Velkommen til ING301 sin sentrale oppbevaringsplass for kodeeksempler fra forele
 
 **Uken** | **Dato** | **Tema** | **Kode++** | **Lesestoff**                                                    | **Frister**
 ---------|----------|----------|------------|------------------------------------------------------------------|---------------
-2 | 10.01.23 | Kom i gang | [link](./uke1-introduksjon/uke1.md) |                                                                  | 
-3 | 17.01.23 | Innføring Objektorientering (OO) |  | Kap. 14 i _Practical Programming_: 4 Første avsnitt (tom. side 285)_ | [Øvelse 1: Sø 22.01](./oevelser/1-setup/exercise1.md)
-4 | 24.01.23 | Objektorientert Analyse og Design | | "A little bit of OO Theory"_ (Kap.14) i  _Practical Programming_ |
+2 | 10.01.23 | Kom i gang | [link](week2-introduction/week2.md) | [Python Repetisjon](week2-introduction/python-overview.md)   | 
+3 | 17.01.23 | Innføring Objektorientering (OO) |  | Kap. 14 i _Practical Programming_: 4 Første avsnitt (tom. side 285)_ | [Oppgave 1: Sø 22.01](https://hvl.instructure.com/courses/22301/assignments/62540?module_item_id=609737)
+4 | 24.01.23 | Objektorientert Analyse og Design | | "A little bit of OO Theory"_ (Kap.14) i  _Practical Programming_ | [Oppgave 2: Sø 29.01](https://hvl.instructure.com/courses/22301/assignments/62545?module_item_id=609738)
 5 | 31.01.23 | Algoritmer og Datastrukturer | |                                                                  |
 6 | 07.02.23 | OO og Biblioteker | | Kap 14.1 - 14.11 i _Python for Everybody_                        | Prosjekt Del A: Sø 12.02
 7 | 14.02.23 | Innføring Databaser  | |                                                                  |
