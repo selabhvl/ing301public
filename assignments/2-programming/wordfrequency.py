@@ -17,9 +17,9 @@ def read_file(file_name):
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
 
-    openfile = open(file_name, 'r')         # Opner fila.
-    textstrings_list = openfile.readlines() # Lager ein liste der kvart objekt er starten på ei ny linje.
-    openfile.close()                        # Lukker fila.
+    openfile = open(file_name, mode='r', encoding='utf-8') # Opner fila.
+    textstrings_list = openfile.readlines()  # Lager ein liste der kvart objekt er starten på ei ny linje.
+    openfile.close()                         # Lukker fila.
     #for lines in textstrings_list:
         #print(lines)
     return textstrings_list  # TODO: Du må erstatte denne linjen - - - DONE
@@ -40,13 +40,23 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-
+    wordlist = []
+    badsigns = ['.', ':', ';', ',', '!', '?']
+    counter = 0
     for index in lines:
-        wordlist = index.split()
+        #if index != " " or index != "":
+        wordlist.extend(index.split())
     for word in wordlist:
-        wordlist = word.strip("!")
-    print(wordlist)
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+        for x in badsigns:
+            wordlist[counter] = word.replace(x, '')
+            word = wordlist[counter]
+        wordlist[counter] = word.lower()
+        if wordlist[counter] == '':
+            wordlist.remove("")
+        counter += 1
+
+    #print(wordlist)
+    return wordlist  # TODO: Du må erstatte denne linjen - - - DONE
 
 
 def compute_frequency(words):
@@ -57,7 +67,18 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    class Counter(dict):
+        def __missing__(self, key):
+            return 0
+
+    freq_list = Counter()
+
+    for word in words:
+        freq_list[word] += 1
+    #print(freq_list)
+
+    return freq_list  # TODO: Du må erstatte denne linjen - - - DONE
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -71,7 +92,11 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    for word in FILL_WORDS:
+        if word in frequency_table:
+            del frequency_table[word]
+
+    return frequency_table  # TODO: Du må erstatte denne linjen - - - DONE
 
 
 def largest_pair(par_1, par_2):
@@ -83,7 +108,18 @@ def largest_pair(par_1, par_2):
     """
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    word1, count1 = par_1
+    word2, count2 = par_2
+    if count1 > count2:
+        return par_1
+    elif count1 < count2:
+        return par_2
+    else:
+        return "Both are equal"
+
+
+    #return NotImplemented  # TODO: Du må erstatte denne linjen - - - DONE
 
 
 def find_most_frequent(frequency_table):
@@ -93,7 +129,8 @@ def find_most_frequent(frequency_table):
     """
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    return max(frequency_table, key=frequency_table.get) # TODO: Du må erstatte denne linjen
 
 
 ############################################################
