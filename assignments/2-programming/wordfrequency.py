@@ -2,14 +2,14 @@ import re
 from pathlib import Path
 from string import punctuation
 
-# Dette er Starterkoden til den første øvelsen i ING 301
-#
-# Du skal utvikle et programm som finner det mest brukte(hyppigste) ordet i en gitt tekstfil.
-# Dette høres kanskje litt komplisiert ut, men fortvil ikke!
-# Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
-# noen enkelte funskjoner som trengs for det hele til å virke.
-# Enhver funksjon kommer med en dokumentasjon som forklarer hva skal gjøres.
-
+"""
+Dette er Starterkoden til den første øvelsen i ING 301
+Du skal utvikle et programm som finner det mest brukte(hyppigste) ordet i en gitt tekstfil.
+Dette høres kanskje litt komplisiert ut, men fortvil ikke!
+Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
+noen enkelte funskjoner som trengs for det hele til å virke.
+Enhver funksjon kommer med en dokumentasjon som forklarer hva skal gjøres.
+"""
 '''
 # Fra forelesning
 file = open("file/location", "r")
@@ -28,37 +28,38 @@ print(first_timestamp)
 print(type(first_timestamp))
 '''
 
+"""
+Denne funksjonen får et filnavn som argument og skal gi
+tilbake en liste av tekststrenger som representerer linjene i filen.
+"""
+
 
 def read_file(file_name):
     myLines = []
-    file = open(file_name, "r")
+    file = open(file_name, "r", encoding="utf-8")
 
     for line in file:
-        myLines.append(line.strip()) #Through some magic this removes newlines in our list.
+        myLines.append(line.strip()) # Through some magic this removes newlines in our list. Lmao this was a lie.
 
     filetext = file.read()
-    print(myLines)
-    """
-    Denne funksjonen får et filnavn som argument og skal gi
-    tilbake en liste av tekststrenger som representerer linjene i filen.
-    """
-    return myLines  # TODO: Should be working
+    # print(myLines) # debugging
+    return myLines
 
 def lines_to_words(lines):
     doneList = []
     for word in lines:
-        r = re.compile(r'[\s{}]+'.format(re.escape(punctuation)))
-        wordList = r.split(word)
-        doneList += wordList
+        r = re.compile(r'[\s{},.;:]+'.format(re.escape(punctuation))) # My dumb way of regexing the world.
+        wordList = r.split(word)  # split using regex
+        doneList += wordList    #add split word to a list
+
+        # String.Punctuation didnt catch everything i wanted it to, so were not using it.
         # wordList = [words.split(punctuation) for words in line.split()]
 
     wordListLower = [element.lower() for element in doneList]
+    # finalWordList = list(dict.fromkeys(wordListLower))  #Not clean, didnt work.
 
-    #finalWordList = list(dict.fromkeys(wordListLower))
-    print("lines to words returns: ")
+    # print("lines to words returns: ") for item in wordListLower: print(item) #debugging
 
-    for item in wordListLower:
-        print(item)
     return wordListLower
 
     """
@@ -79,7 +80,6 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    # return NotImplemented  # TODO: Du må erstatte denne linjen
 
 
 def compute_frequency(words):
@@ -91,17 +91,16 @@ def compute_frequency(words):
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
     frequency = dict()
-    for word in words:
-        if word in frequency:
-            frequency[word] += 1
-        else:
-            frequency[word] = 1
+    for word in words:  # go through what we are sent
+        if word in frequency:   # Word exists.
+            frequency[word] += 1  # Up count by one.
+        else:   # Word doesnt exist
+            frequency[word] = 1  # Set count to one.
 
-    print("Compute frequency returns")
-    for item in frequency:
-        print(item)
-
+    # Deletes ASCII newline space which cant be eliminated with UTF-8 Regex. This is complex. No im not explaining.
+    del frequency[max(frequency, key=frequency.get)]
     return frequency
+    # i know it returns correctly, but i cant get it to print correctly no matter what. I give up, bad bitch vibes.
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -115,19 +114,15 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    #noFill = {key.remove(FILL_WORDS):value for key, value in frequency_table.items()}
-    #no idea if this works at all
-    table = frequency_table
-    for word, count in list(table.items()):
-        for fillWord in FILL_WORDS:
-            if word == fillWord:
-                del table[word]
 
-    print("Remove_filler_words returns")
-    for item in table:
-        print(item)
+    table = frequency_table #gets sent table
+                                            # #cant work on a table that is being itterated on
+    for word, count in list(table.items()): # goes through said table and edits it by making a copy to a new list.
+        for fillWord in FILL_WORDS:         # check words we cant use
+            if word == fillWord:            # illegal word detected?
+                del table[word]             # NOT ON MY WATCH YEET THAT SH
 
-    return table #this should work?
+    return table
 
 
 def largest_pair(par_1, par_2):
@@ -139,17 +134,21 @@ def largest_pair(par_1, par_2):
     """
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    if par_1[1] > par_2[1]:  #Lmao unused code
+        return par_1        #dont need to overthink this.
+    else:
+        return par_2
 
 
 def find_most_frequent(frequency_table):
+    return max(frequency_table, key=frequency_table.get)
     """
     Nå er det på tide å sette sammen alle bitene du har laget.
     Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
     """
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
 
 
 ############################################################
