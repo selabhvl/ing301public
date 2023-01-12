@@ -35,4 +35,3 @@ jobs:
           echo "Submission Timestamp: ${{ github.event.pull_request.created_at }}" >> $GITHUB_STEP_SUMMARY
           echo "Pull Request: ${{ github.event.pull_request.html_url }}" >> $GITHUB_STEP_SUMMARY
           echo "Student: ${{ github.event.pull_request.body }}@stud.hvl.no" >> $GITHUB_STEP_SUMMARY
-          echo "Run: ${{ success() }}" >> $GITHUB_STEP_SUMMARY
