@@ -26,8 +26,13 @@ jobs:
         working-directory: ./assignments/2-programming
       - name: Run Testcases
         run: |
-          pytest .
+          pytest . --junitxml=../../test-results/assignment2.xml
         working-directory: ./assignments/2-programming
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          junit_files: "test-results/*.xml"
       - name: Write Run Summary
         if: always()
         run: |
