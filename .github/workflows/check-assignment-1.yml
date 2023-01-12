@@ -1,4 +1,4 @@
-name: GitHub Check Exercise 1
+name: GitHub Check Assignment 2
 on:
   pull_request_target:
     types: [opened, reopened]
@@ -9,9 +9,9 @@ jobs:
   Test-Execution:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Was triggered by a ${{ github.event_name }} by ${{ github.actor }}"
-      - run: echo "DEBUG! Looking how a pull request event looks ${{ toJSON(github.event) }}"
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:
