@@ -130,7 +130,7 @@ def find_most_frequent(frequency_table):
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
 
-    return max(frequency_table, key=frequency_table.get) # TODO: Du må erstatte denne linjen
+    return max(frequency_table, key=frequency_table.get) # TODO: Du må erstatte denne linjen - - - DONE
 
 
 ############################################################
