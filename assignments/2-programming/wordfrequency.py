@@ -1,6 +1,5 @@
 from pathlib import Path
 
-"""
 # Dette er Starterkoden til den første øvelsen i ING 301
 #
 # Du skal utvikle et programm som finner det hyppigste ordet i en gitt tekstfil.
@@ -8,7 +7,6 @@ from pathlib import Path
 # Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
 # noen enkelte funskjoner som trengs for det hele til å virke.
 # Enhver funksjon kommer med en dokumentasjon som forklarer hva skal gjøres.
-"""
 
 
 def read_file(file_name: str) -> list:
@@ -64,15 +62,18 @@ def compute_frequency(words: list[str]) -> dict[str, int]:
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
 
 
-def remove_filler_words(frequency_table):
+def remove_filler_words(frequency_table: dict[str, int]):
     """
-    Ofte inneholder tekst koblingsord som "og", "eller", "jeg", "da". Disse er ikke så spennende når man vil
-    analysere innholdet til en tekst. Derfor vil vi gjerne fjerne dem fra vår frekvenstabell.
-    Vi har gitt deg en liste med slike koblingsord i variablen FILL_WORDS ovenfor.
-    Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
-    som finnes i FILL_WORDS.
+    Funksjonen tar inn en frekvenstabell og fjerner koblingsord som "og", "eller", "jeg", "da".
+    Koblingsordene blir deretter fjernet fra frekvenstabellen.
+
+    :param frequency_table: En frekvenstabell man ønsker å fjerne koblingsord fra.
+    :return: En frekvenstabell som har fått fjernet koblingsordene.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    for word in FILL_WORDS:
+        if word in frequency_table:
+            del frequency_table[word]
+    return frequency_table
 
 
 def largest_pair(par_1, par_2):
