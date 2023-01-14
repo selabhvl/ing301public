@@ -97,13 +97,13 @@ def largest_pair(par_1: tuple[str, int], par_2: tuple[str, int]) -> tuple[str, i
         return par_1    # eventuelt 'return par_2' --> har ikke noe å si siden tallene er like.
 
 
-def find_most_frequent(frequency_table: dict[str, int]) -> tuple[str, int]:
+def find_most_frequent(frequency_table: dict[str, int]) -> str:
     """
     Funksjonen tar frekvenstabellen som input og finner ordet som har gjentas flest ganger.
     :param frequency_table: frekvenstabell for å finne ordet med høyest frekvens.
     :return: en Tuple som inneholder det ordet som gjentas flest ganger, samt hvor mange ganger det gjentas.
     """
-    return max(frequency_table.items(), key=lambda x: x[1])
+    return max(frequency_table.items(), key=lambda x: x[1])[0]
 
 
 ############################################################
