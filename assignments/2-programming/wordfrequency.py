@@ -32,9 +32,10 @@ def lines_to_words(lines: list) -> list:
     """
     words = []
     for line in lines:
-        word = word.strip(".,:;!?").lower()
-        if word:
-            words.append(word)
+        for word in line.split():
+            word = word.strip(".,:;!?").lower()
+            if word:
+                words.append(word)
     return words
 
 
