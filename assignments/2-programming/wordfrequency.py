@@ -90,7 +90,7 @@ def largest_pair(par_1: tuple[str, int], par_2: tuple[str, int]) -> tuple[str, i
     """
     if par_1[1] > par_2[1]:
         return par_1
-    elif par_1[1] < par_2[2]:
+    elif par_1[1] < par_2[1]:
         return par_2
     else:
         return par_1    # eventuelt 'return par_2' --> har ikke noe å si siden tallene er like.
