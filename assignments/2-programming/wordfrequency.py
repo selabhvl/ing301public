@@ -1,6 +1,6 @@
 from pathlib import Path
 
-
+"""
 # Dette er Starterkoden til den første øvelsen i ING 301
 #
 # Du skal utvikle et programm som finner det hyppigste ordet i en gitt tekstfil.
@@ -8,15 +8,20 @@ from pathlib import Path
 # Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
 # noen enkelte funskjoner som trengs for det hele til å virke.
 # Enhver funksjon kommer med en dokumentasjon som forklarer hva skal gjøres.
+"""
 
 
-def read_file(file_name):
+def read_file(file_name:str) -> list:
     """
-    Denne funksjonen får et filnavn som argument og skal gi
-    tilbake en liste av tekststrenger som representerer linjene i filen.
+    Denne funksjonen får et filnavn som argument og gir tilbake
+    en liste av strings som representerer linjene i filen.
+
+    :param file_name: navnet til filen som skal leses.
+    :return: en liste av linjer i filen.
     """
-    # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    with open(file_name, 'r') as file:
+        lines = file.readlines()
+    return lines
 
 
 def lines_to_words(lines):
