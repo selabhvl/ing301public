@@ -76,16 +76,24 @@ def remove_filler_words(frequency_table: dict[str, int]):
     return frequency_table
 
 
-def largest_pair(par_1, par_2):
+def largest_pair(par_1: tuple[str, int], par_2: tuple[str, int]) -> tuple[str, int]:
     """
-    Denne funksjonen får som input to tupler/par (https://docs.python.org/3/library/stdtypes.html#tuple) der den
-    første komponenten er en string (et ord) og den andre komponenten er en integer (heltall).
-    Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
-    tallet er størst.
+    Funksjonen får to tupler/par som input, hvor den første komponenten er et ord (str),
+    og den andre komponenten er et tall (int).
+    Funksjonen sammenligner så tall-komponenten [1] i begge tuplene,
+    og returnerer det paret hvor tallet er størst. Dersom begge tallene er identiske,
+    returneres par_1.
+
+    :param par_1: En Tuple som inneholder et ord og en verdi.
+    :param par_2: En Tuple som inneholder et ord og en verdi.
+    :return: Returnerer tuplen som har det største tallet.
     """
-    # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
-    # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    if par_1[1] > par_2[1]:
+        return par_1
+    elif par_1[1] < par_2[2]:
+        return par_2
+    else:
+        return par_1    # eventuelt 'return par_2' --> har ikke noe å si siden tallene er like.
 
 
 def find_most_frequent(frequency_table):
