@@ -40,15 +40,25 @@ def lines_to_words(lines: list) -> list:
     return words
 
 
-def compute_frequency(words):
+def compute_frequency(words: list[str]) -> dict[str, int]:
     """
-    Denne funksjonen tar inn en liste med ord og så lager den en frekvenstabell ut av den. En frekvenstabell
-    teller hvor ofte hvert ord dykket opp i den opprinnelige innputt listen. Frekvenstabllen
-    blir realisert gjennom Python dictionaires: https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
+    Denne funksjonen tar en liste med ord og så lager den en frekvenstabell ut av den. En frekvenstabell teller
+    hvor ofte et ord dukker opp i den opprinnelige input-listen. Frekvenstabellen blir realisert gjennom
+    Python Dictionaries.
 
-    F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
+    Eksempel: inn ["hun", "hen", "han", "hen"]
+    Ut: {"hen": 2, "hun": 1, "han": 1}.
+
+    :param words: liste av ord som skal telles.
+    :return: en dictionary hvor "key" er ordet og verdien er antall ganger ordet dukker opp i input-listen.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    frequency = {}
+    for word in words:
+        if word in frequency:
+            frequency[word] += 1
+        else:
+            frequency[word] = 1
+    return frequency
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
