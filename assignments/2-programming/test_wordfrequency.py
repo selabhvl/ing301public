@@ -4,7 +4,7 @@ import wordfrequency as wf
 class TestAssignment2(unittest.TestCase):
 
     def test_read_file(self):
-        expected = ["Det er\n", "bare\n", "noen få ord her!\n"]
+        expected = ["Det er\n", "bare\n", "noen fo ord her!\n"]
         self.assertEqual(expected, wf.read_file("small.txt"))
 
     def test_lines_to_words(self):
@@ -47,7 +47,9 @@ class TestAssignment2(unittest.TestCase):
 
     def test_largest_pair(self):
         self.assertEqual(("World", 5), wf.largest_pair(('Hallo', 3), ("World", 5)))
-        # kanskje du vil utvide test casene her
+        self.assertEqual(("Hallo", 4), wf.largest_pair(('Hallo', 4), ("World", 1)))
+        self.assertEqual(("World", 4), wf.largest_pair(('Hallo', 4), ("World", 4)))
+
 
     def test_find_most_frequent(self):
         data = {
