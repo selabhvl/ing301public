@@ -11,7 +11,7 @@ from pathlib import Path
 """
 
 
-def read_file(file_name:str) -> list:
+def read_file(file_name: str) -> list:
     """
     Denne funksjonen får et filnavn som argument og gir tilbake
     en liste av strings som representerer linjene i filen.
@@ -24,22 +24,20 @@ def read_file(file_name:str) -> list:
     return lines
 
 
-def lines_to_words(lines):
+def lines_to_words(lines: list) -> list:
     """
-    Denne funksjonen får en liste med strenger som input (dvs. linjene av tekstfilen som har nettopp blitt lest inn)
-    og deler linjene opp i enkelte ord. Enhver linje blir delt opp der det er blanktegn (= whitespaces).
-    Desto videre er vi bare interessert i faktiske ord, dvs. alle punktum (.), kolon (:), semikolon (;),
-    kommaer (,), spørsmåls- (?) og utråbstegn (!) skal fjernes underveis.
-    Til sist skal alle ord i den resulterende listen være skrevet i små bokstav slik at "Odin" og "odin"
-    blir behandlet likt.
-    OBS! Pass også på at du ikke legge til tomme ord (dvs. "" eller '' skal ikke være med) i resultatlisten!
+    Denne funksjonen tar en liste av setninger og returnerer en liste med ord
+    ved hjelp av .split(), .strip() og .lower().
 
-    F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
+    :param lines: Liste av setninger (str)
+    :return: Liste av ord (str)
     """
-    # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
-    # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
-    # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    words = []
+    for line in lines:
+        word = word.strip(".,:;!?").lower()
+        if word:
+            words.append(word)
+    return words
 
 
 def compute_frequency(words):
