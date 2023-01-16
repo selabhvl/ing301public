@@ -84,4 +84,15 @@ Hvis du bruker Windows og har begynt med _assignment 2_ kan det være at du har 
 
 ## Objektorientering
 
+Etter forlesningen skulle du
+
+- kjenne til to "nye" Python nøkkelord: `class` og `pass` og vet hva de betyr
+- ha en forståelse av begrepene:
+  - objekt/instans
+  - klasse
+  - metode
+  - attributt
+  - konstruktor, og
+- vet hva ideen "Tell, don't ask!" betyr
+
 Du finner slides'ene om OO på Canvas og kodeeksempler fra forelesningen her: **LENKE KOMMER PÅ TIRSDAG**
