@@ -109,14 +109,10 @@ def largest_pair(par_1, par_2):
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
 
-    word1, count1 = par_1
-    word2, count2 = par_2
-    if count1 > count2:
+    if par_1[1] >= par_2[1]:
         return par_1
-    elif count1 < count2:
-        return par_2
     else:
-        return "Both are equal"
+        return par_2
 
 
     #return NotImplemented  # TODO: Du må erstatte denne linjen - - - DONE
@@ -130,7 +126,12 @@ def find_most_frequent(frequency_table):
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
 
-    return max(frequency_table, key=frequency_table.get) # TODO: Du må erstatte denne linjen - - - DONE
+    #return max(frequency_table, key=frequency_table.get)
+
+    max_value = ("null", 0)
+    for word, numb in frequency_table.items():
+        max_value = largest_pair((word, numb), max_value)
+    return max_value[0]
 
 
 ############################################################
