@@ -6,7 +6,7 @@ Velkommen til ING301 sin sentrale oppbevaringsplass for kodeeksempler fra forele
 
 **Uken** | **Dato** | **Tema** | **Kode++** | **Lesestoff**                                                    | **Frister**
 ---------|----------|----------|------------|------------------------------------------------------------------|---------------
-2 | 10.01.23 | Kom i gang | [link](week2-introduction/week2.md) | [Python Repetisjon](week2-introduction/python-overview.md)   | 
+2 | 10.01.23 | Kom i gang | [link](weeks/2-get-started/week2.md) | [Python Repetisjon](weeks/2-get-started/python-overview.md)   | 
 3 | 17.01.23 | Innføring Objektorientering (OO) |  | Kap. 14 i _Practical Programming_: 4 Første avsnitt (tom. side 285)_ | [Oppgave 1: Sø 22.01](https://hvl.instructure.com/courses/22301/assignments/62540?module_item_id=609737)
 4 | 24.01.23 | Objektorientert Analyse og Design | | "A little bit of OO Theory"_ (Kap.14) i  _Practical Programming_ | [Oppgave 2: Sø 29.01](https://hvl.instructure.com/courses/22301/assignments/62545?module_item_id=609738)
 5 | 31.01.23 | Algoritmer og Datastrukturer | |                                                                  |
