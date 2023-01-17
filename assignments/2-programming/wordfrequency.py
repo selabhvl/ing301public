@@ -40,12 +40,20 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
+  
+    
     words = []
+    
     for line in lines:
-        words += line.split()
-
+        for word in line.split():
+            word = word.strip('.,:;?!')
+            word = word.lower()
+            if word != '':
+                words.append(word)
+            
     return words
 
+    
 
 
 def compute_frequency(words):
