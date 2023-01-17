@@ -22,7 +22,7 @@ def read_file(file_name):
     openfile.close()                         # Lukker fila.
     #for lines in textstrings_list:
         #print(lines)
-    return textstrings_list  # TODO: Du må erstatte denne linjen - - - DONE
+    return textstrings_list
 
 
 def lines_to_words(lines):
@@ -56,7 +56,7 @@ def lines_to_words(lines):
         counter += 1
 
     #print(wordlist)
-    return wordlist  # TODO: Du må erstatte denne linjen - - - DONE
+    return wordlist
 
 
 def compute_frequency(words):
@@ -73,12 +73,11 @@ def compute_frequency(words):
             return 0
 
     freq_list = Counter()
-
     for word in words:
         freq_list[word] += 1
     #print(freq_list)
 
-    return freq_list  # TODO: Du må erstatte denne linjen - - - DONE
+    return freq_list
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -96,7 +95,7 @@ def remove_filler_words(frequency_table):
         if word in frequency_table:
             del frequency_table[word]
 
-    return frequency_table  # TODO: Du må erstatte denne linjen - - - DONE
+    return frequency_table 
 
 
 def largest_pair(par_1, par_2):
@@ -114,8 +113,6 @@ def largest_pair(par_1, par_2):
     else:
         return par_2
 
-
-    #return NotImplemented  # TODO: Du må erstatte denne linjen - - - DONE
 
 
 def find_most_frequent(frequency_table):
