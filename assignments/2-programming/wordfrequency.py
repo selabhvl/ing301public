@@ -95,7 +95,7 @@ def remove_filler_words(frequency_table):
         if word in frequency_table:
             del frequency_table[word]
 
-    return frequency_table 
+    return frequency_table
 
 
 def largest_pair(par_1, par_2):

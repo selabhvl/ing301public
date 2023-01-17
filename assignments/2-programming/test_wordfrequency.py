@@ -1,6 +1,9 @@
 import unittest
 import wordfrequency as wf
+<<<<<<< HEAD
 #wf = __import__("exercise1-solution")
+=======
+>>>>>>> upstream/main
 
 class TestAssignment2(unittest.TestCase):
 
