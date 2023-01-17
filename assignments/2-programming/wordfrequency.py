@@ -16,6 +16,7 @@ def read_file(file_name):
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
+    print("Hei")
     return NotImplemented  # TODO: Du må erstatte denne linjen
 
 
