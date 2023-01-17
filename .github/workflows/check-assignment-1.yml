@@ -28,6 +28,11 @@ jobs:
         run: |
           pytest . --junitxml=../../test-results/assignment2.xml
         working-directory: ./assignments/2-programming
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          junit_files: "test-results/*.xml"
       - name: Write Run Summary
         if: always()
         run: |
@@ -35,8 +40,3 @@ jobs:
           echo "Submission Timestamp: ${{ github.event.pull_request.created_at }}" >> $GITHUB_STEP_SUMMARY
           echo "Pull Request: ${{ github.event.pull_request.html_url }}" >> $GITHUB_STEP_SUMMARY
           echo "Student: ${{ github.event.pull_request.body }}@stud.hvl.no" >> $GITHUB_STEP_SUMMARY
-      - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
-        with:
-          junit_files: "test-results/*.xml"

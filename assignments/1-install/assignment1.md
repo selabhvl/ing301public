@@ -20,21 +20,21 @@ Lenker til installasjonsinstruks for de forsjellige operativsystemer finder du n
 
 ### Windows
 
-- [Python Installasjon](../../week2-introduction/install_python_windows.md)
+- [Python Installasjon](../../weeks/2-get-started/install_python_windows.md)
 
-- [Git Installasjon](../../week2-introduction/install_git_windows.md)
+- [Git Installasjon](../../weeks/2-get-started/install_git_windows.md)
 
 ### Mac OS X
 
-- [Python Installasjon](../../week2-introduction/install_python_mac.md)
+- [Python Installasjon](../../weeks/2-get-started/install_python_mac.md)
 
-- [Git Installasjon](../../week2-introduction/install_git_mac.md)
+- [Git Installasjon](../../weeks/2-get-started/install_git_mac.md)
 
 ### Linux
 
-- [Python Installasjon](../../week2-introduction/install_python_linux.md)
+- [Python Installasjon](../../weeks/2-get-started/install_python_linux.md)
 
-- [Git Installasjon](../../week2-introduction/install_git_linux.md)
+- [Git Installasjon](../../weeks/2-get-started/install_git_linux.md)
 
 ### IDE og andre grafiske verktøy
 
