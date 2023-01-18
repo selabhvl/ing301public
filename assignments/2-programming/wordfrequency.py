@@ -2,7 +2,6 @@ from pathlib import Path
 
 
 # Dette er Starterkoden til den første øvelsen i ING 301
-#
 # Du skal utvikle et programm som finner det hyppigste ordet i en gitt tekstfil.
 # Dette høres kanskje litt komplisiert ut, men fortvil ikke!
 # Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
@@ -20,9 +19,6 @@ def read_file(file_name):
         lines = file.readlines()
 
     return lines
-    
-
-   
 
 
 def lines_to_words(lines):
@@ -40,20 +36,16 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-  
-    
     words = []
-    
+
     for line in lines:
         for word in line.split():
             word = word.strip('.,:;?!')
             word = word.lower()
             if word != '':
                 words.append(word)
-            
-    return words
 
-    
+    return words
 
 
 def compute_frequency(words):
@@ -70,12 +62,8 @@ def compute_frequency(words):
             frequency_table[word] += 1
         else:
             frequency_table[word] = 1
-    
 
     return frequency_table
-
-
-
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -96,7 +84,6 @@ def remove_filler_words(frequency_table):
     return frequency_table
 
 
-
 def largest_pair(par_1, par_2):
     """
     Denne funksjonen får som input to tupler/par (https://docs.python.org/3/library/stdtypes.html#tuple) der den
@@ -114,7 +101,6 @@ def largest_pair(par_1, par_2):
         return par_1
 
 
-
 def find_most_frequent(frequency_table):
     """
     Nå er det på tide å sette sammen alle bitene du har laget.
@@ -126,8 +112,7 @@ def find_most_frequent(frequency_table):
     for word, frequency in frequency_table.items():
         most_frequent = largest_pair(most_frequent, (word, frequency))
 
-    return most_frequent[0]
-
+    return (most_frequent[0])#, most_frequent[1])
 
 
 ############################################################
@@ -135,7 +120,6 @@ def find_most_frequent(frequency_table):
 # Her slutter dendelen av filen som er relevant for deg ;-)#
 #                                                          #
 ############################################################
-
 
 def main():
     file = str(Path(__file__).parent.absolute()) + "/voluspaa.txt"
