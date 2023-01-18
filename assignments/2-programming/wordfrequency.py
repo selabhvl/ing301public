@@ -16,7 +16,11 @@ def read_file(file_name):
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    result = []
+    file = open(file_name, "r", encoding="UTF8")
+    for line in file.readlines():
+        result.append(line)
+    return result
 
 
 def lines_to_words(lines):
@@ -34,8 +38,17 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    WList = []
+    for line in lines:
+        word = line.split()
+        for word in word:
+            word = word.strip()
+            word = word.strip(".,:;?!")
+            word = word.lower()
 
+            if word != "" or word != '':
+                WList.append(word)
+    return WList
 
 def compute_frequency(words):
     """
@@ -45,7 +58,14 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    my_dict = dict()
+
+    for word in words:
+        if word in my_dict:
+            my_dict[word] += 1
+        else:
+            my_dict[word] = 1
+    return my_dict
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -59,7 +79,11 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    for word in FILL_WORDS:
+        if word in frequency_table:
+            del frequency_table[word]
+
+    return frequency_table
 
 
 def largest_pair(par_1, par_2):
@@ -71,7 +95,14 @@ def largest_pair(par_1, par_2):
     """
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    if par_1[1] > par_2[1]:
+        return par_1
+    if par_1[1] < par_2[1]:
+        return par_2
+    else:
+        return par_1
+
 
 
 def find_most_frequent(frequency_table):
@@ -81,8 +112,29 @@ def find_most_frequent(frequency_table):
     """
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
 
+    # Ved bruk av largest_pair
+    mostFrequent = ("", 0)
+    for word, frequency in frequency_table.items():
+        mostFrequent = largest_pair(mostFrequent, (word, frequency))
+    return mostFrequent[0]
+
+    # Sammenligning av tupler - dersom vi ikkje hadde metoden largest_pair
+    #val = [int(v) for v in frequency_table.values()]
+    #key = list(frequency_table.keys())
+    #mostFrequent = max(val)
+    #result = list()
+    #for k, v in zip(key, val):
+        #if v == mostFrequent:
+            #result.append(k)
+    #return result
+
+    # result = list()
+    #mostFrequent = max(frequency_table.values())
+    #for key, value in frequency_table.items():
+        #if value == mostFrequent:
+            #result.append([key, value])
+    #return result
 
 ############################################################
 #                                                          #
@@ -98,8 +150,8 @@ def main():
     table = compute_frequency(words)
     table = remove_filler_words(table)
     most_frequent = find_most_frequent(table)
-    print(f"The most frequent word in {file} is '{most_frequent}'")
+    #print(f"The most frequent word in {file} is '{most_frequent}'")
+    print(f"The most frequent word is '{most_frequent}'")
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
