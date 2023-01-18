@@ -112,7 +112,7 @@ def find_most_frequent(frequency_table):
     for word, frequency in frequency_table.items():
         most_frequent = largest_pair(most_frequent, (word, frequency))
 
-    return (most_frequent[0])#, most_frequent[1])
+    return most_frequent[0]  # most_frequent[1])
 
 
 ############################################################
