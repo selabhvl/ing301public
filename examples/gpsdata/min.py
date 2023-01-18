@@ -2,7 +2,7 @@ from datetime import datetime
 import haversine
 
 # Reading Points from file
-file = open("gpslogs/short.csv", 'r')
+file = open("/Users/emilpetersson/Skole/ING301/ing301public/examples/gpsdata/gpslogs/short.csv", 'r')
 lines = file.readlines()
 counter = 0
 gps_points = []
@@ -30,6 +30,22 @@ for point in gps_points:
 
 print(f"Highest Peak: {max_height} masl")
 
+
+class GPSPoint:
+    
+    def __init__(self, time, longitude, latitude, elevation):
+        self.lat = latitude
+        self.long = longitude
+        self.time = time
+        self.elevation = elevation
+        
+    def si_hei():
+        print("Hello")
+    
+    
+        
+
+
 # Finding total distance of the ride
 total_distance = 0
 for i in range(0, len(gps_points) - 1):
@@ -46,3 +62,9 @@ total_distance_km = total_distance / 1000.0
 print("Total distance: {:.2f} km".format(total_distance_km))
 
 print("Average speed: {:.2f} km/h".format(total_distance_km / (total_time.total_seconds() / (60 * 60))))
+
+
+if __name__ == "__main__":
+    p = GPSPoint(time="2017-08-13T08:52:26.000", longitude=12.345, latitude=12.345, elevation=12.345)
+    print(p)
+    
