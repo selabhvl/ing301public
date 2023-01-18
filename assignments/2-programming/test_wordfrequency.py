@@ -14,6 +14,8 @@ class TestAssignment2(unittest.TestCase):
         self.assertEqual(["nothinghappenshere"], wf.lines_to_words(["nOtHingHAPPENshere\n"]))
         self.assertEqual(["words", "on", "two", "lines"], wf.lines_to_words(["words on\n", "two, lines!"]))
 
+    #Endå ei ny linje!
+
     def test_compute_frequency(self):
         self.assertEqual(wf.compute_frequency(['hei', 'verden', 'hei']), {'hei': 2, 'verden': 1})
         test_data = ['the', 'quick', 'brown', 'fox', 'the', 'jumps', 'over', 'the', 'brown', 'wall']
