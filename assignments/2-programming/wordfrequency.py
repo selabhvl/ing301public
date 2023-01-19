@@ -18,7 +18,7 @@ def read_file(file_name):
     """
     list = []
     file = open(file_name, "r")
-    for line in file.readlines:
+    for line in file.readlines():
         list.append(line)
     file.close()
     return list
@@ -45,6 +45,8 @@ def lines_to_words(lines):
             newList.append(element)
     stripped = [item.strip(",;?.:!") for item in newList]
     lowered = [item.lower() for item in stripped]
+    while("" in lowered):
+        lowered.remove("")
     return lowered
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
@@ -111,15 +113,10 @@ def find_most_frequent(frequency_table):
     Nå er det på tide å sette sammen alle bitene du har laget.
     Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
     """
-    tuple = list(frequency_table.items())
-    p_1 = tuple[0]
-    p_2 = tuple[1]
-    largest = largest_pair(p_1, p_2)
-    length = len(tuple) - 1
-    for number in range(2, length):
-        p_1 = tuple[number]
-        p_2 = largest
-        largest = largest_pair(p_1, p_2)
+    tuples = frequency_table.items()
+    largest = ("start", -999999999)
+    for tuple in tuples:
+        largest = largest_pair(largest, tuple)
     return largest[0]
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
