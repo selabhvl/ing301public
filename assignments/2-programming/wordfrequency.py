@@ -1,4 +1,4 @@
-from pathlib import Path
+from pathlib import Path 
 # Dette er Starterkoden til den første øvelsen i ING 301
 #
 # Du skal utvikle et programm som finner det hyppigste ordet i en gitt tekstfil.
@@ -13,8 +13,11 @@ def read_file(file_name):
     Denne funksjonen får et filnavn som argument og skal gi
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
-    # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    with open(file_name, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+
+    return lines
 
 
 def lines_to_words(lines):
@@ -29,10 +32,22 @@ def lines_to_words(lines):
 
     F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
     """
+    
+    ordliste = list()
+    for line in lines:
+        l = line.split(" ")
+        for word in l:
+            word = word.strip("\n").strip("!").strip(":").strip(";").strip("?").strip(".").strip(",").strip(".").strip(":")
+            if word == "":
+                continue
+            ordliste.append(word.lower())
+            
+        
+        
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    return ordliste  
 
 
 def compute_frequency(words):
@@ -43,7 +58,15 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    ordteller = dict()
+    for word in words:
+        if word not in ordteller:
+            ordteller[word] = 1
+        else:
+            ordteller[word] += 1
+        
+        
+    return ordteller  
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -57,7 +80,11 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    for word in FILL_WORDS:
+        if word in frequency_table:
+            frequency_table.pop(word)
+        
+    return frequency_table  
 
 
 def largest_pair(par_1, par_2):
@@ -67,9 +94,16 @@ def largest_pair(par_1, par_2):
     Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
     tallet er størst.
     """
+    largest = par_1
+    if par_2[1] > largest[1]:
+        largest = par_2
+    elif par_2[1] == largest[1]:
+        largest = par_2
+        print("like store!")
+        
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    return largest  
 
 
 def find_most_frequent(frequency_table):
@@ -77,13 +111,22 @@ def find_most_frequent(frequency_table):
     Nå er det på tide å sette sammen alle bitene du har laget.
     Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
     """
+    
+    maks = 0
+    for word in frequency_table:
+        occurence = frequency_table[word]
+        if occurence > maks:
+            maks = occurence
+            maks_ord = word
+        
+    
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    return maks_ord  # TODO: Du må erstatte denne linjen
 
 ############################################################
 #                                                          #
-# Her slutter dendelen av filen som er relevant for deg ;-)#
+# Her slutter den delen av filen som er relevant for deg ;-)#
 #                                                          #
 ############################################################
 
