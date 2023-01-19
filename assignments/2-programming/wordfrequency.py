@@ -113,7 +113,7 @@ def find_most_frequent(frequency_table):
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget0
 
-    high_key = []
+    high_key = ['ERROR']
     high_value = float('-inf')
 
     for key in frequency_table:
@@ -121,9 +121,11 @@ def find_most_frequent(frequency_table):
             high_key.clear()
             high_key.append(key)
             high_value = frequency_table[key]
-        elif frequency_table[key] == high_key:
+        elif frequency_table[key] == high_value:
             high_key.append(key)
-    return high_key[0]  # Ville returnert hele listen med key som har maks verdi
+
+    return high_key[0]  # Ville returnert hele listen med key som har høyeste verdi,
+                        # men siden vi bare skal returnere en string returnerer jeg første i listen.
 
 
 ############################################################
