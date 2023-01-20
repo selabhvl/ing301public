@@ -1,7 +1,5 @@
 from datetime import datetime
-import haversine
 
-# Reading Points from file
 file = open("gpslogs/short.csv", 'r')
 lines = file.readlines()
 counter = 0
@@ -20,6 +18,12 @@ last = gps_points[-1]
 last_timestamp = datetime.fromisoformat(last[0])
 total_time = last_timestamp - first_timestamp
 print(f"Total Time: {total_time}")
+last_split = last.split(',')
+last_timestamp = datetime.fromisoformat(last_split[0])
+
+print(first_timestamp)
+print(last_timestamp)
+print(last_timestamp - first_timestamp)
 
 # Finding highest elevation of the ride
 max_height = 0
