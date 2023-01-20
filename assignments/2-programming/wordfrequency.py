@@ -16,7 +16,17 @@ def read_file(file_name):
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    file = open(file_name, encoding='utf-8')
+    listOfText = []
+    for x in file:
+        listOfText.append(x)
+
+    file.close()
+
+
+    return listOfText
+
+
 
 
 def lines_to_words(lines):
@@ -31,11 +41,28 @@ def lines_to_words(lines):
 
     F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
     """
+
+    #Creating a list that will contains all the words we have
+    listOfWords = []
+    unwantedWords = ""
+    unwantedSymbols = '.:;,?!\n'
+
+    for x in lines:
+        x = x.strip(unwantedSymbols)            #Removing all the unwanted characters
+        for y in unwantedSymbols:
+            x = x.replace(y, '')
+        x = x.lower()                           #Making all the cases lower case
+        listOfWords.extend(x.split(' '))        #Splitting the lines list into separate words
+        if unwantedWords in listOfWords:
+            listOfWords.remove(unwantedWords)   #Removing unvwanted elements from the list
+
+
+
+
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
-
+    return listOfWords
 
 def compute_frequency(words):
     """
@@ -45,7 +72,15 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    frequency = dict()
+    for x in words:
+        if x in frequency.keys():
+            frequency.update({x:frequency.get(x)+1})
+        else:
+            frequency.update({x:1})
+
+    return frequency
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -59,7 +94,11 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    for x in FILL_WORDS:
+        if x in frequency_table:
+            frequency_table.pop(x)
+
+    return frequency_table
 
 
 def largest_pair(par_1, par_2):
@@ -69,9 +108,22 @@ def largest_pair(par_1, par_2):
     Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
     tallet er størst.
     """
+
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    #Storing the numbers from the tuples
+    number1 = par_1[1]
+    number2 = par_2[1]
+
+    if number1 > number2:
+        returnValue = par_1
+    elif number2 > number1:
+        returnValue = par_2
+    else:
+        returnValue = par_1
+
+    return returnValue
 
 
 def find_most_frequent(frequency_table):
@@ -81,8 +133,10 @@ def find_most_frequent(frequency_table):
     """
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
 
+    max_key = max(frequency_table, key=frequency_table.get)
+
+    return max_key
 
 ############################################################
 #                                                          #
