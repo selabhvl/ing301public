@@ -16,7 +16,11 @@ def read_file(file_name):
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    file = open(file_name)
+    lines_return = file.readlines()
+
+    return lines_return
 
 
 def lines_to_words(lines):
@@ -34,7 +38,12 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    line = lines
+    line[0]
+    return line[0]
+
+    "return NotImplemented  # TODO: Du må erstatte denne linjen"
 
 
 def compute_frequency(words):

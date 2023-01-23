@@ -4,7 +4,7 @@ import wordfrequency as wf
 class TestAssignment2(unittest.TestCase):
 
     def test_read_file(self):
-        expected = ["Det er\n", "bare\n", "noen få ord her!\n"]
+        expected = ["Det er\n", "bare\n", "noen faa ord her!\n"]
         self.assertEqual(expected, wf.read_file("small.txt"))
 
     def test_lines_to_words(self):
