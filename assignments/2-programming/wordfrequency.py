@@ -15,8 +15,10 @@ def read_file(file_name):
     Denne funksjonen får et filnavn som argument og skal gi
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
-    # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    with open(file_name, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    return lines
+
 
 
 def lines_to_words(lines):
@@ -31,10 +33,16 @@ def lines_to_words(lines):
 
     F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
     """
-    # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
-    # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
-    # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    words = []
+    for line in lines:
+        new_line = ""
+        for char in line:
+            if char.isalnum() or char.isspace():
+                new_line += char
+        for word in new_line.lower().split():
+            if word != "":
+                words.append(word)
+    return words
 
 
 def compute_frequency(words):
@@ -45,7 +53,10 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    frequency_table = {}
+    for word in words:
+        frequency_table[word] = words.count(word)
+    return frequency_table
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -59,8 +70,11 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
-
+    new_frequency_table = {}
+    for key, value in frequency_table.items():
+        if key not in FILL_WORDS:
+            new_frequency_table[key] = value
+    return new_frequency_table
 
 def largest_pair(par_1, par_2):
     """
@@ -69,9 +83,12 @@ def largest_pair(par_1, par_2):
     Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
     tallet er størst.
     """
-    # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
-    # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    if par_1[1] > par_2[1]:
+        return par_1
+    elif par_1[1] < par_2[1]:
+        return par_2
+    else:
+        return ("Begge har samme verdi", par_1, par_2)
 
 
 def find_most_frequent(frequency_table):
@@ -79,9 +96,10 @@ def find_most_frequent(frequency_table):
     Nå er det på tide å sette sammen alle bitene du har laget.
     Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
     """
-    # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
-    # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    most_frequent = ("", 0)
+    for word, count in frequency_table.items():
+        most_frequent = largest_pair((word, count), most_frequent)
+    return most_frequent[0]
 
 
 ############################################################
