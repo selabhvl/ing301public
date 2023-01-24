@@ -49,7 +49,7 @@ def compute_frequency(words):
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
-
+#test test ERik
 
 def remove_filler_words(frequency_table):
     """
