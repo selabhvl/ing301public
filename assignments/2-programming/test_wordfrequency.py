@@ -1,12 +1,12 @@
 import unittest
 import wordfrequency as wf
-
+from pathlib import Path
 
 class TestAssignment2(unittest.TestCase):
 
     def test_read_file(self):
         expected = ["Det er\n", "bare\n", "noen få ord her!\n"]
-        self.assertEqual(expected, wf.read_file("small.txt"))
+        self.assertEqual(expected, wf.read_file(str(Path(__file__).parent.absolute()) + "\small.txt"))
 
     def test_lines_to_words(self):
         self.assertEqual(["born", "åt", "heimdall"], wf.lines_to_words(["born åt Heimdall;"]))
