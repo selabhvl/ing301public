@@ -1,3 +1,4 @@
+import fileinput
 from pathlib import Path
 
 
@@ -8,15 +9,22 @@ from pathlib import Path
 # Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
 # noen enkelte funskjoner som trengs for det hele til å virke.
 # Enhver funksjon kommer med en dokumentasjon som forklarer hva skal gjøres.
-
-
+lines = []
+words = []
+file_name = "voluspaa.txt"
 def read_file(file_name):
+
     """
     Denne funksjonen får et filnavn som argument og skal gi
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    file = open(file_name, "r", encoding='utf-8' + "\n")
+    content = file.read()
+    #print(content)
+    lines.append(content)
+
+    return content
 
 
 def lines_to_words(lines):
@@ -34,8 +42,24 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    
+    global words
+    
+    words = lines.replace("\n", " ")
+    words = words.replace("?"," ")
+    words = words.replace("\n"," ")
+    words = words.replace("."," ")
+    words = words.replace(";", " ")
+    words = words.replace(",", " ")
+    words = words.replace("-", " ")
+    words = words.replace("!"," ")
+    words = words.lower()
 
+    words = words.split()
+    
+    return words
+
+frequency_table = {}
 
 def compute_frequency(words):
     """
@@ -45,8 +69,17 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
-
+    
+    for i in words:
+        #print(i)
+        if i in frequency_table:
+            #print(i)
+            frequency_table[i] +=1
+            
+        else:
+            frequency_table[i] = 1
+    #print(frequency_table)
+    return frequency_table
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
 
@@ -59,7 +92,12 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    
+    for i in FILL_WORDS:
+        #print(i)
+        if i in frequency_table:
+            del frequency_table[i]
+    return frequency_table
 
 
 def largest_pair(par_1, par_2):
@@ -69,11 +107,14 @@ def largest_pair(par_1, par_2):
     Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
     tallet er størst.
     """
+    """1. lag en loop med alle partal
+        2 .finn maksverdien til partallene
+        3. ?????"""
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
     return NotImplemented  # TODO: Du må erstatte denne linjen
 
-
+most_frequent = {}
 def find_most_frequent(frequency_table):
     """
     Nå er det på tide å sette sammen alle bitene du har laget.
@@ -81,9 +122,23 @@ def find_most_frequent(frequency_table):
     """
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
-
-
+    
+    """TANKEGANG:
+        Input: 
+        1. find max value
+        2. loop through all values of dictionary
+        3. if value is the same as max, grab it and put it into premade list
+    """
+    
+    max_value = max(frequency_table.values())
+    #print(max_value)
+    
+    for i in frequency_table.items():
+        
+        if i[1] >= max_value:
+            most_frequent = [i]
+   
+    return most_frequent
 ############################################################
 #                                                          #
 # Her slutter dendelen av filen som er relevant for deg ;-)#
