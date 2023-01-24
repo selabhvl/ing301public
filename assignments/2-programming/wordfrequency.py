@@ -12,7 +12,7 @@ from pathlib import Path
 lines = []
 words = []
 file_name = "voluspaa.txt"
-def read_file(file_name):
+def read_file(file_name): 
 
     """
     Denne funksjonen får et filnavn som argument og skal gi
