@@ -1,0 +1,42 @@
+name: Check Assignment 2
+on:
+  pull_request_target:
+    types: [opened, reopened]
+    paths:
+      - 'assignments/2-programming/**'
+
+jobs:
+  Test-Execution:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+      - name: Check Python Syntax Errors
+        run: |
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        working-directory: ./assignments/2-programming
+      - name: Run Testcases
+        run: |
+          pytest . --junitxml=../../test-results/assignment2.xml
+        working-directory: ./assignments/2-programming
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          junit_files: "test-results/*.xml"
+      - name: Write Run Summary
+        if: always()
+        run: |
+          echo "# Autograding Asssignment 2" >> $GITHUB_STEP_SUMMARY
+          echo "Submission Timestamp: ${{ github.event.pull_request.created_at }}" >> $GITHUB_STEP_SUMMARY
+          echo "Pull Request: ${{ github.event.pull_request.html_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "Student: ${{ github.event.pull_request.body }}@stud.hvl.no" >> $GITHUB_STEP_SUMMARY
