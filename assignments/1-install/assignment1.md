@@ -20,21 +20,21 @@ Lenker til installasjonsinstruks for de forsjellige operativsystemer finder du n
 
 ### Windows
 
-- [Python Installasjon](../../uke2-introduksjon/install_python_windows.md)
+- [Python Installasjon](../../weeks/2-get-started/install_python_windows.md)
 
-- [Git Installasjon](../../uke2-introduksjon/install_git_windows.md)
+- [Git Installasjon](../../weeks/2-get-started/install_git_windows.md)
 
 ### Mac OS X
 
-[Python Installasjon](../../uke2-introduksjon/install_python_mac.md)
+- [Python Installasjon](../../weeks/2-get-started/install_python_mac.md)
 
-[Git Installasjon](../../uke2-introduksjon/install_git_mac.md)
+- [Git Installasjon](../../weeks/2-get-started/install_git_mac.md)
 
 ### Linux
 
-[Python Installasjon](../../uke2-introduksjon/install_python_linux.md)
+- [Python Installasjon](../../weeks/2-get-started/install_python_linux.md)
 
-[Git Installasjon](../../uke2-introduksjon/install_git_linux.md)
+- [Git Installasjon](../../weeks/2-get-started/install_git_linux.md)
 
 ### IDE og andre grafiske verktøy
 
@@ -73,11 +73,11 @@ Sjekk at du er logget på GitHub og besøk: https://github.com/selabhvl/ing301pu
 
 Oppe til høyre finner du en knapp `Fork`. Trykk på den!
 
-![Forke en Repository på Github Skjermbilde](../../ressurser/images/github-forking.jpg)
+![Forke en Repository på Github Skjermbilde](../../resources/images/github-forking.jpg)
 
 Det åpner seg et nytt vindu. Her kunne du gi et nytt navn til repository kopien som blir laget nå. Men du kan bruke standardinstillingene og trykke på `Create fork`.
 
-![Create Fork Skjermbilde](../../ressurser/images/github-fork-create.jpg)
+![Create Fork Skjermbilde](../../resources/images/github-fork-create.jpg)
 
 Du vil bli ledet videre til en side som viser en fullstending kopi av `ing301public` berre at denne tilhører din egen brukerkonto.
 
@@ -91,12 +91,6 @@ Nå er det på tide å sjekke ut ING301 repo'en. Bruke følgende kommando:
 git clone <Github URL du har kopiert tidligere>
 ```
 
-For å også ha en kobling til den opprinellige kodebasen fra HVL, også kjør følgende kommando rett etterpå:
-
-```bash
-git remote add -m main hvl https://github.com/selabhvl/ing301public
-git pull hvl main
-```
 
 ## Steg 3: Skrive og teste Python kode
 
@@ -124,11 +118,13 @@ Alternativt kan du kjøre filen fra en _Terminal_ slikt:
 python3 <filsti her>/assignments/1-install/testinstall.py
 ```
 
-som resultat skal du se noe slikt:
+som resultat skulle du se noe slikt:
 ```
-The most frequent word in <filsti på din maskin>/ing301public/exercises/1-setup/voluspaa.txt is 'NotImplemented'
+Congratulations you are running Python in version 3....
+[Clang ..............]
+and also your repository layout looks alright!
 ```
 
-Dette betyr at du er klar til å skrive Python kode, men programmet i denne første oppgave er ikke ferdig implementert ennå.
+Dette betyr at du har klart til å laste ned startkoden gjennom `git` og at din maskin er klar til å skrive og kjøre Python kode! 
 
-Din neste oppgave (i uke 3) er å skrive de sentrale funskjoner som er nødvendig til finne det mest hyppige ord i en gitt fil.
+Hvis du vil kan du nå hoppe direkte inn din første riktige programmeringsoppgave: [HOPP!](../2-programming/assignment2.md)

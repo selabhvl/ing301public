@@ -1,4 +1,6 @@
 from pathlib import Path
+
+
 # Dette er Starterkoden til den første øvelsen i ING 301
 #
 # Du skal utvikle et programm som finner det hyppigste ordet i en gitt tekstfil.
@@ -103,6 +105,7 @@ def find_most_frequent(frequency_table):
         bigest = largest_pair(bigest, items[i+1])
 
     return bigest[0]  
+
 
 ############################################################
 #                                                          #
