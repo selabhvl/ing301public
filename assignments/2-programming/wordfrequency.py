@@ -1,5 +1,6 @@
 from pathlib import Path
-
+import random
+import test_wordfrequency
 
 # Dette er Starterkoden til den første øvelsen i ING 301
 #
@@ -15,8 +16,17 @@ def read_file(file_name):
     Denne funksjonen får et filnavn som argument og skal gi
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
+    # Reading file contents
+    file = open(file_name, mode = "r", encoding = "utf8")
+    filecontent = file.read()
+
+    # Spliting filecontent on linebreaks and saving in new list
+    file_lines = filecontent.split('\n')
+    file.close()
+
+    return file_lines
+
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
 
 
 def lines_to_words(lines):
@@ -31,10 +41,42 @@ def lines_to_words(lines):
 
     F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
     """
-    # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
-    # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
-    # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    #changing variable inn name to more relevant
+    file_lines = lines
+    words_list = []
+
+    #rolling through the elements of the list
+    for line_words in file_lines:
+
+        #splitting the list on ' '(blankspace) into a new list 
+        split_content = line_words.split(' ')
+        #set of chars to be removed from the list
+        char_set = {",", "?", "!", ".", ":", ";", "-"}
+
+        #rolling throught the new list and checking for lone instances of the char_set in the list
+        for content in split_content:
+            #if char_set is in content dont append to words_list
+            if content not in char_set:
+                #Next checking each char to remove instances of the char in the string
+                #using translate function to replace char with None
+                if ',' in content:
+                    content = content.translate({ord(','): None})
+                elif '?' in content:
+                    content = content.translate({ord('?'): None})
+                elif '!' in content:
+                    content = content.translate({ord('!'): None})
+                elif '.' in content:
+                    content = content.translate({ord('.'): None})
+                elif ':' in content:
+                    content = content.translate({ord(':'): None})
+                elif ';' in content:
+                    content = content.translate({ord(';'): None})
+                
+
+                words_list.append(content.strip().lower())
+
+    return words_list
 
 
 def compute_frequency(words):
@@ -45,10 +87,23 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    word_freq = {}
+    #looping through the list of words given and adding them to the word_freq dict with a value of 1 if they are not all ready in the dict
+    #or if they are allready in the dict then upping the value(word count) by 1
+    for word in words:
+        if word in word_freq:
+            word_freq[word] += 1
+
+        else:
+            word_freq[word] = 1
+
+    return word_freq
 
 
-FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
+
+FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han',
+              'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera', ''] #added '' for easy filtering of earlier mistakes
 
 
 def remove_filler_words(frequency_table):
@@ -59,7 +114,15 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    newdict = {}
+
+    #unpacking given dict and writing to newdict if it is not contained in the list FILL_WORDS
+    for stuffkey,stuffvalue in frequency_table.items():
+        if stuffkey not in FILL_WORDS:
+            newdict[stuffkey] = stuffvalue
+
+    #print(newdict)
+    return newdict
 
 
 def largest_pair(par_1, par_2):
@@ -69,19 +132,58 @@ def largest_pair(par_1, par_2):
     Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
     tallet er størst.
     """
-    # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
-    # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    #comparing value element size choosing largest. If both are the same value then a cointoss decides 
+    if par_1[1] > par_2[1]:
+        bIg_pair = par_1
+    elif par_1[1] < par_2[1]:
+        bIg_pair = par_2
+    elif par_1[1] == par_2[1]:
+        k = random.randint(0, 1)
+        if k == 0:
+            bIg_pair = par_1
+        elif k == 1:
+            bIg_pair = par_2
+        else:
+            print("Oopsie woopsie")
+            return None
+    #print(bIg_pair)
+    return bIg_pair
 
 
 def find_most_frequent(frequency_table):
     """
     Nå er det på tide å sette sammen alle bitene du har laget.
-    Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
+    Denne funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
     """
-    # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
-    # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    """
+    So i misunderstood the largest pair method and made it for the case of the dict element being saved as first and second element of the tuple
+    instead of it being 1 element with key and value. So instead of rewriting that method il let it stand as is and use bubble sort here to find
+    the largest dict entry.
+    source for bubble sort used: https://stackoverflow.com/questions/52551033/bubble-sorting-in-dictionary-in-python
+    """
+    #converting dict to list objet
+    freq_list = list(frequency_table.items())
+
+
+    list_len = len(freq_list) - 1 #-1 so it does not run 1 unneeded time
+
+    #bubble sort algoritm for sorting the list largest to smalest value element
+    for count in range(list_len, -1, -1):
+        swapped = False
+        for i in range(count):
+            if freq_list[i][1] < freq_list[i + 1][1]:
+                #swapping elements if one element i + 1 is larger
+                freq_list[i], freq_list[i + 1] = freq_list[i + 1], freq_list[i]
+                swapped = True
+
+        #breaking when sorting is done
+        if not swapped:
+            break
+
+    
+    most_freq = freq_list[0]
+
+    return most_freq
 
 
 ############################################################
@@ -97,6 +199,12 @@ def main():
     words = lines_to_words(lines)
     table = compute_frequency(words)
     table = remove_filler_words(table)
+
+    #i could unpack the dict in a for loop and chose a random pair but it is not spesified so extra work
+    foo = ("har", table["har"])
+    bar = ("går", table["går"])
+
+    pair_largest = largest_pair(foo, bar)
     most_frequent = find_most_frequent(table)
     print(f"The most frequent word in {file} is '{most_frequent}'")
 
