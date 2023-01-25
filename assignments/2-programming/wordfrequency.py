@@ -100,7 +100,6 @@ def largest_pair(par_1, par_2):
     elif par_1[1] < par_2[1]:
         return par_2
     else:
-        print(par_1[1] + "and" + par_2[1] + "Occur equally many times: " + par_1[2])
         return par_1 and par_2
 
 
