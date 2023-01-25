@@ -16,8 +16,8 @@ def read_file(file_name):
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    f = open(file_name, 'r', encoding="utf8")
-    return f.readlines()
+    with open(str(Path(__file__).parent.absolute()) + file_name, 'r', encoding="utf8") as f:
+        return f.readlines()
 
 
 def lines_to_words(lines):
@@ -35,9 +35,9 @@ def lines_to_words(lines):
     final = []
     import re
     for line in lines:
-        words = re.split(r'[, |. |; |: |? |! |\n |\t ]', line)
+        words = re.split(r'[, |. |; |: |? |!]', line)
         for word in words:
-            w = word.strip(""" \"\'()[]\n\t- """).lower()
+            w = word.strip(""" "'()[]\n\t- """).lower()
             if w != '':
                 final.append(w)
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
@@ -115,7 +115,7 @@ def find_most_frequent(frequency_table):
 
 
 def main():
-    file = str(Path(__file__).parent.absolute()) + "/voluspaa.txt"
+    file = "/voluspaa.txt"
     lines = read_file(file)
     words = lines_to_words(lines)
     table = compute_frequency(words)
