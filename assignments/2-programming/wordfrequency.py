@@ -28,7 +28,8 @@ def lines_to_words(lines):
     for line in lines:
         words = words + line.split(sep=' ')
 
-    words = [word.strip() for word in words]
+    words = [word.strip(".:;,?!\n") for word in words]
+    words = list(filter(None, words))
     words = [word.lower() for word in words]
 
 
@@ -95,7 +96,10 @@ def remove_filler_words(frequency_table):
 
 def largest_pair(par_1, par_2):
 
-
+    if par_1[1] < par_2[1]:
+        return par_2
+    elif par_1[1] > par_2[1]:
+        return par_1
 
     """
     Denne funksjonen får som input to tupler/par (https://docs.python.org/3/library/stdtypes.html#tuple) der den
