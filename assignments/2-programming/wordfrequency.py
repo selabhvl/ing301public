@@ -16,9 +16,10 @@ def read_file(file_name):
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    file = open(file_name, 'r', encoding='UTF-8')
-    filecontent = file.readlines()
+    with open(file_name, mode='r', encoding="utf-8") as file:
+        filecontent = file.readlines()
     file.close()
+
     return filecontent                                         #Retunerer svaret
 
 
