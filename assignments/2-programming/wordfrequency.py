@@ -1,6 +1,6 @@
 import fileinput
 from pathlib import Path
-
+import re
 
 # Dette er Starterkoden til den første øvelsen i ING 301
 #
@@ -9,8 +9,6 @@ from pathlib import Path
 # Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
 # noen enkelte funskjoner som trengs for det hele til å virke.
 # Enhver funksjon kommer med en dokumentasjon som forklarer hva skal gjøres.
-lines = []
-words = []
 file_name = "voluspaa.txt"
 def read_file(file_name): 
 
@@ -19,13 +17,12 @@ def read_file(file_name):
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    file = open(file_name, "r", encoding='utf-8' + "\n")
-    content = file.read()
+    with open(file_name, encoding='UTF-8') as file:
+        lines = file.readlines()
     #print(content)
-    lines.append(content)
+    #lines.append(lines)
 
-    return content
-
+    return lines
 
 def lines_to_words(lines):
     """
@@ -42,24 +39,16 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    
-    global words
-    
-    words = lines.replace("\n", " ")
-    words = words.replace("?"," ")
-    words = words.replace("\n"," ")
-    words = words.replace("."," ")
-    words = words.replace(";", " ")
-    words = words.replace(",", " ")
-    words = words.replace("-", " ")
-    words = words.replace("!"," ")
-    words = words.lower()
+def lines_to_words(lines):
+    words = []
+    for line in lines:
+        line = re.sub(r'[^\w\s]', '', line)
+        line = line.lower()
+        line_words = line.split()
+        words.extend(line_words)
+    return [word for word in words if word]
 
-    words = words.split()
-    
-    return words
 
-frequency_table = {}
 
 def compute_frequency(words):
     """
@@ -69,11 +58,9 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    
+    frequency_table = {}
     for i in words:
-        #print(i)
         if i in frequency_table:
-            #print(i)
             frequency_table[i] +=1
             
         else:
@@ -107,14 +94,18 @@ def largest_pair(par_1, par_2):
     Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
     tallet er størst.
     """
-    """1. lag en loop med alle partal
-        2 .finn maksverdien til partallene
-        3. ?????"""
+    if par_1[1] > par_2[1]:
+        return par_1
+    elif par_2[1] > par_1[1]:
+        return par_2
+    else:
+        return par_1
+
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
 
-most_frequent = {}
+most_frequent_word = {}
+
 def find_most_frequent(frequency_table):
     """
     Nå er det på tide å sette sammen alle bitene du har laget.
@@ -134,11 +125,12 @@ def find_most_frequent(frequency_table):
     #print(max_value)
     
     for i in frequency_table.items():
-        
-        if i[1] >= max_value:
-            most_frequent = [i]
-   
-    return most_frequent
+        #print(i[0])
+
+
+        if i[1] == max_value:
+            most_frequent_word = i[0]
+    return most_frequent_word
 ############################################################
 #                                                          #
 # Her slutter dendelen av filen som er relevant for deg ;-)#
