@@ -9,11 +9,9 @@ import re
 # Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
 # noen enkelte funskjoner som trengs for det hele til å virke.
 # Enhver funksjon kommer med en dokumentasjon som forklarer hva skal gjøres.
-<<<<<<< HEAD
-=======
 lines = []
 words = []
->>>>>>> 6e2d94002bcd13b3ee838c7ad557ff5e980e3ad5
+
 file_name = "voluspaa.txt"
 def read_file(file_name): 
 
@@ -22,19 +20,15 @@ def read_file(file_name):
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-<<<<<<< HEAD
     with open(file_name, encoding='UTF-8') as file:
         lines = file.readlines()
     #print(content)
     #lines.append(lines)
-=======
+    """
     file = open(file_name, "r", encoding='utf-8' + "\n")
     content = file.read()
     #print(content)
-    lines.append(content)
-
-    return content
->>>>>>> 6e2d94002bcd13b3ee838c7ad557ff5e980e3ad5
+    lines.append(content)"""
 
     return lines
 
@@ -53,7 +47,6 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-<<<<<<< HEAD
 def lines_to_words(lines):
     words = []
     for line in lines:
@@ -63,24 +56,6 @@ def lines_to_words(lines):
         words.extend(line_words)
     return [word for word in words if word]
 
-=======
-    
-    global words
-    
-    words = lines.replace("\n", " ")
-    words = words.replace("?"," ")
-    words = words.replace("\n"," ")
-    words = words.replace("."," ")
-    words = words.replace(";", " ")
-    words = words.replace(",", " ")
-    words = words.replace("-", " ")
-    words = words.replace("!"," ")
-    words = words.lower()
->>>>>>> 6e2d94002bcd13b3ee838c7ad557ff5e980e3ad5
-
-    words = words.split()
-    
-    return words
 
 frequency_table = {}
 
@@ -92,17 +67,12 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-<<<<<<< HEAD
     frequency_table = {}
-    for i in words:
-        if i in frequency_table:
-=======
     
     for i in words:
         #print(i)
         if i in frequency_table:
             #print(i)
->>>>>>> 6e2d94002bcd13b3ee838c7ad557ff5e980e3ad5
             frequency_table[i] +=1
             
         else:
@@ -136,7 +106,6 @@ def largest_pair(par_1, par_2):
     Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
     tallet er størst.
     """
-<<<<<<< HEAD
     if par_1[1] > par_2[1]:
         return par_1
     elif par_2[1] > par_1[1]:
@@ -144,20 +113,14 @@ def largest_pair(par_1, par_2):
     else:
         return par_1
 
-=======
     """1. lag en loop med alle partal
         2 .finn maksverdien til partallene
         3. ?????"""
->>>>>>> 6e2d94002bcd13b3ee838c7ad557ff5e980e3ad5
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
-
-<<<<<<< HEAD
 most_frequent_word = {}
 
-=======
 most_frequent = {}
->>>>>>> 6e2d94002bcd13b3ee838c7ad557ff5e980e3ad5
 def find_most_frequent(frequency_table):
     """
     Nå er det på tide å sette sammen alle bitene du har laget.
@@ -177,20 +140,16 @@ def find_most_frequent(frequency_table):
     #print(max_value)
     
     for i in frequency_table.items():
-<<<<<<< HEAD
         #print(i[0])
 
 
         if i[1] == max_value:
             most_frequent_word = i[0]
+
+
+
     return most_frequent_word
-=======
-        
-        if i[1] >= max_value:
-            most_frequent = [i]
-   
-    return most_frequent
->>>>>>> 6e2d94002bcd13b3ee838c7ad557ff5e980e3ad5
+
 ############################################################
 #                                                          #
 # Her slutter dendelen av filen som er relevant for deg ;-)#
