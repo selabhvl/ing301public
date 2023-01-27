@@ -103,3 +103,5 @@ Etter forlesningen skulle du
 - vet hva ideen "Tell, don't ask!" betyr
 
 Du finner slides'ene om OO på Canvas og kodeeksempler fra forelesningen [her](../../examples/gpsdata/min_oo.py)
+
+[Kode for det objekt-orienterte GPS data eksemplet](../../examples/gpsdata_oo/) 

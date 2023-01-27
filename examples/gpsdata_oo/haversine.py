@@ -10,7 +10,7 @@ def distance(latitude1: float, longitude1: float, latitude2: float, longitude2: 
 
     # earth radius in meters
     R = 6371000
-    
+
     phi_1 = math.radians(latitude1)
     phi_2 = math.radians(latitude2)
 
