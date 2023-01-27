@@ -11,54 +11,65 @@ from pathlib import Path
 
 
 def read_file(file_name):
-
-    text = open(file_name, "r")
+    text = []
+    file = open(file_name, "r", encoding="UTF8")
+    for line in file.readlines():
+        text.append(line)
    
     return text
 
 
 def lines_to_words(lines):
+    tlist = []
+    for line in lines:
+        word = line.split()    
+        for word in word:
+            word = word.strip('.,;:!?')
+            word = word.lower()
+            
+            if word != "" or word != '':
+                tlist.append(word)
 
-    lines = lines.split()
-    lines = lines.strip('.,;:!?')
-    lines = lines.lower()
-
-    return lines
+    return tlist
 
 
 def compute_frequency(words):
+    flist = dict()
+    for word in words:
+        if word in flist:
+            flist[word] += 1
+        else:
+            flist[word] = 1
 
-    text = dict(words)
-
-    return text
+    return flist
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
 
 
 def remove_filler_words(frequency_table):
+    for word in FILL_WORDS:
+        if word in frequency_table:
+           del frequency_table[word]
 
-    text = frequency_table.strip(FILL_WORDS)
-
-    return text
+    return frequency_table
 
 
 def largest_pair(par_1, par_2):
-
-    if (par_1[1] > par_2[1]): return par_1
-    else: return par_2
+    if par_1[1] > par_2[1]:
+        return par_1
+    elif par_1[1] < par_2[1]:
+        return par_2
+    else:
+        return par_1
 
 
 def find_most_frequent(frequency_table):
+    mostF = ("",0)
+    for word, freq in frequency_table.items():
+        mostF = largest_pair(mostF, (word, freq))
 
-    x = dict.items(frequency_table)
-    """
-    Nå er det på tide å sette sammen alle bitene du har laget.
-    Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
-    """
-    # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
-    # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return x  # TODO: Du må erstatte denne linjen
+    return mostF[0]
 
 
 ############################################################
