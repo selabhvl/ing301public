@@ -47,6 +47,7 @@ class TestAssignment2(unittest.TestCase):
 
     def test_largest_pair(self):
         self.assertEqual(("World", 5), wf.largest_pair(('Hallo', 3), ("World", 5)))
+        self.assertEqual(([("world", 5), ("Hade", 5)]), wf.largest_pair(('world', 5), ("Hade", 5)))
         # kanskje du vil utvide test casene her
 
     def test_find_most_frequent(self):

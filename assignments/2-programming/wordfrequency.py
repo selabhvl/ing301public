@@ -42,7 +42,6 @@ def lines_to_words(lines):
     F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
     """
 
-    #changing variable inn name to more relevant
     file_lines = lines
     words_list = []
 
@@ -52,29 +51,18 @@ def lines_to_words(lines):
         #splitting the list on ' '(blankspace) into a new list 
         split_content = line_words.split(' ')
         #set of chars to be removed from the list
-        char_set = {",", "?", "!", ".", ":", ";", "-"}
+        char_set = {",", "?", "!", ".", ":", ";", "-", "", ''}
 
         #rolling throught the new list and checking for lone instances of the char_set in the list
         for content in split_content:
             #if char_set is in content dont append to words_list
             if content not in char_set:
-                #Next checking each char to remove instances of the char in the string
-                #using translate function to replace char with None
-                if ',' in content:
-                    content = content.translate({ord(','): None})
-                elif '?' in content:
-                    content = content.translate({ord('?'): None})
-                elif '!' in content:
-                    content = content.translate({ord('!'): None})
-                elif '.' in content:
-                    content = content.translate({ord('.'): None})
-                elif ':' in content:
-                    content = content.translate({ord(':'): None})
-                elif ';' in content:
-                    content = content.translate({ord(';'): None})
-                
 
-                words_list.append(content.strip().lower())
+                words_list.append(content.strip(',.:;!?\n').lower())
+            
+        for index, word in enumerate(words_list):
+            if word == '':
+                words_list.pop(index)
 
     return words_list
 
@@ -103,7 +91,7 @@ def compute_frequency(words):
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han',
-              'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera', ''] #added '' for easy filtering of earlier mistakes
+              'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
 
 
 def remove_filler_words(frequency_table):
@@ -132,21 +120,16 @@ def largest_pair(par_1, par_2):
     Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
     tallet er størst.
     """
-    #comparing value element size choosing largest. If both are the same value then a cointoss decides 
+    #comparing value element size choosing largest
     if par_1[1] > par_2[1]:
         bIg_pair = par_1
     elif par_1[1] < par_2[1]:
         bIg_pair = par_2
+
+    #If pairs are equal return a list of both pairs
     elif par_1[1] == par_2[1]:
-        k = random.randint(0, 1)
-        if k == 0:
-            bIg_pair = par_1
-        elif k == 1:
-            bIg_pair = par_2
-        else:
-            print("Oopsie woopsie")
-            return None
-    #print(bIg_pair)
+        bIg_pair = [par_1, par_2]
+        
     return bIg_pair
 
 
@@ -156,10 +139,8 @@ def find_most_frequent(frequency_table):
     Denne funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
     """
     """
-    So i misunderstood the largest pair method and made it for the case of the dict element being saved as first and second element of the tuple
-    instead of it being 1 element with key and value. So instead of rewriting that method il let it stand as is and use bubble sort here to find
-    the largest dict entry.
     source for bubble sort used: https://stackoverflow.com/questions/52551033/bubble-sorting-in-dictionary-in-python
+    i decided to do it this way as i got a Type error when comparing the 2 tuples so maybe inner node somewhere i cant find the problem
     """
     #converting dict to list objet
     freq_list = list(frequency_table.items())
@@ -183,7 +164,7 @@ def find_most_frequent(frequency_table):
     
     most_freq = freq_list[0]
 
-    return most_freq
+    return most_freq[0]
 
 
 ############################################################
@@ -199,12 +180,6 @@ def main():
     words = lines_to_words(lines)
     table = compute_frequency(words)
     table = remove_filler_words(table)
-
-    #i could unpack the dict in a for loop and chose a random pair but it is not spesified so extra work
-    foo = ("har", table["har"])
-    bar = ("går", table["går"])
-
-    pair_largest = largest_pair(foo, bar)
     most_frequent = find_most_frequent(table)
     print(f"The most frequent word in {file} is '{most_frequent}'")
 
