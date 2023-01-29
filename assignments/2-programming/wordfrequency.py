@@ -1,6 +1,5 @@
 from pathlib import Path
 
-
 # Dette er Starterkoden til den første øvelsen i ING 301
 #
 # Du skal utvikle et programm som finner det hyppigste ordet i en gitt tekstfil.
@@ -9,14 +8,14 @@ from pathlib import Path
 # noen enkelte funskjoner som trengs for det hele til å virke.
 # Enhver funksjon kommer med en dokumentasjon som forklarer hva skal gjøres.
 
-
 def read_file(file_name):
     """
     Denne funksjonen får et filnavn som argument og skal gi
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
-    # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    file = open(file_name, 'r', encoding="utf-8")
+    lines = file.readlines()
+    file.close()
 
 
 def lines_to_words(lines):
@@ -28,13 +27,16 @@ def lines_to_words(lines):
     Til sist skal alle ord i den resulterende listen være skrevet i små bokstav slik at "Odin" og "odin"
     blir behandlet likt.
     OBS! Pass også på at du ikke legge til tomme ord (dvs. "" eller '' skal ikke være med) i resultatlisten!
-
     F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
     """
-    # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
-    # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
-    # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    import string
+    words = []
+    for line in lines:
+        line = line.translate(str.maketrans("", "", string.punctuation))
+        words.extend([word.lower() for word in line.split() if word])
+
+    return 
+
 
 
 def compute_frequency(words):
@@ -42,10 +44,17 @@ def compute_frequency(words):
     Denne funksjonen tar inn en liste med ord og så lager den en frekvenstabell ut av den. En frekvenstabell
     teller hvor ofte hvert ord dykket opp i den opprinnelige innputt listen. Frekvenstabllen
     blir realisert gjennom Python dictionaires: https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
-
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    words_comp = []
+    word_frequency = {}
+    
+    for word in words:
+        if word not in words_comp:
+            words_comp.append(word)
+            word_frequency[word] = words.count(word)
+    
+    return word_frequency
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -59,7 +68,12 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    frequency_table2 = {}
+    for fill_word, count in frequency_table.items():
+        if fill_word not in FILL_WORDS:
+            frequency_table2[fill_word] = count
+    return frequency_table2
 
 
 def largest_pair(par_1, par_2):
@@ -71,7 +85,10 @@ def largest_pair(par_1, par_2):
     """
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    if par_1[1] > par_2[1]:
+        return par_1
+    else:
+        return par_2
 
 
 def find_most_frequent(frequency_table):
@@ -81,7 +98,13 @@ def find_most_frequent(frequency_table):
     """
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    most_common_word = None
+    frequency = 0
+    for word, count in frequency_table.items():
+        if count > frequency:
+            frequency = count
+            most_common_word = word
+    return most_common_word
 
 
 ############################################################
