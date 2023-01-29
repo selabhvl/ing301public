@@ -16,7 +16,14 @@ def read_file(file_name):
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    try:
+        with open(file_name, 'r', encoding='utf-8') as f:
+            data = f.readlines()    # Store each line in file to list.
+        return data
+    except:
+        print("File not found")        
+    # If file is found, the return class is a list. Each element in list is one line from the file.
+ 
 
 
 def lines_to_words(lines):
@@ -34,7 +41,17 @@ def lines_to_words(lines):
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    my_list = []
+    try:
+        for line in lines:
+            words = [ word.strip(".:;,?!").lower() for word in line.split() ] 
+            if not "" in words:
+                my_list += words
+        return my_list     
+    except:
+        print("Lines to words not working")    
+   
 
 
 def compute_frequency(words):
@@ -45,7 +62,21 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    count_words = {}   #Alternative 1
+    try:      
+        #Alternative 1
+        for i in words:
+            if i not in count_words:
+                count_words[i] = 1
+            else:
+                count_words[i] += 1
+                
+        #Alternative 2
+        #count_words = {x:words.count(x) for x in words} 
+        return count_words
+    except:
+        print("Counter failed")
+    
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -59,7 +90,19 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    #counter = 0
+
+    # Converting frequency_table to list to delete element with iteration
+    for word in list(frequency_table):
+        if word in FILL_WORDS:
+            try:   
+                frequency_table.pop(word)
+            except:
+                print("Not deleted")
+        else:
+            pass
+    #hei
+    return frequency_table
 
 
 def largest_pair(par_1, par_2):
@@ -71,7 +114,13 @@ def largest_pair(par_1, par_2):
     """
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    # example: comparing ("adam", 27) with ("eva,", 26). Comparing element 1 in each tuple
+    if par_1[1] >= par_2[1]:
+        largest_value = par_1
+    else:
+        largest_value = par_2  
+    return largest_value 
 
 
 def find_most_frequent(frequency_table):
@@ -81,7 +130,32 @@ def find_most_frequent(frequency_table):
     """
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    
+    var = ('',0)
+    for i in frequency_table.items():
+        try:
+            var = largest_pair(var,i)
+        except:
+            print('largest_pair function not working')
+        
+    """
+    # Alternative 2
+    most_frequent_word = ''
+    highest_value = 0
+    for key in frequency_table:      
+        if frequency_table[key] > highest_value:
+            highest_value = frequency_table[key]
+            most_frequent_word = key
+        else:
+            highest_value = highest_value
+            most_frequent_word = most_frequent_word
+    """
+
+    # Alternitive 3
+    #most_frequent_word = max(frequency_table, key=frequency_table.get)
+
+    return var[0]  # TODO: Du må erstatte denne linjen
 
 
 ############################################################
