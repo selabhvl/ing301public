@@ -102,4 +102,6 @@ Etter forlesningen skulle du
   - konstruktor, og
 - vet hva ideen "Tell, don't ask!" betyr
 
-Du finner slides'ene om OO på Canvas og kodeeksempler fra forelesningen her: **LENKE KOMMER PÅ TIRSDAG**
+Du finner slides'ene om OO på Canvas og kodeeksempler fra forelesningen:
+
+[Kode for det objekt-orienterte GPS data eksemplet](../../examples/03_gpsdata_oo/) 

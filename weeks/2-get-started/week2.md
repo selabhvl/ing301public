@@ -24,3 +24,5 @@ Dere skal
 - [og jobbe med en liten repetisjonsoppgave](../../assignments/2-programming/assignment2.md)
 
 For å friske opp Python kunnskap kan du lese gjennom [denne side](python-overview.md).
+
+[Kode for det grunnleggende GPS data eksemplet](../../examples/gpsdata_reference/)  
