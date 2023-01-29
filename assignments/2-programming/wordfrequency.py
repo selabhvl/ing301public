@@ -48,7 +48,7 @@ def lines_to_words(lines):
     wordsStrip = [i.strip('.:;,?!') for i in wordsSplit]
     wordsLowerCase = [i.lower() for i in wordsStrip]
     words = []
-    for word in words:
+    for word in wordsLowerCase:
         if word != "":
             words.append(word)
 
@@ -89,7 +89,7 @@ def remove_filler_words(frequency_table):
         if removeWords in frequency_table:
             del frequency_table[removeWords]
     
-    return removeWords
+    return frequency_table
 
 
 def largest_pair(par_1, par_2):
