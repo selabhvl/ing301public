@@ -1,4 +1,5 @@
 from pathlib import Path
+import csv
 
 
 # Dette er Starterkoden til den første øvelsen i ING 301
@@ -15,9 +16,10 @@ def read_file(file_name):
     Denne funksjonen får et filnavn som argument og skal gi
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
-    # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
-
+    file = open(file_name)
+    data = file.read()
+    categories = data.split('\n')
+    return categories
 
 def lines_to_words(lines):
     """
@@ -28,24 +30,38 @@ def lines_to_words(lines):
     Til sist skal alle ord i den resulterende listen være skrevet i små bokstav slik at "Odin" og "odin"
     blir behandlet likt.
     OBS! Pass også på at du ikke legge til tomme ord (dvs. "" eller '' skal ikke være med) i resultatlisten!
-
     F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
     """
+
+    separert = [line.split(';') for line in lines]
+    liste = []
+    for list in separert:
+        for x in list:
+            liste.append(x)
+    stripped = [item.strip(".:;,?!") for item in liste]
+    lowered = [item.lower() for item in stripped]
+    while("" in lowered):
+        lowered.remove("")
+    return lowered
+
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
-
 
 def compute_frequency(words):
     """
     Denne funksjonen tar inn en liste med ord og så lager den en frekvenstabell ut av den. En frekvenstabell
     teller hvor ofte hvert ord dykket opp i den opprinnelige innputt listen. Frekvenstabllen
     blir realisert gjennom Python dictionaires: https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
-
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    dic = dict()
+    for ord in words:
+        if ord in dic:
+            dic[ord] += 1
+        else:
+            dic[ord] = 1
+    return dic
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -59,8 +75,10 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
-
+    for ord in FILL_WORDS:
+        if ord in frequency_table:
+            frequency_table.pop(ord)
+    return frequency_table
 
 def largest_pair(par_1, par_2):
     """
@@ -69,9 +87,17 @@ def largest_pair(par_1, par_2):
     Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
     tallet er størst.
     """
+
+    if par_1[1] > par_2[1]:
+        largest = par_1
+    elif par_1[1] < par_2[1]:
+        largest = par_2
+    elif par_1[1] == par_2[1]:
+        largest = par_1 + par_2
+    return largest
+
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
 
 
 def find_most_frequent(frequency_table):
@@ -79,9 +105,14 @@ def find_most_frequent(frequency_table):
     Nå er det på tide å sette sammen alle bitene du har laget.
     Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
     """
+    tuples = frequency_table.items()
+    largest = ("start", -999999999)
+    for tuple in tuples:
+        largest = largest_pair(largest, tuple)
+    return largest[0]
+
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
 
 
 ############################################################
