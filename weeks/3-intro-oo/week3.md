@@ -78,9 +78,16 @@ Sjekk hvor du er  _Terminal_ vinduet nede og bruk `cd` til å komme deg til rikt
 ### Encoding
 
 Hvis du bruker Windows og har begynt med _assignment 2_ kan det være at du har fått noen problemer knyttet til _filkodering_.
+Det er fordi Windows bruker vanligvis en annen Encoding (som heter `cp1252`) mens Mac og Linux bruker Unicode (`utf-8`).
+Vår repository bruker også UTF-8.
+Windows encoding og unicode stemmer overens på de vanlige engelske bokstavene (ASCII). 
+Men den avviker når man bruker andre tegn som f.eks. Æ, Ø, Å...
+Hvis du bruker Windows må du altså sjekke at din VS Code/PyCharm er satt til riktig encoding.
+Du ser dette i det nedre høyre hjørnet.
+
+![File Encoding Setting i VS Code](../../resources/images/file-encoding.jpg)
 
 
-### Moduler og `import`
 
 ## Objektorientering
 
@@ -95,4 +102,6 @@ Etter forlesningen skulle du
   - konstruktor, og
 - vet hva ideen "Tell, don't ask!" betyr
 
-Du finner slides'ene om OO på Canvas og kodeeksempler fra forelesningen her: **LENKE KOMMER PÅ TIRSDAG**
+Du finner slides'ene om OO på Canvas og kodeeksempler fra forelesningen:
+
+[Kode for det objekt-orienterte GPS data eksemplet](../../examples/03_gpsdata_oo/) 
