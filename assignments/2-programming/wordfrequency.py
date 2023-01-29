@@ -17,7 +17,6 @@ def read_file(file_name):
     lines = file.readlines()
     file.close()
 
-
 def lines_to_words(lines):
     """
     Denne funksjonen får en liste med strenger som input (dvs. linjene av tekstfilen som har nettopp blitt lest inn)
@@ -87,8 +86,11 @@ def largest_pair(par_1, par_2):
     # kanskje du vil skrive noen flere test metoder ?!
     if par_1[1] > par_2[1]:
         return par_1
-    else:
+    
+    if par_1[1] < par_2[1]:
         return par_2
+    
+    return par_1
 
 
 def find_most_frequent(frequency_table):
@@ -98,7 +100,7 @@ def find_most_frequent(frequency_table):
     """
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    most_common_word = None
+    most_common_word = ""
     frequency = 0
     for word, count in frequency_table.items():
         if count > frequency:
