@@ -11,77 +11,54 @@ from pathlib import Path
 
 
 def read_file(file_name):
-    """
-    Denne funksjonen får et filnavn som argument og skal gi
-    tilbake en liste av tekststrenger som representerer linjene i filen.
-    """
-    # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    with open(file_name,'r',encoding='utf-8') as file:
+        data = file.readlines()
+    return data
 
 
 def lines_to_words(lines):
-    """
-    Denne funksjonen får en liste med strenger som input (dvs. linjene av tekstfilen som har nettopp blitt lest inn)
-    og deler linjene opp i enkelte ord. Enhver linje blir delt opp der det er blanktegn (= whitespaces).
-    Desto videre er vi bare interessert i faktiske ord, dvs. alle punktum (.), kolon (:), semikolon (;),
-    kommaer (,), spørsmåls- (?) og utråbstegn (!) skal fjernes underveis.
-    Til sist skal alle ord i den resulterende listen være skrevet i små bokstav slik at "Odin" og "odin"
-    blir behandlet likt.
-    OBS! Pass også på at du ikke legge til tomme ord (dvs. "" eller '' skal ikke være med) i resultatlisten!
-
-    F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
-    """
-    # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
-    # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
-    # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    listofwords = []
+    for line in lines:
+        words = [word.strip(" .:;,?!").lower() for word in line.split()]
+        if not "" in words:
+            listofwords += words
+    return listofwords
 
 
 def compute_frequency(words):
-    """
-    Denne funksjonen tar inn en liste med ord og så lager den en frekvenstabell ut av den. En frekvenstabell
-    teller hvor ofte hvert ord dykket opp i den opprinnelige innputt listen. Frekvenstabllen
-    blir realisert gjennom Python dictionaires: https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
-
-    F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
-    """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    word_count = {}
+    for i in words:
+        if i not in word_count:
+            word_count[i] = 1
+        else:
+            word_count[i] += 1
+    return word_count
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
 
 
 def remove_filler_words(frequency_table):
-    """
-    Ofte inneholder tekst koblingsord som "og", "eller", "jeg", "da". Disse er ikke så spennende når man vil
-    analysere innholdet til en tekst. Derfor vil vi gjerne fjerne dem fra vår frekvenstabell.
-    Vi har gitt deg en liste med slike koblingsord i variablen FILL_WORDS ovenfor.
-    Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
-    som finnes i FILL_WORDS.
-    """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    for word in list(frequency_table):
+        if word in FILL_WORDS:
+            frequency_table.pop(word)
+    return frequency_table
+
 
 
 def largest_pair(par_1, par_2):
-    """
-    Denne funksjonen får som input to tupler/par (https://docs.python.org/3/library/stdtypes.html#tuple) der den
-    første komponenten er en string (et ord) og den andre komponenten er en integer (heltall).
-    Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
-    tallet er størst.
-    """
-    # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
-    # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    if par_1[1] >= par_2[1]:
+        largest = par_1
+    else:
+        largest = par_2
+    return largest
 
 
 def find_most_frequent(frequency_table):
-    """
-    Nå er det på tide å sette sammen alle bitene du har laget.
-    Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
-    """
-    # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
-    # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    mostUsed = ('', 0)
+    for i in frequency_table.items():
+        mostUsed = largest_pair(i, mostUsed)
+    return mostUsed
 
 
 ############################################################
