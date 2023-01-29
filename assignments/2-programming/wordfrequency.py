@@ -17,8 +17,10 @@ def read_file(file_name):
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
 
-    file = open(file_name, 'r')
-    filecontent = file.read()
+    file = open(file_name, 'r', encoding = 'UTF-8')
+    filecontent = file.readlines()
+    with open(file_name, mode='r', encoding="utf-8") as file:
+        filecontent = file.readlines()
     file.close()
     return filecontent
 
@@ -38,12 +40,17 @@ def lines_to_words(lines):
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
 
+    ordSplittet = []
     for ord in lines:
-        ordSplittet = lines.split()
+        ordSplittet += ord.split()
     ordStrippet = [i.strip(' ,.:;!?') for i in ordSplittet]
-    ordFerdig = [i.lower() for i in ordStrippet]
+    ordLower = [i.lower() for i in ordStrippet]
+    ordFerdig = []
+    for words in ordLower:
+        if words != '':
+            ordFerdig.append(words)
 
-    return ordSplittet
+    return ordFerdig
 
 def compute_frequency(words):
     """
@@ -56,8 +63,10 @@ def compute_frequency(words):
 
     wordsNumber = {}
     for item in words:
-        count = words.count(item)
-        wordsNumber.update({item:count})
+        if item in wordsNumber:
+            wordsNumber[item] += 1
+        else:
+            wordsNumber[item] = 1
     return wordsNumber
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -108,7 +117,7 @@ def find_most_frequent(frequency_table):
 
     for word, used in frequency_table.items():
         mostUsed = largest_pair(mostUsed, (word, used))
-    return mostUsed
+    return mostUsed[0]
 
 
 ############################################################
