@@ -20,7 +20,9 @@ Du skulle ha en grov forståelse av følgende begrep:
 
 Vi skal bruke de første 1,5 uker til å få alle på omtrent samme side.
 Dere skal
-- [Installere Python og Git](../assignments/1-install/assignment1.md)
-- [og jobbe med en liten repetisjonsoppgave](../assignments/2-programming/assignment2.md)
+- [Installere Python og Git](../../assignments/1-install/assignment1.md)
+- [og jobbe med en liten repetisjonsoppgave](../../assignments/2-programming/assignment2.md)
 
 For å friske opp Python kunnskap kan du lese gjennom [denne side](python-overview.md).
+
+[Kode for det grunnleggende GPS data eksemplet](../../examples/gpsdata_reference/)  
