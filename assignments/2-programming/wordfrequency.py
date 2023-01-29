@@ -1,22 +1,22 @@
 from pathlib import Path
 
 
-# Dette er Starterkoden til den første øvelsen i ING 301
-#
-# Du skal utvikle et programm som finner det hyppigste ordet i en gitt tekstfil.
-# Dette høres kanskje litt komplisiert ut, men fortvil ikke!
-# Vi har forberedt den grove strukturen allerede. Din oppgave er å implementere
-# noen enkelte funskjoner som trengs for det hele til å virke.
-# Enhver funksjon kommer med en dokumentasjon som forklarer hva skal gjøres.
-
-
 def read_file(file_name):
     """
     Denne funksjonen får et filnavn som argument og skal gi
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
-    # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    # Open file:
+    textfile = open(file_name, 'r') # Opens text file.
+
+    # Add lines to list:
+    lines = []
+    for line in textfile:
+        line = line.rstrip() # Strips line.
+        lines.append(line) # Adds line to list.
+
+    return lines
 
 
 def lines_to_words(lines):
@@ -31,10 +31,15 @@ def lines_to_words(lines):
 
     F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
     """
-    # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
-    # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
-    # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    # Split words in list:
+    words = []
+    for line in lines:
+        for word in line.split():
+            word = word.strip('.:;,?!- ').lower() # Strips and converts word to lowercase.
+            words.append(word) # Adds word to list.
+
+    return words
 
 
 def compute_frequency(words):
@@ -45,7 +50,16 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    # Compute word frequency:
+    frequency_table = {}
+    for word in words:
+        if (word in frequency_table):
+            frequency_table[word] += 1
+        else:
+            frequency_table[word] = 1 # Adds word to dictionary.
+    
+    return frequency_table
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
@@ -59,7 +73,16 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    # Make a copy of dictionary keys:
+    frequency_table_copy = tuple(frequency_table.keys()) # This prevents error when iterating through the dictionary while deleting words.
+    
+    # Remove filler words from dictionary:
+    for word in frequency_table_copy:
+        if word in FILL_WORDS:
+            del frequency_table[word] # Removes word from dictionary if it's a filler word.
+
+    return frequency_table
 
 
 def largest_pair(par_1, par_2):
@@ -69,9 +92,20 @@ def largest_pair(par_1, par_2):
     Denne funksjonen skal sammenligne heltalls-komponenten i begge par og så gi tilbake det paret der
     tallet er størst.
     """
-    # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
-    # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    
+    # Define largest pair:
+    #if (par_1[1] > par_2[1]):
+    #    # Par_1 has the highest frequency.
+    #    return par_1[0]
+    #    return "NUMMER 1"
+    #elif (par_1[1] < par_2[1]):
+    #    # Par_2 has the highest frequency.
+    #    return par_2[0]
+    #    return "NUMMER 2"
+    #else:
+    #    # Par_1 and par_2 has the same frequency.
+    #    return "LIK"
+    return NotImplemented
 
 
 def find_most_frequent(frequency_table):
@@ -79,9 +113,14 @@ def find_most_frequent(frequency_table):
     Nå er det på tide å sette sammen alle bitene du har laget.
     Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
     """
-    # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
-    # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+    #print(frequency_table)
+
+    # Compute most frequent word:
+    words = list(frequency_table.keys())
+    frequency = list(frequency_table.values())
+    most_frequent = words[frequency.index(max(frequency))]
+    
+    return most_frequent
 
 
 ############################################################
