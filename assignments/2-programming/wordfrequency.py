@@ -16,7 +16,14 @@ def read_file(file_name):
     tilbake en liste av tekststrenger som representerer linjene i filen.
     """
     # Tips: kanksje "open"-funksjonen kunne være nyttig her: https://docs.python.org/3/library/functions.html#open
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    lines = []
+
+    with open(file_name, 'r') as document:
+        for line in document:
+            lines.append(line)
+
+    return lines   #NotImplemented  # TODO: Du må erstatte denne linjen
 
 
 def lines_to_words(lines):
@@ -29,12 +36,23 @@ def lines_to_words(lines):
     blir behandlet likt.
     OBS! Pass også på at du ikke legge til tomme ord (dvs. "" eller '' skal ikke være med) i resultatlisten!
 
-    F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["Det", "er", "bare", "noen", "få", "ord"]
+    F. eks: Inn: ["Det er", "bare", "noen få ord"], Ut: ["det", "er", "bare", "noen", "få", "ord"]
     """
     # Tips: se på "split()"-funksjonen https://docs.python.org/3/library/stdtypes.html#str.split
     # i tillegg kan "strip()": https://docs.python.org/3/library/stdtypes.html#str.strip
     # og "lower()": https://docs.python.org/3/library/stdtypes.html#str.lower være nyttig
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    output = []
+    chars_to_remove = [';', ',', '.', ':', '?', '!', '\n']
+    # ;,.:?!
+
+    for line in lines:
+        words = ''.join(x for x in line if not x in chars_to_remove).lower().split(' ')
+        #words = line.translate({ord(x): None for x in tegn}).lower().split(' ') # alternativ til linje over
+        for word in words:
+            if word:
+                output.append(word)
+    return output
 
 
 def compute_frequency(words):
@@ -45,11 +63,19 @@ def compute_frequency(words):
 
     F. eks. Inn ["hun", "hen", "han", "hen"], Ut: {"hen": 2, "hun": 1, "han": 1}
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    frequencies = {}
+
+    for word in words:
+        if word in frequencies.keys():
+            frequencies[word] += 1
+        else:
+            frequencies[word] = 1
+
+    return frequencies
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
-#test test ERik
 
 def remove_filler_words(frequency_table):
     """
@@ -59,7 +85,8 @@ def remove_filler_words(frequency_table):
     Målet med denne funksjonen er at den skal få en frekvenstabll som input og så fjerne alle fyll-ord
     som finnes i FILL_WORDS.
     """
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    return {k: v for (k, v) in frequency_table.items() if k not in FILL_WORDS}
 
 
 def largest_pair(par_1, par_2):
@@ -71,22 +98,35 @@ def largest_pair(par_1, par_2):
     """
     # OBS: Tenk også på situasjonen når to tall er lik! Vurder hvordan du vil handtere denne situasjonen
     # kanskje du vil skrive noen flere test metoder ?!
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    if par_1[1] >= par_2[1]:
+        return par_1
+    else:
+        return par_2
+    # hvis parene er like, blir første par returnert
+
 
 
 def find_most_frequent(frequency_table):
     """
     Nå er det på tide å sette sammen alle bitene du har laget.
-    Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
+    Denne funksjonen får frekvenstabllen som input og finner det ordet som dukket opp flest ganger.
     """
     # Tips: se på "dict.items()" funksjonen (https://docs.python.org/3/library/stdtypes.html#dict.items)
     # og kanskje du kan gjenbruke den "largest_pair" metoden som du nettopp har laget
-    return NotImplemented  # TODO: Du må erstatte denne linjen
+
+    highest_value = 0
+    highest_key = ''
+    for data in frequency_table.items():
+        if data[1] >= highest_value:
+            highest_value = data[1]
+            highest_key = data[0]
+    return highest_key
 
 
 ############################################################
 #                                                          #
-# Her slutter dendelen av filen som er relevant for deg ;-)#
+# Her slutter den delen av filen som er relevant for deg ;-)#
 #                                                          #
 ############################################################
 
