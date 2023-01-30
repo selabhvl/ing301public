@@ -1,7 +1,7 @@
 import gpsroute
 
-def main():
 
+def main():
     GPS_DATA_FILES = ['short', 'medium', 'long', 'vm']
 
     GPS_DATA_FILE = GPS_DATA_FILES[3]
@@ -20,6 +20,7 @@ def main():
 
     print("Total distance: {:.2f} km".format(total_distance_km))
     print("Average speed: {:.2f} km/h".format(total_distance_km / (total_time.total_seconds() / (60 * 60))))
+
 
 if __name__ == "__main__":
     main()
