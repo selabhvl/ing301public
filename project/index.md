@@ -41,7 +41,9 @@ Mer informasjon om de fire deloppgavene i prosjektet blir lagt ut fortløpende i
 
 ### Del A: Domenemodell og grunnlegende Funksjonaliteter
 
-I første prosjektsteg skal gruppen legge grunnlag for hele systemet ved å _planlegge_ og _implementere_ en _domenemodell_.
+I første prosjektsteg skal gruppen legge grunnlag for hele systemet ved å _planlegge_ og _implementere_ en _domenemodell_:
+
+[Se detaljer](./part_A.md)
 
 ### Del B: Datalagring
 
