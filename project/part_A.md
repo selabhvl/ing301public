@@ -40,8 +40,13 @@ I repository finner du i begynnelsen følgende filer:
 - `smarthouse_test.py` Denne filen inneholder enhetstester du kan kjøre for å teste din implementasjon.
 
 Hoveoppgaven er altså å fylle ut de manglende implementasjonene i `main.py` og `smarthouse.py` ved å lage spesifikke klasse i `devices.py`.
-Navnene til de enkelte funksjonene i `SmartHouse` klassen beskriver i grove trekk hva de skal gjøre.
-Men ta gjerne en titt på [Introduksjonen](./index.md) igjen for å forstå krav og bakgrunn.
+Mer konkret skal dere jobbe gjennom følgende steg:
+
+1. Les nøye gjennom [Problembeskrivelsen](./index.md) og lag deretter en _domenemodell_ (klassediagramm) av hele situasjonen. Du skal sannsynligvis lage forskjellige klasser for de foskjellige enhetene. Inkluder også de klassene som allerede finnes i `smarthouse.py`. Du kan tegne klassedigramm enten på ark og scanne dem eller bruk et grafisk verktøy som f.eks. [diagrams.net](https://www.diagrams.net/).
+2. Oversett deretter klassediagrammet til klasser i Python ved å utvide `devices.py` filen. Tenk også på metodene disse klassene skal ha.
+3. Etterpå kan dere implementere funksjone som registrer enheter på rom i huset i `smarthouse.py`.
+4. Når registreringsmuligheter er på plass kan du prøve å gjenskape en digital versjon av demo-huset (se nedenfor) ved å lage etasjer, rom, enheter i `build_demo_house()` i `main.py`.
+5. Til slutt kan dere implementere de resterende funksjonene i `smarthouse.py` og kjører testene for å sjekke om alt virker.
 
 
 ## Demo-Hus
