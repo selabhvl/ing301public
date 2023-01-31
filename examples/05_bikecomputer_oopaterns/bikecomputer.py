@@ -1,33 +1,10 @@
 from datetime import datetime, timedelta
 from typing import List, Optional, Tuple
-import random
-
-class SensorVisitor:
-
-    def handleSpeedometer(self, speed: float):
-        pass
-
-    def handleTemperature(self, temperature: float):
-        pass
-
-    def handleHeartFrequency(self, heart_freq: float):
-        pass
-
-    def handleGPS(self, gps: Tuple[float, float]):
-        pass
-
-
-class Sensor:
-
-    def __init__(self):
-        pass
-
-    def accept(self, visitor: SensorVisitor):
-        pass
+from sensors import Sensor, SensorVisitor, GPSSensor, TemperatureSensor, Speedometer
+from routes import RoutePoint, Route
 
 
 class Display:
-
 
     def __init__(self):
         self.speed = 0.0
@@ -36,115 +13,10 @@ class Display:
         self.current_distance = 0.0
 
 
-
-class RoutePoint:
-
-    def __init__(self, timestamp: datetime):
-        self.timestamp = timestamp
-        self.latitude = None
-        self.longitude = None
-        self.height = None
-        self.heart_frequency = None
-        self.temperature = None
-        self.velocity = None
-        self.next = None
-
-    def __repr__(self):
-        return f"{self.timestamp} ({self.latitude}, {self.longitude}) {self.height}m"
-
-
-class AbstractRoute:
-
-    def __init__(self):
-        self.totalLength = None
-        self.totalHeight = None
-        self.averageSpeed = None
-        self.maxSpeed = None
-        self.usedCalories = None
-
-    def calculateStatistic(self):
-        pass
-
-
-class RouteGroup(AbstractRoute):
-
-    def __init__(self, name: str):
-        self.name = name
-
-
-class RouteIterator:
-
-    def __init__(self, current: Optional[RoutePoint]):
-        self.current = current
-
-    def __next__(self):
-        result = self.current
-        if not result:
-            raise StopIteration()
-        self.current = result.next
-        return result
-
-
-class Route(AbstractRoute):
-
-    def __init__(self):
-        self.first = None
-        self.last = None
-
-    def add_point(self, point: RoutePoint):
-        if not self.first:
-            self.first = point
-            self.last = point
-        else:
-            self.last.next = point
-            self.last = point
-
-    def __iter__(self):
-        return RouteIterator(self.first)
-
-
-class GPSSensor(Sensor):
-
-    def get_position(self):
-        return (65.0 * random.random(), 7.0 * random.random())
-
-    def accept(self, visitor: SensorVisitor):
-        visitor.handleGPS(self.get_position())
-
-
-class Speedometer(Sensor):
-
-    def get_velocity(self) -> float:
-        return 20 * random.random()
-
-    def accept(self, visitor: SensorVisitor):
-        visitor.handleSpeedometer(self.get_velocity())
-
-
-class TemperatureSensor(Sensor):
-
-    def get_temperatur(self):
-        return 16 * random.random()
-
-    def accept(self, visitor: SensorVisitor):
-        visitor.handleTemperature(self.get_temperatur())
-
-
-class HeartFrequencySensor(Sensor):
-
-    def get_frequency(self):
-        return 140 * random.random()
-
-    def accept(self, visitor: SensorVisitor):
-        visitor.handleHeartFrequency(self.get_frequency())
-
-
-
 class CalculateSpeedStrategy:
 
     def calculate_speed(self) -> float:
         pass
-
 
 
 class LookAtSpeedometer(CalculateSpeedStrategy):
@@ -202,8 +74,6 @@ class BikeComputer:
                 sensor.accept(visitor)
             self.current_route.add_point(p)
 
-
-
     def update_speed(self):
         # TODO dangerous right now
         self.display.speed = self.speed_strategy.calculate_speed()
@@ -211,26 +81,23 @@ class BikeComputer:
 
 file = open("../03_gpsdata_oo/gpslogs/short.csv")
 
-# route = Route()
-# skip_count = 0
-# for line in file.readlines():
-#     if skip_count > 1:
-#         splt = line.split(",")
-#         route.add_point(RoutePoint(timestamp=datetime.fromisoformat(splt[0]),
-#                                    latitude=float(splt[1]),
-#                                    longitude=float(splt[2]),
-#                                    height=float(splt[3])))
-#     skip_count += 1
-#
-# file.close()
-#
-# print(route.first)
-# print(route.last)
-#
-# for point in route:
-#     print(point)
+route = Route()
+skip_count = 0
+for line in file.readlines():
+    if skip_count > 1:
+        splt = line.split(",")
+        point = RoutePoint(timestamp=datetime.fromisoformat(splt[0]))
+        point.latitude = float(splt[1])
+        point.longitude = float(splt[2])
+        point.height = float(splt[3])
+        route.add_point(point)
+    skip_count += 1
 
+file.close()
 
+print("From file")
+for point in route:
+    print(point)
 
 sensor1 = GPSSensor()
 sensor2 = TemperatureSensor()
@@ -239,6 +106,6 @@ d = Display()
 bc = BikeComputer(d, [sensor1, sensor2, sensor3])
 
 bc.record()
-
+print("From recording")
 for p in bc.current_route:
     print(p)
