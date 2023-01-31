@@ -16,6 +16,8 @@ def read_file(file_name):
     file = open(file_name, 'r', encoding="utf-8")
     lines = file.readlines()
     file.close()
+    
+    return lines 
 
 
 def lines_to_words(lines):
