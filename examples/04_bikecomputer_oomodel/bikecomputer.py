@@ -5,14 +5,15 @@ from typing import List
 class Sensor:
 
     def __init__(self):
-        self.x = 5
+        pass
+
+
 class BikeComputer:
     pass
 
 
 class Display:
     pass
-
 
 
 class GPSPoint:
@@ -22,7 +23,6 @@ class GPSPoint:
         self.latitude = latitude
         self.longitude = longitude
         self.height = height
-
 
 
 class Route:
@@ -39,10 +39,6 @@ class Route:
 
     def calculateStatistic(self):
         pass
-
-
-
-
 
 
 class GPSSensor(Sensor):

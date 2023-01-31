@@ -27,3 +27,12 @@ På forelesningen skal vi se på hvordan vi kan identifisere klasser og relasjon
 - Finne ut hvilke metoder og instansvariable klassene skal ha
 - Undersøke hvordan arv kan brukes ifm. modellering av problemstillingen
 - Begynne å realisere klassene i Python kode
+
+## Utvidelse Uke 5
+
+Vi antar nå at det har kommet inn noen nye/ mer spesifikke krav angående sykkecomputeren.
+Når en rute blir avsluttet skal den automatisk lagrest i en skyløsning (i første runden går vi utpå at vi barer lagrer den som en fil på disk).
+Ved oppstart av sykkelcomputeren skal den prøver å kobler seg på skyløsningen (dvs. leser filene på disk) og synkroniserer sine rutetdata slik at informasjon over alle tidligere ruter er tilgjengelig.
+I tillegg skal det være mmulig å lage rutegrupper.
+En rutegruppe har et navn og kan inneholde et valgfri antall ruter eller undergrupper.
+På en gruppe kan det føre samme type statistikk (total lenge, gjennomsnittsfart, ...) som på en rute.
