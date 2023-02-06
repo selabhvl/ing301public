@@ -36,12 +36,22 @@ tilbake en liste av tekststrenger som representerer linjene i filen.
 
 def read_file(file_name):
     myLines = []
-    file = open(file_name, "r", encoding="utf-8")
+    with open(file_name) as file:
+        for line in file:
+            myLines.append(line)
 
-    for line in file:
-        myLines.append(line.strip()) # Through some magic this removes newlines in our list. Lmao this was a lie.
 
-    filetext = file.read()
+
+    # file = open(file_name, "r", encoding="utf-8")
+
+
+
+    # for line in file:
+         # myLines.append(line.strip()) # Through some magic this removes newlines in our list.
+
+
+
+    #filetext = file.read()
     # print(myLines) # debugging
     return myLines
 
@@ -145,6 +155,7 @@ def largest_pair(par_1, par_2):
 
 def find_most_frequent(frequency_table):
     return max(frequency_table, key=frequency_table.get)
+
     """
     Nå er det på tide å sette sammen alle bitene du har laget.
     Den funksjonen får frekvenstabllen som innputt og finner det ordet som dykket opp flest.
