@@ -47,20 +47,22 @@ def read_file(file_name):
 
 def lines_to_words(lines):
     doneList = []
-    for word in lines:
-        r = re.compile(r'[\s{},.;:]+'.format(re.escape(punctuation))) # My dumb way of regexing the world.
-        wordList = r.split(word)  # split using regex
-        doneList += wordList    #add split word to a list
+    breaklineOfDeath = ['']
 
-        # String.Punctuation didnt catch everything i wanted it to, so were not using it.
-        # wordList = [words.split(punctuation) for words in line.split()]
+    for word in lines:
+         r = re.compile(r'[\s\n{},.;:]+'.format(re.escape(punctuation))) # My dumb way of regexing the world.
+         wordList = r.split(word) # split using regex
+         doneList += wordList    #add split word to a list
 
     wordListLower = [element.lower() for element in doneList]
-    # finalWordList = list(dict.fromkeys(wordListLower))  #Not clean, didnt work.
 
-    # print("lines to words returns: ") for item in wordListLower: print(item) #debugging
+    # for word in wordListLower:
+    #     if word in breaklineOfDeath:
+    #         wordListLower.remove(word)
+    # the same as
+    finalList = [word for word in wordListLower if word not in breaklineOfDeath]
 
-    return wordListLower
+    return finalList
 
     """
     Denne funksjonen får en liste med strenger som input (dvs. linjene av tekstfilen som har nettopp blitt lest inn)
@@ -97,10 +99,10 @@ def compute_frequency(words):
         else:   # Word doesnt exist
             frequency[word] = 1  # Set count to one.
 
-    # Deletes ASCII newline space which cant be eliminated with UTF-8 Regex. This is complex. No im not explaining.
-    del frequency[max(frequency, key=frequency.get)]
+    # Deletes ASCII newline space which cant be eliminated with UTF-8 Regex. (Not necessary anymore)
+    # del frequency[max(frequency, key=frequency.get)]
+
     return frequency
-    # i know it returns correctly, but i cant get it to print correctly no matter what. I give up, bad bitch vibes.
 
 
 FILL_WORDS = ['og', 'dei', 'i', 'eg', 'som', 'det', 'han', 'til', 'skal', 'på', 'for', 'då', 'ikkje', 'var', 'vera']
