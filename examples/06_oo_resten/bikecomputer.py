@@ -97,6 +97,6 @@ file.close()
 
 print("From file")
 
-print(round(route.calulate_total_length() / 1000, 2))
-print(round(route.calulate_total_time() / 3600, 2))
+print(f"{round(route.calulate_total_length() / 1000, 2)} km")
+print(f"{round(route.calulate_total_time() / 3600, 2)} h")
 

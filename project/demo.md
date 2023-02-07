@@ -14,7 +14,7 @@ Du finner en plantegning av dette huset nedenfor:
 ## Enheter
 
 På etasjeplanen ble også smarte enheter tegnet inn.
-Sensorer er tegnet i oransje og sensorer er tegnet i grønn.
+Aktuatorer er tegnet i oransje og sensorer er tegnet i grønn.
 Tabellen nedenfor gir detaljer hva type sensor/aktuator skjuler seg bak de enkelte tallene.
 
 | Nr. | Typ                 | Produsent                  | Produkt Navn        | Serienummer         |
