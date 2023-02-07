@@ -1,8 +1,10 @@
+import operator
 from datetime import datetime, timedelta
 from typing import List, Optional, Tuple
 from sensors import Sensor, SensorVisitor, GPSSensor, TemperatureSensor, Speedometer
 from routes import RoutePoint, Route
-
+from itertools import pairwise, starmap
+from functools import reduce
 
 class Display:
 
@@ -95,8 +97,12 @@ for line in file.readlines():
 
 file.close()
 
-print("From file")
+print("Total distance and time:")
 
-print(f"{round(route.calulate_total_length() / 1000, 2)} km")
-print(f"{round(route.calulate_total_time() / 3600, 2)} h")
+# Home Made aggregation
+print(f"{route.calulate_total_length()} m")
+print(f"{route.calulate_total_time()} s")
 
+# Library aggregation
+print(f"{reduce(operator.add, starmap(RoutePoint.distance_to, pairwise(route)), 0)} m")
+print(f"{reduce(operator.add, starmap(RoutePoint.time_difference, pairwise(route)), 0)} s")

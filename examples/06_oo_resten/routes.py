@@ -54,7 +54,7 @@ class RoutePoint:
         return d
 
     def time_difference(self, other):
-        diff = self.timestamp - other.timestamp
+        diff = other.timestamp - self.timestamp
         return diff.total_seconds()
 
 class AbstractRoute:
@@ -118,7 +118,7 @@ class Route(AbstractRoute):
         next_point = self.first.next
         total_time = 0
         while next_point:
-            total_time += operation(next_point, last_point)
+            total_time += operation(last_point, next_point)
             last_point, next_point = next_point, next_point.next
         return total_time
 
