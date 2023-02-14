@@ -40,6 +40,11 @@ def show_one_route(bc: BikeComputer):
     print(f"Average speed:   {route.averageSpeed} km/h")
     print(f"Max speed:       {route.maxSpeed} km/h\n")
 
+    print("Do you want to save this route as well?")
+    answer = bool(input())
+    if answer:
+        route.persist_alternative(f"data/route{id}.pickle")
+
 
 
 def simulate_ride(bc: BikeComputer):

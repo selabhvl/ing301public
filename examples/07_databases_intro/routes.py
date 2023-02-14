@@ -4,7 +4,7 @@ from typing import Optional, Callable
 import math
 from itertools import pairwise, starmap
 from functools import reduce
-
+import pickle
 
 def _compute_c(a):
     return 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
@@ -107,6 +107,19 @@ class Route(AbstractRoute):
         else:
             self.last.next = point
             self.last = point
+
+    def persist(self, location: str):
+        fil = open(location, "w", encoding="UTF-8", newline="\n")
+        fil.write("timestamp,lat,long,height\n")
+        for point in self:
+            fil.write(f"{point.timestamp},{point.latitude},{point.longitude},{point.height}\n")
+        fil.close()
+
+    def persist_alternative(self, location: str):
+        fil = open(location, "wb",)
+        pickle.dump(self, fil)
+        fil.close()
+
 
     def __iter__(self):
         return RouteIterator(self.first)
