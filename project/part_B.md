@@ -1,22 +1,24 @@
-# Projekt Del B: Persistens
+# Projekt Del B: Persistens og database
 
 ## Formål
 
-I det andre steget av prosjektet skal vi sørger for at den informasjonen som representeres som
+I det andre steget av prosjektet skal vi sørge for at den informasjonen som representeres som
 et objektstruktur på _runtime_ lagres permanent på en hard-disk slik at vi ikke mister noe
 informasjonen når programmet blir avsluttet.
+
 For å gjøre dette skal vi bruke det lettvekt databasesystem [SQLite](https://www.sqlite.org/index.html).
-Applikasjonen skal utvides slik 
-- at den kan leser byggningsstrukturen og enhetsinformasjoner fra databasen,
-- at tilstanden til aktuatorer lagres persistent i databasen og
-- at man kan kjøre noen statistiske analyser og spørringer på sensormålinger.
+
+Applikasjonen fra del A skal utvides slik at
+- den kan leser byggningsstrukturen og enhetsinformasjoner fra databasen,
+- tilstanden til aktuatorer lagres persistent i databasen og
+- man kan kjøre noen statistiske analyser og spørringer på sensormålinger.
 
 ## Setup
 
 For å gjøre denne oppgaven kan dere jobbe direkte videre på deres eksisterende prosjekt.
 Alternativ kan dere også bruke vår løsningsforslag til prosjekt del A som utgangspunkt.
 
-Vi antar at deres prosjekt repository ser altså noenlunne slik ut (eventuelt har dere ha laget flere Python filer?):
+Vi antar at deres prosjekt repository ser altså noenlunne slik ut (eventuelt har dere ha laget flere Python filer):
 ```
 .
 ├── README.md
@@ -27,7 +29,7 @@ Vi antar at deres prosjekt repository ser altså noenlunne slik ut (eventuelt ha
 ```
 
 Dere skal nå kopiere de tre filene som befinner seg [her](./startkode-del-b)
-inn i deres repository slik at den resulterende mappestrukturen ser slik ut.
+inn i deres repository slik den resulterende mappestrukturen ser ut som
 
 ```
 .
@@ -42,20 +44,18 @@ inn i deres repository slik at den resulterende mappestrukturen ser slik ut.
 └── smarthouse_test.py
 ```
 
-Som liten forklaring hva disse tre filene gjør:
+En liten forklaring på hva disse tre nye filene gjør:
 - `db.sqlite` SQLite database filen som inneholder et ferdig datasett dere skal jobbe videres med
-- `peristene.py` inneholder en enkelt database grensesnitt klasse (`SmartHousePersistence`) og en klasse med analysemetoder som dere skal utvikle.
-- `persistence_test.py` inneholder tester som dere kan bruke å sjekke om alt ønsket funksjonalitet har blitt utviklet.
+- `peristene.py` inneholder et enkelt database grensesnitt klasse (`SmartHousePersistence`) og en klasse med analysemetoder som dere skal utvikle.
+- `persistence_test.py` inneholder tester som dere kan bruke for å sjekke om alt ønsket funksjonalitet har blitt utviklet og fungerer.
 
+Videre forventer testene at `main.py` filen inneholder en funskjon `load_demo_house()` som skal erstatte `build_demo_house()` i det lange løpet.
 
-Desto videre forventer testene at `main.py` filen inneholder en funskjon `load_demo_house()` som skal erstatte `build_demo_house()`
-i det lange løpet.
-
-Dere sjak gå altså inn i `main.py` og så legge inn en import på toppen
+Dere sjak gå altså inn i `main.py` og legge inn en import på toppen
 ```python
 from persistence import SmartHousePersistence
 ```
-i tillegg lage en tom `load_demo_house()` funskjon slik et valgfri sted i filen:
+og i tillegg lage en tom `load_demo_house()` funksjon slik et valgfri sted i filen:
 
 ```python
 def load_demo_house(persistence: SmartHousePersistence) -> SmartHouse:
@@ -65,8 +65,8 @@ def load_demo_house(persistence: SmartHousePersistence) -> SmartHouse:
 ```
 
 Dere kan sjekke at alt er satt opp riktig ved kjøre testene i `persistence_test.py`.
-Nå dere kjører alle testen skulle ett av de seks test metodene i denne filen være _grønt_ mens de andre fem skal feile.
-Dvs. hvis dere bare kjører `test_db_ok` alene skal den bestå:
+Når dere kjører alle testen skal ett av de seks test metodene i denne filen være _grønt_ mens de andre fem skal feile.
+Dvs. hvis dere bare kjører `test_db_ok` alene skal den gi `OK`:
 
 ```
 Testing started at ...
@@ -81,31 +81,29 @@ Process finished with exit code 0
 
 ## Utforsk tabellen
 
-Oppgaven deres er altså nå til å få alle testene å bli grønn.
+Oppgaven deres er nå til å få alle testene å bli grønn.
 Før dere begynner med koding da, kan det være lurt å utforske databasen litt i forkant.
 Dere kan bruke et verktøy som [DBeaver](https://dbeaver.io/) til dette.
 
-
-Når dere åpner DBeaver for første gang skulle dere til venstre se et vindu som heter `Database Navigator`.
-Den ligner litt på en filtre "explorer".
+Når dere åpner DBeaver for første gang skal dere til venstre se et vindu som heter `Database Navigator`.
+Den ligner litt på filtre "explorer".
 
 **TIPPS**: Hvis man har rotet seg bort å forskyvet vinduene hit og dit kan man komme seg tilbake til
 utgangspunktet ved å trykke på `Window` (i vindu menyen) -> `Reset Perspective`.
 
 
-Gjør så en høyreklikk i `Database Navigator` og 
-`Create` > `Connection` i kontekstmenyen.
+Gjør så en høyreklikk i `Database Navigator` og  `Create` > `Connection` i kontekstmenyen.
 I det nye vinduet som kommer opp, velg `SQLite` og så `Next`.
 Cursoren skulle stå i et felt som heter `Path`.
-Her skal vi skrive inn filstien til `db.sqlite` filen på deres system.
+Her skal vi skrive inn filstien til `db.sqlite` filen.
 
 For å finne filstien kan dere
 - Hvis dere bruker PyCharm: I Project-Explorer ved å høyreklikke på filen og så `Copy Path / Reference` -> `Absolute Path`.
 - I VS Code: Skrive `pwd` i terminalvinduet, kopiere inn den stien som blir gitt ut som resultat og setter `db.sqlite` på slutten.
 
-Nå kan dere lime den stien inn vi nettopp hadde kopiert i DBeaver vinduet.
-Hvis dere trykker på `Connection details (type, name, ...)` knappen  åpner det seg et nytt vindu da dere kan
-gi et mer talende navn til forbindelsen, f.eks `ING301ProjectB`.
+Nå kan dere lime inn den stien vi nettopp hadde kopiert i DBeaver vinduet.
+Hvis dere trykker på `Connection details (type, name, ...)` knappen åpnes et nytt vindu da dere kan
+gi et mer dekkende navn til forbindelsen, f.eks `ING301ProjectB`.
 Dere avslutte med å trykke på `Finish`.
 
 Den nye forbindelsen dykker nå opp i `Database Navigator`.
@@ -130,7 +128,7 @@ vil gi der romstrukturen av det demohuset dere kjenner fra første delen.
 Målet er som sagt å få alle testene grønt.
 Testene kan deles inn i tre grupper:
 
-`test_loading_demo_house` tester om dere ha `load_demo_house` i `main.py` riktig implementert.
+`test_loading_demo_house` tester om dere har `load_demo_house` i `main.py` riktig implementert.
 Den metoden skal lese romstrukturen og enhetsinformasjonen fra databasen og bygge opp
 objesktrukturen av demo huset litt sånn som dere har gjort det i `build_demo_house`.
 
@@ -142,9 +140,10 @@ I tillegg må `Device` (sub)klassene kanskje utvides at disse vet om deres datab
 
 De resterende testene `test_analytics_easy`, `test_analytics_medium` og `test_analytics_advanced` tester
 funksjonaliteten av `SmartHouseAnalytics` klassen.
-Denne inneholder jo en del tomme funksjoner som dere skal lage innhold for.
+Denne inneholder en del tomme funksjoner som dere skal lage innhold for.
 Konkret må dere skrive et tilsvarende `SELECT` spørring.
-Dette kan være greit å utvikle in DBeaver først før dere legger det inn i et `cursor.execute("...")`
+
+Det kan være greit å utvikle i DBeaver først før dere legger det inn i et `cursor.execute("...")`
 Spørringene tar seg gradvis opp i vanskelighetsgraden.
 Akkurat det siste kan være litt "tricky", følgende ressurser kunne være hjelpsom der:
 
