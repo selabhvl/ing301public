@@ -45,6 +45,8 @@ I første prosjektsteg skal gruppen legge grunnlag for hele systemet ved å _pla
 
 [Se detaljer](./part_A.md)
 
+[Løsningsforslag](https://github.com/selabhvl/ing301-projectpartA-solution)
+
 ### Del B: Datalagring
 
 I neste steg skal gruppen sørge få at informasjon blir lagret permanent på en harddisk når systemet avsluttes og at denne lagrete informasjonen kan leses igjen. Dette skal gjøres via database-teknologi.

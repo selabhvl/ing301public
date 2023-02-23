@@ -16,7 +16,9 @@ Applikasjonen fra del A skal utvides slik at
 ## Setup
 
 For å gjøre denne oppgaven kan dere jobbe direkte videre på deres eksisterende prosjekt.
-Alternativ kan dere også bruke vår løsningsforslag til prosjekt del A som utgangspunkt.
+Alternativ kan dere også bruke vår løsningsforslag til prosjekt del A som utgangspunkt:
+
+[Løsningsforslag](https://github.com/selabhvl/ing301-projectpartA-solution)
 
 Vi antar at deres prosjekt repository ser altså noenlunne slik ut (eventuelt har dere ha laget flere Python filer):
 ```
