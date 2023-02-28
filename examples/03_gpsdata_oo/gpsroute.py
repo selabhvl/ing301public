@@ -1,5 +1,4 @@
-import haversine
-import gpspoint
+from gpspoint import GPSPoint
 
 
 class GPSRoute:
@@ -12,10 +11,10 @@ class GPSRoute:
         for line in lines:
             if counter > 1:
                 split_line = line.split(',')
-                gps_point = gpspoint.GPSPoint(time=split_line[0],
-                                              lat=float(split_line[1]),
-                                              long=float(split_line[2]),
-                                              height=float(split_line[3]))
+                gps_point = GPSPoint(time=split_line[0],
+                                     lat=float(split_line[1]),
+                                     long=float(split_line[2]),
+                                     height=float(split_line[3]))
                 self.gps_points.append(gps_point)
             counter += 1
 
@@ -35,6 +34,5 @@ class GPSRoute:
         for i in range(0, len(self.gps_points) - 1):
             from_point = self.gps_points[i]
             to_point = self.gps_points[i + 1]
-            distance = haversine.distance(from_point.lat, from_point.long, to_point.lat, to_point.long)
-            total_distance += distance
+            total_distance += from_point.distance(to_point)
         return total_distance

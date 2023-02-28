@@ -25,4 +25,4 @@ Dere skal
 
 For å friske opp Python kunnskap kan du lese gjennom [denne side](python-overview.md).
 
-[Kode for det grunnleggende GPS data eksemplet](../../examples/gpsdata_basic/)  
+[Kode for det grunnleggende GPS data eksemplet](../../examples/gpsdata_reference/)  
