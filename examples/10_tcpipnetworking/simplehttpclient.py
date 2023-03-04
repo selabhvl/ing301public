@@ -6,7 +6,7 @@ import requests
 # Let the user provide the URL of the resource to be retreived
 url = input("URL:>")
 
-# Send the HTTTP Get Request
+# Send the HTTTP GET Request
 response = requests.get(url)
 
 # Print the body of the HTTP response being returned
