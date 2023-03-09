@@ -21,10 +21,11 @@ def main(server_host: str, server_port: int, no_points: int):
 
         gps_point = sensor.read()
 
-        # message = str(gps_point)
+        print("UDP client GPS point to be sent:" + str(gps_point))
+
         message = gps_point.to_json()
 
-        print("UDP client sending: " + str(message))
+        # print("UDP client sending: " + str(message))
 
         # Encode message string into bytes using UDT-8 (the default)
         bytes_to_send = str.encode(message)

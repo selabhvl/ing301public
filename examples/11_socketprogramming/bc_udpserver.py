@@ -1,4 +1,5 @@
 import socket
+from typing import Optional, List, Dict, Tuple
 
 from gpspoint import GPSPoint
 import common
@@ -15,7 +16,7 @@ def main(server_host, server_port):
 
         print("UDP server on port:" + str(server_port))
 
-        route = list()
+        route: List[GPSPoint] = list()
 
         while True:
 
@@ -25,9 +26,11 @@ def main(server_host, server_port):
 
             message = bytes_received.decode('UTF-8')
 
-            print("UDP server received: " + message)
+            # print("UDP server received: " + message)
 
             gps_point = GPSPoint.from_json(message)
+
+            print("UDP client GPS point received:" + str(gps_point))
 
             route.append(gps_point)
 
