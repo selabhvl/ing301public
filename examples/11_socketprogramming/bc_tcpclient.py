@@ -12,6 +12,8 @@ def main(server_host, server_port, no_points):
     sensor = GPSSensor(1)
     route = list()
 
+    print(f"TCP client {server_host}:{server_port}")
+
     print("TCP client generating GPS points ...")
 
     for i in range(0, no_points):

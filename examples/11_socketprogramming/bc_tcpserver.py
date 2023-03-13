@@ -12,6 +12,8 @@ def main(server_host, server_port):
     welcome_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     welcome_socket.bind((server_host, server_port))
 
+    print(f"TCP server {server_host}:{server_port}")
+
     # enable server to accept connections on welcome socket
     welcome_socket.listen()
 
