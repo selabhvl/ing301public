@@ -12,7 +12,7 @@ def main(server_host: str, server_port: int, no_points: int):
 
     sensor = GPSSensor(1)
 
-    print("UDP client started")
+    print(f"UDP client started: {server_host}:{server_port}")
 
     # create UDP socket for sending data
     udp_client_socket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)

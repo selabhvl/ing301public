@@ -14,7 +14,7 @@ def main(server_host, server_port):
 
         udp_server_socket.bind((server_host, server_port))
 
-        print("UDP server on port:" + str(server_port))
+        print(f"UDP server: {server_host}:{server_port}")
 
         route: List[GPSPoint] = list()
 
