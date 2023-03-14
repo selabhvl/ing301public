@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "3b3ba94c-5a33-472a-9252-ff7db5f923c5",
+		"name": "ING301 - Bikecomputer RestAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4079450"
+	},
+	"item": [
+		{
+			"name": "GET root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000",
+					"host": [
+						"localhost"
+					],
+					"port": "8000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET routes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/route/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST route",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"gps_points\": []}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/route/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET route",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/route/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE route",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/route/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT route",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \"gps_points\": [\n      { \"lat\": 5.0,\n        \"long\": 60.0,\n        \"height\": 7.5 \n      }\n  ]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/route/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET points",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/route/3/gpspoint",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						"3",
+						"gpspoint"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET point",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/route/3/gpspoint/0",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						"3",
+						"gpspoint",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT point",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lat\": 5.0,\n    \"long\": 65.0,\n    \"height\": 7.5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/route/3/gpspoint/0",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						"3",
+						"gpspoint",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST point",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lat\": 5.0,\n    \"long\": 65.0,\n    \"height\": 17.5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/route/3/gpspoint/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						"3",
+						"gpspoint",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE point",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/route/3/gpspoint/0",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						"3",
+						"gpspoint",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
