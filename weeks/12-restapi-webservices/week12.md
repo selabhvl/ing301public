@@ -18,4 +18,4 @@ For test av REST API skal vi bruke Postman:
 
 I prosjektet, del C skal dere utviklen en REST API for SmartHouse-caset og bruke FastAPI og Postman. 
 
-Del C av prosjektet il bli introdusert på slutten av undervisningen og der vil også være tid til å få FastAPI og Postman.
+Del C av prosjektet vil bli introdusert på slutten av undervisningen og der vil også være tid til å få FastAPI og Postman.
