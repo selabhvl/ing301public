@@ -5,6 +5,8 @@
 # Running the REST services in the uvicorn web server
 # uvicorn main:app --reload
 
+import uvicorn
+
 from fastapi import FastAPI, Response, status
 
 from routes import Routes, Route, GPSPoint
@@ -62,7 +64,6 @@ def delete_route(rid: int, response: Response):
     return None
 
 
-
 @app.get("/route/{rid}/gpspoint")
 def read_gps_points(rid: int, response: Response):
     gps_points = routes.read_gpspoints(rid)
@@ -76,8 +77,9 @@ def read_gps_points(rid: int, response: Response):
 
 @app.get("/route/{rid}/gpspoint/{pid}")
 def read_gps_point(rid: int, pid: int, response: Response):
-    print(f"rid: {rid} pid: {pid}")
+
     gps_point = routes.read_gpspoint(rid, pid)
+
     if gps_point:
         return gps_point
     else:
@@ -112,3 +114,7 @@ def delete_gps_point(rid: int, pid: int, response: Response):
         response.status_code = status.HTTP_404_NOT_FOUND
 
     return None
+
+
+if __name__ == '__main__':
+    uvicorn.run(app, host="127.0.0.1", port=8000)
