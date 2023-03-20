@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = "https://dweet.io:443/dweet/for/ing301"
+url = "https://dweet.io:443/dweet/for/ing301topic"
 
 payload = json.dumps({
   "melding": "forelesning nå i ing301"
