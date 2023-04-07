@@ -18,12 +18,24 @@ class Measurement:
 
         self.lock.release()
 
-        # TODO: signal any waiting display threads
+    def get(self):
 
-    # TODO: introduce read method that returns a tuple and which is locked
-    # wait here for signal
+        self.lock.acquire()
+
+        current_temp = self.current_temp
+        min_temp = self.min_temp
+        max_temp = self.max_temp
+
+        self.lock.release()
+
+        return current_temp, min_temp, max_temp
 
     def __str__(self):
 
-        return f'({self.current_temp})[{self.max_temp};{self.min_temp}]'
+        current_temp, max_temp, min_temp = self.get()
+
+        temp_str = f'({current_temp})[{max_temp};{min_temp}]'
+
+        return temp_str
+
 
