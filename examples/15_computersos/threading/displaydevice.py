@@ -1,10 +1,14 @@
+import time
+from threading import Thread
+
 from measurement import Measurement
 
 
-class DisplayDevice:
+class DisplayDevice(Thread):
 
     def __init__(self, measurement: Measurement):
         self.measurement = measurement
+        super().__init__()
 
     def display(self):
 
@@ -19,5 +23,7 @@ class DisplayDevice:
         for i in range(0, COUNT):
 
             self.display()
+
+            time.sleep(1)
 
         print("Display stopped")
