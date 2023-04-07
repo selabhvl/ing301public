@@ -1,24 +1,25 @@
 import time
-from threading import Thread
+import logging
 
+from threading import Thread
 from measurement import Measurement
 
 
 class DisplayDevice(Thread):
 
     def __init__(self, measurement: Measurement):
-        self.measurement = measurement
         super().__init__()
+        self.measurement = measurement
 
     def display(self):
 
-        print(f"DISPLAY: {self.measurement}")
+        logging.info(f"DISPLAY: {self.measurement}")
 
     def run(self):
 
         COUNT = 10
 
-        print("Display started")
+        logging.info("Display started")
 
         for i in range(0, COUNT):
 
@@ -26,4 +27,4 @@ class DisplayDevice(Thread):
 
             time.sleep(1)
 
-        print("Display stopped")
+        logging.info("Display stopped")

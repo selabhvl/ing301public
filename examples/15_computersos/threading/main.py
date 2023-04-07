@@ -5,9 +5,15 @@
 # udvide med min / maks slik det går an å få race condition
 # TODO: swith to using logging and not print?
 
+import time
+import logging
+
 from measurement import Measurement
 from displaydevice import DisplayDevice
 from sensordevice import SensorDevice
+
+log_format = "%(asctime)s: %(message)s"
+logging.basicConfig(format=log_format, level=logging.INFO, datefmt="%H:%M:%S")
 
 measurement = Measurement()
 
@@ -16,15 +22,21 @@ sensor = SensorDevice(measurement)
 
 # a) without threading
 display.display()
+
 sensor.read()
+time.sleep(3)
+display.display()
+
+sensor.read()
+time.sleep(3)
 display.display()
 
 # b) limitation without threading
-# display.run()
-# sensor.run()
+#display.run()
+#sensor.run()
 
 # c) with threading
-print("Starting system")
+logging.info("Starting multi-threaded system")
 
 display.start()
 sensor.start()
@@ -33,7 +45,9 @@ sensor.start()
 display.join()
 sensor.join()
 
-print("Stopping system")
+logging.info("Stopping multi-threaded system")
+
+display.display()
 
 
 
