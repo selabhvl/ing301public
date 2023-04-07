@@ -21,15 +21,15 @@ display = DisplayDevice(measurement)
 sensor = SensorDevice(measurement)
 
 # a) without threading
-display.display()
+# display.display()
 
-sensor.read()
-time.sleep(3)
-display.display()
+# sensor.read()
+# time.sleep(3)
+# display.display()
 
-sensor.read()
-time.sleep(3)
-display.display()
+# sensor.read()
+# time.sleep(3)
+# display.display()
 
 # b) limitation without threading
 #display.run()
@@ -47,7 +47,11 @@ sensor.join()
 
 logging.info("Stopping multi-threaded system")
 
-display.display()
+# e) locks
+
+# f) signalling with condition variables eliminating sleep in measurement?
+
+# g) multiple displays - notify all
 
 
 
