@@ -7,24 +7,25 @@ from measurement import Measurement
 
 class DisplayDevice(Thread):
 
-    def __init__(self, measurement: Measurement):
+    def __init__(self, did: int, measurement: Measurement):
         super().__init__()
+        self.did = did
         self.measurement = measurement
 
     def display(self):
 
-        logging.info(f"DISPLAY: {self.measurement}")
+        logging.info(f"DISPLAY DEVICE [{self.did}]: {self.measurement}")
 
     def run(self):
 
         COUNT = 10
 
-        logging.info("Display started")
+        logging.info(f'Display [{self.did}] started')
 
         for i in range(0, COUNT):
 
             self.display()
 
-            time.sleep(1)
+            # time.sleep(1) # not needed with condition variables
 
-        logging.info("Display stopped")
+        logging.info(f'Display [{self.did}]  stopped')

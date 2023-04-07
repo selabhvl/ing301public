@@ -14,7 +14,6 @@ class SensorDevice(Thread):
         self.sensor = Sensor()
         self.measurement = measurement
 
-
     def read(self):
 
         new_temp = self.sensor.read()
@@ -22,7 +21,7 @@ class SensorDevice(Thread):
 
         logging.info(f'SENSOR DEVICE: {new_temp}')
 
-        return self.measurement.current_temp
+        return new_temp
 
     def run(self):
 
@@ -34,7 +33,7 @@ class SensorDevice(Thread):
 
             read_temp = self.read()
 
-            time.sleep(2)
+            time.sleep(3)
 
         logging.info("Sensor stopped")
 

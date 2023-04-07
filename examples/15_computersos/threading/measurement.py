@@ -1,3 +1,4 @@
+import threading
 from threading import Lock
 
 
@@ -8,6 +9,7 @@ class Measurement:
         self.min_temp = 0.0
         self.max_temp = 0.0
         self.lock = Lock()
+        self.condition = threading.Condition()
 
     def update(self, new_current_temp):
         self.lock.acquire()
@@ -18,7 +20,15 @@ class Measurement:
 
         self.lock.release()
 
+        # notify that measurements has been updated
+        with self.condition:
+            self.condition.notify_all()
+            # self.condition.notify()
+
     def get(self):
+
+        with self.condition:
+            self.condition.wait()
 
         self.lock.acquire()
 
