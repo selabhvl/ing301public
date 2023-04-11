@@ -6,7 +6,7 @@ from measurement import Measurement
 
 
 # class DisplayDevice(Thread):
-class DisplayDevice(Thread):
+class DisplayDevice:
 
     def __init__(self, did: int, measurement: Measurement):
         super().__init__()
