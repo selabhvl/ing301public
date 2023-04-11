@@ -15,48 +15,34 @@ measurement = Measurement()
 display = DisplayDevice(1, measurement)
 sensor = SensorDevice(measurement)
 
-# a) without threading
-# display.display()
+# a) limitation without threading
+display.run()
+sensor.run()
 
-# sensor.read()
-# time.sleep(3)
-# display.display()
+# b) with threading
+# logging.info("Starting multi-threaded system")
 
-# sensor.read()
-# time.sleep(3)
-# display.display()
+# display.start()
+# sensor.start()
 
-# b) limitation without threading
-#display.run()
-#sensor.run()
+# f) multiple displays - notify all
 
-# c) with threading
-logging.info("Starting multi-threaded system")
+second_display = DisplayDevice(2, measurement)
+second_display.start()
 
-seconddisplay = DisplayDevice(2, measurement)
+# c) wait for thread to finish
+# display.join()
+# sensor.join()
+# seconddisplay.join()
 
-display.start()
+## d) locks
 
-seconddisplay.start()
+## e) condition variables
 
-sensor.start()
-
-# d) wait for thread to finish
-display.join()
-seconddisplay.join()
-sensor.join()
-
-logging.info("Stopping multi-threaded system")
-
-# e) locks
-
-# f) signalling with condition variables eliminating sleep in measurement?
-
-update_available = threading.Condition()
-
-# g) multiple displays - notify all
+# logging.info("Stopping multi-threaded system")
 
 
 
+s
 
 

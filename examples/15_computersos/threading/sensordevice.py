@@ -6,8 +6,10 @@ from threading import Thread
 from measurement import Measurement
 from sensor import Sensor
 
+# class SensorDevice(Thread):
 
-class SensorDevice(Thread):
+
+class SensorDevice:
 
     def __init__(self, measurement: Measurement):
         super().__init__()

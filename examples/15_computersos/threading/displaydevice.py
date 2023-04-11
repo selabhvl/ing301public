@@ -5,6 +5,7 @@ from threading import Thread
 from measurement import Measurement
 
 
+# class DisplayDevice(Thread):
 class DisplayDevice(Thread):
 
     def __init__(self, did: int, measurement: Measurement):
@@ -26,6 +27,6 @@ class DisplayDevice(Thread):
 
             self.display()
 
-            # time.sleep(1) # not needed with condition variables
+            time.sleep(1) # not needed when condition variables are introduced
 
         logging.info(f'Display [{self.did}]  stopped')
