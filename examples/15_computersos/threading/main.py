@@ -33,7 +33,7 @@ display.run()
 # c) wait for thread to finish
 # display.join()
 # sensor.join()
-# seconddisplay.join()
+# second_display.join()
 
 ## d) locks
 
