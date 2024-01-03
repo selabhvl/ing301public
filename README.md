@@ -2,7 +2,7 @@
 
 Velkommen til ING301 sin sentrale oppbevaringsplass for kodeeksempler fra forelesningene, start-kode for programmeringsoppgaver med mer.
 
-Oppbevaringsplassen inneholder en del kode, eksempler og lenker fra siste år. Mye av dette vil bli oppdatert eller endret - så ikke bruk tid på materiale som legger fler uker ut i fremtiden. 
+Oppbevaringsplassen inneholder en del kode, eksempler og lenker fra siste år. **Mye av dette vil bli oppdatert eller endret** - så ikke bruk tid på materiale som legger fler uker ut i fremtiden. 
 
 ## Aktuell oversikt - vil bli oppdatert etterhvert utover semestret.
 
