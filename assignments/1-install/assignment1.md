@@ -124,5 +124,3 @@ and also your repository layout looks alright!
 ```
 
 Dette betyr at du har klart til å laste ned startkoden gjennom `git` og at din maskin er klar til å skrive og kjøre Python kode! 
-
-Hvis du vil kan du nå hoppe direkte inn din første riktige programmeringsoppgave: [HOPP!](../2-programming/assignment2.md)
