@@ -11,7 +11,7 @@ Innleveringsfrist: se Canvas.
 ## Steg 1: Kom i gang
 
 Før vi begynner må vi være sikre at alle har installert verktøyene som trengs. Det vil si
-- En aktuell versjon av [Python](https://www.python.org/). Den mest aktuelle versjonen akkurat nå er _3.11.1_. Hvis du har allerede installert Python på din maskin, sjekk at den har et versjonsnummer som begynner på _3_!
+- [Python](https://www.python.org/). Hvis du har allerede installert Python på din maskin, sjekk at den har et versjonsnummer som begynner på _3_!
 - Versjoneringssystemet for kode [Git](https://git-scm.com/). 
 
 Se også **video på Canvas** om installasjon av Python programmeringsmiljø.
@@ -53,7 +53,6 @@ som IDE og
 
 for å jobbe med git/GitHub.
 
-
 ## Steg 2: Lage GitHub bruker og "forke" en repository
 
 ### 2.1 Lage en ny GitHub bruker
@@ -90,7 +89,6 @@ Nå er det på tide å sjekke ut ING301 repo'en. Bruke følgende kommando:
 ```bash
 git clone <Github URL du har kopiert tidligere>
 ```
-
 
 ## Steg 3: Skrive og teste Python kode
 
