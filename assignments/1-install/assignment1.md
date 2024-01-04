@@ -1,5 +1,4 @@
-# Oppgaver - Uke 2
-
+# Oppgave 1 - Installasjon av utviklingsmiljø
 
 Målet med denne første _obligatoriske_ oppgave er å sikre at alle har et fungerende utviklingsmiljø for Python programmering og dele koden med andre.
 
@@ -12,7 +11,7 @@ Før vi begynner må vi være sikre på at dere alle har installert verktøyene 
 Det vil si
 - [Python](https://www.python.org/) fortolkeren og standard biblioteker. Hvis du har allerede installert Python på din maskin, sjekk at den har et versjonsnummer som begynner på _3_!
 - Klient for [Git](https://git-scm.com/) versjoneringssystemet for samarbeid og deling av kode 
-- 
+- Et integrert utviklingsmiljø for Python
 
 Lenker til installasjonsinstruksjoner for de forsjellige operativsystemer finder du nedenfor
 
@@ -49,48 +48,41 @@ og som grafisk klient for git/GitHub:
 
 - [GitHub for Desktop](https://desktop.github.com/)
 
-## Steg 2: Lage GitHub bruker og "clone" ING301 oppbevaringsplassen (repository)
+## Steg 2: Lage GitHub bruker 
 
-### 2.1 Lage en ny GitHub bruker
-(Skulle du allerede ha en GitHub bruker fra før kan du hoppe direkte til 2.2)
+Vi skal bruke sky-tjenesten [GitHub](https://github.com)] for å dele eksempel kode for forelesninger og for at dere kan jobbe sammen i grupper om programmering. Du trenger derfor en bruker på github. Om du allerede har en github brukerkonto kan du hoppe direkte til neste steg.
 
-Først, gå til https://github.com/ i din nettleser!
+Først, gå til https://github.com/ i din nettleser! På hovedsiden trykker du nå på _Sign Up_. Du blir bedt til å gi fra deg en epost adresse (Du kan bruke din HVL-epost-adresse) og sette et password. Pass på at lagrer dine pålogginsinformasjon på et sikkert sted (f.eks. ved å bruke en _Password Manager_).
 
-På hovedsiden trykker du nå på _Sign Up_.
+## Steg 3: Clone ing301public oppbevaringsplassen
 
-Du blir bedt til å gi fra deg en epost adresse (Du kan bruke din HVL-epost-adresse) og sette et password.
-
-Pass på at lagrer dine pålogginsinformasjon på et sikkert sted (f.eks. ved å bruke en _Password Manager_).
-
-### Steg 2: Forke ing301public repository
+Vi skal bruke oppbevaringsplassen  https://github.com/selabhvl/ing301public for kode-eksempler fra forelesninger og annen informasjon knyttet til Python programmering.
 
 Sjekk at du er logget på GitHub og besøk: https://github.com/selabhvl/ing301public
 
-Oppe til høyre finner du en knapp `Fork`. Trykk på den!
-
-![Forke en Repository på Github Skjermbilde](../../resources/images/github-forking.jpg)
-
-Det åpner seg et nytt vindu. Her kunne du gi et nytt navn til repository kopien som blir laget nå. Men du kan bruke standardinstillingene og trykke på `Create fork`.
-
-![Create Fork Skjermbilde](../../resources/images/github-fork-create.jpg)
-
-Du vil bli ledet videre til en side som viser en fullstending kopi av `ing301public` berre at denne tilhører din egen brukerkonto.
-
-Klikk nå den grønne `Code` knappen og kopier den URLen du ser i den dialogen som åpner seg.
+Oppe til høyre finner du en grønn knapp `Code`. Trykk på den og kopier den URLen du ser i den dialogen som åpner seg.
 
 Lag nå en mappe på din harddisk på filsti som er lett å huske, f.eks. `C:\Users\<dinbrukernavn>\ING301\` (eller `/home/<dinbrukernavn>/ING301/` på Linux/Mac). 
 Åpner en _Terminal vindu_ og navigere til denne filstien.
 
-Nå er det på tide å sjekke ut ING301 repo'en. Bruke følgende kommando:
+Nå er det på tide å clone ING301 repo'en. Bruke følgende kommando:
 ```bash
 git clone <Github URL du har kopiert tidligere>
 ```
 
-## Steg 3: Skrive og teste Python kode
+Oppbevaringsplassen https://github.com/selabhvl/ing301public vil bli oppdatert etterhvert utover semestret. For å oppdatere din lokale kopi bruk:
+
+```bash
+git pull 
+```
+
+i mappen der din lokale kopi av oppbevaringsplassen ligger.
+ 
+## Steg 4: Skrive og teste Python kode
 
 Nå er det på tide å sette i gang for fult! Vi skal skrive vår første kode i ING301!
 
-Forutsetningen er at du har klart å sjekke ut en lokal kopi av din "_forked_" versjon av `ing301public`. 
+Forutsetningen er at du har klart å sjekke ut en lokal kopi av `ing301public`. 
 
 Du skal nå åpne denne `ing301public`-mappen i en IDE:
 
@@ -104,7 +96,8 @@ File > Open Folder ... > (navigate to the ing301public folder on your disk) > "Y
 File > Open > (navigate to the ing301public folder on your disk) > Trust Project > This Window (if you are asked)
 ```
 
-Uansett på hvilket IDE du bruker, på venstre siden skulle du se "filtræet" med selve `ing301public` mappen som rot. 
+Uansett hvilken IDE du bruker skal du på venstre siden se "filtræet" med selve `ing301public` mappen som øverste nivå.
+ 
 I dette træet navigere ned til `assignments/1-install/testinstall.py`. 
 Både VS Code og PyCharm tilbyr en mulighet til å direkte "kjøre" filen fra editoren (_Bare trykk på den "Spill av" knappen_).
 Alternativt kan du kjøre filen fra en _Terminal_ slikt:
