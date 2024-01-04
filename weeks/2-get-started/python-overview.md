@@ -3,12 +3,6 @@
 
 Denne siden er tenkt som veldig kjapt innføring og repetisjon av sentrale elementer i Python programmeringsspråket. 
 Noen begreper er omskrevet veldig grovt og vi viser til forskjellige kapitler i boken _Practical Programming_.
-Vi anbefaler derfor at du supplerer teksten her med andre ressurser, f.eks.:
-
-
-- [Python Lærepgrogram på W3Schools](https://www.w3schools.com/python/)
-- [Python Standard Bibliotek Oversikt](https://docs.python.org/3/library/index.html)
-- [Det offisielle Python Læreprogram](https://docs.python.org/3/tutorial/index.html)
 
 ## Utføre Python kode
 
