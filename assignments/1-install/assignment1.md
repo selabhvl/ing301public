@@ -56,60 +56,43 @@ Først, gå til https://github.com/ i din nettleser! På hovedsiden trykker du n
 
 ## Steg 3: Clone ing301public oppbevaringsplassen
 
-Vi skal bruke oppbevaringsplassen  https://github.com/selabhvl/ing301public for kode-eksempler fra forelesninger og annen informasjon knyttet til Python programmering.
+Vi skal bruke oppbevaringsplassen  
 
-Sjekk at du er logget på GitHub og besøk: https://github.com/selabhvl/ing301public
+> <https://github.com/selabhvl/ing301public>
+
+for kode-eksempler fra forelesninger og annen informasjon.
+
+Sjekk at du er logget på GitHub og åpne gitt URL i din nettleser.
 
 Oppe til høyre finner du en grønn knapp `Code`. Trykk på den og kopier den URLen du ser i den dialogen som åpner seg.
 
-Lag nå en mappe på din harddisk på filsti som er lett å huske, f.eks. `C:\Users\<dinbrukernavn>\ING301\` (eller `/home/<dinbrukernavn>/ING301/` på Linux/Mac). 
-Åpner en _Terminal vindu_ og navigere til denne filstien.
+Lag nå en mappe på din harddisk bak en filsti som er lett å huske, f.eks. `C:\Users\<dinbrukernavn>\ING301\` (eller `/home/<dinbrukernavn>/ING301/` på Linux/Mac). 
+I neste steg kan du åpne et _terminal_ vindu og navigere deg til samme filstien ved å bruke `cd`.
 
-Nå er det på tide å clone ING301 repo'en. Bruke følgende kommando:
+Du kloner en repository ved å utføre følgende kommando i terminalvinduet:
+
 ```bash
-git clone <Github URL du har kopiert tidligere>
+git clone <https://github.com/selabhvl/ing301public>
 ```
 
-Oppbevaringsplassen https://github.com/selabhvl/ing301public vil bli oppdatert etterhvert utover semestret. For å oppdatere din lokale kopi bruk:
+Repositoriet vil bli oppdatert i løpet av kurset. For å få med deg de siste oppdateringene kan du bruke:
 
 ```bash
 git pull 
 ```
 
-i mappen der din lokale kopi av oppbevaringsplassen ligger.
- 
 ## Steg 4: Skrive og teste Python kode
 
-Nå er det på tide å sette i gang for fult! Vi skal skrive vår første kode i ING301!
-
-Forutsetningen er at du har klart å sjekke ut en lokal kopi av `ing301public`. 
-
-Du skal nå åpne denne `ing301public`-mappen i en IDE:
-
-**VS Code**
-```
-File > Open Folder ... > (navigate to the ing301public folder on your disk) > "Yes, I trust the authors"
-```
-
-**PyCharm**
-```
-File > Open > (navigate to the ing301public folder on your disk) > Trust Project > This Window (if you are asked)
-```
-
-Uansett hvilken IDE du bruker skal du på venstre siden se "filtræet" med selve `ing301public` mappen som øverste nivå.
- 
-I dette træet navigere ned til `assignments/1-install/testinstall.py`. 
-Både VS Code og PyCharm tilbyr en mulighet til å direkte "kjøre" filen fra editoren (_Bare trykk på den "Spill av" knappen_).
-Alternativt kan du kjøre filen fra en _Terminal_ slikt:
-```
-python3 <filsti her>/assignments/1-install/testinstall.py
+Til slutt skal vi teste om din Python installasjon virker som den skal.
+Antatt at du fortsatt har terminalvinduet åpen og befinner deg i mappen til `ing301public` som du nettopp har sjekket ut, kan du kjøre vårt _"testprogramm"_ slikt:
+```bash
+python3 assignments/1-install/testinstall.py
 ```
 
 som resultat skulle du se noe slikt:
+
 ```
 Congratulations you are running Python in version 3....
-[Clang ..............]
-and also your repository layout looks alright!
 ```
 
 Dette betyr at du har klart til å laste ned startkoden gjennom `git` og at din maskin er klar til å skrive og kjøre Python kode! 
