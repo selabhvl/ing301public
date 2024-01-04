@@ -1,59 +1,55 @@
 # Oppgaver - Uke 2
 
-Velkommen til første uke med undervisning i ING301.
 
 Målet med denne første _obligatoriske_ oppgave er å sikre at alle har et fungerende utviklingsmiljø for Python programmering og dele koden med andre.
 
-I tilegg skal vi ta en liten repitisjon av noen Python begreper fra ING201.
-
 Innleveringsfrist: se Canvas.
 
-## Steg 1: Kom i gang
+## Steg 1: Installere verktøy
 
-Før vi begynner må vi være sikre at alle har installert verktøyene som trengs. Det vil si
-- [Python](https://www.python.org/). Hvis du har allerede installert Python på din maskin, sjekk at den har et versjonsnummer som begynner på _3_!
-- Versjoneringssystemet for kode [Git](https://git-scm.com/). 
+Før vi begynner må vi være sikre på at dere alle har installert verktøyene som trengs for programvareutvikling med Python
 
-Se også **video på Canvas** om installasjon av Python programmeringsmiljø.
+Det vil si
+- [Python](https://www.python.org/) fortolkeren og standard biblioteker. Hvis du har allerede installert Python på din maskin, sjekk at den har et versjonsnummer som begynner på _3_!
+- Klient for [Git](https://git-scm.com/) versjoneringssystemet for samarbeid og deling av kode 
+- 
 
-Lenker til installasjonsinstruks for de forsjellige operativsystemer finder du nedenfor
+Lenker til installasjonsinstruksjoner for de forsjellige operativsystemer finder du nedenfor
 
 ### Windows
 
-- [Python Installasjon](../../weeks/2-get-started/install_python_windows.md)
+- [Python Installasjon](install_python_windows.md)
 
-- [Git Installasjon](../../weeks/2-get-started/install_git_windows.md)
+- [Git Installasjon](install_git_windows.md)
 
-### Mac OS X
+### Mac OS 
 
-- [Python Installasjon](../../weeks/2-get-started/install_python_mac.md)
+- [Python Installasjon](install_python_mac.md)
 
-- [Git Installasjon](../../weeks/2-get-started/install_git_mac.md)
+- [Git Installasjon](install_git_mac.md)
 
 ### Linux
 
-- [Python Installasjon](../../weeks/2-get-started/install_python_linux.md)
+- [Python Installasjon](install_python_linux.md)
 
-- [Git Installasjon](../../weeks/2-get-started/install_git_linux.md)
+- [Git Installasjon](install_git_linux.md)
 
 ### IDE og andre grafiske verktøy
 
-Det er fult mulig å skrive kode i Python i en tekseditor som `vim` eller `emacs` og betjene git gjennom kommandolinjen (Windows sitt _Notepad_ anbefales derimot ikke i det hele tatt). 
+Det er fult mulig å skrive kode i Python i en teksteditor som `vim` eller `emacs` og betjene git gjennom kommandolinjen (Windows sitt _Notepad_ anbefales derimot ikke i det hele tatt). 
 Men generelt anbefaler vi at du bruker en IDE og/eller andre verktøy som tilbyr en grafisk brukergrensesnitt (GUI).
 
-Vi anbefaler
-
-- [Visual Studio Code](https://code.visualstudio.com/)
+Som integret utviklingsmiljø anbefales:
 
 - [JetBrains PyCharm](https://www.jetbrains.com/pycharm/)
 
-som IDE og
+- [Visual Studio Code](https://code.visualstudio.com/)
+
+og som grafisk klient for git/GitHub:
 
 - [GitHub for Desktop](https://desktop.github.com/)
 
-for å jobbe med git/GitHub.
-
-## Steg 2: Lage GitHub bruker og "forke" en repository
+## Steg 2: Lage GitHub bruker og "clone" ING301 oppbevaringsplassen (repository)
 
 ### 2.1 Lage en ny GitHub bruker
 (Skulle du allerede ha en GitHub bruker fra før kan du hoppe direkte til 2.2)
@@ -66,7 +62,7 @@ Du blir bedt til å gi fra deg en epost adresse (Du kan bruke din HVL-epost-adre
 
 Pass på at lagrer dine pålogginsinformasjon på et sikkert sted (f.eks. ved å bruke en _Password Manager_).
 
-### 2.2 Forke ing301public repository
+### Steg 2: Forke ing301public repository
 
 Sjekk at du er logget på GitHub og besøk: https://github.com/selabhvl/ing301public
 
