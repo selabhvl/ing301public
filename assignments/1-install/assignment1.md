@@ -72,7 +72,7 @@ I neste steg kan du åpne et _terminal_ vindu og navigere deg til samme filstien
 Du kloner en repository ved å utføre følgende kommando i terminalvinduet:
 
 ```bash
-git clone <https://github.com/selabhvl/ing301public>
+git clone https://github.com/selabhvl/ing301public
 ```
 
 Repositoriet vil bli oppdatert i løpet av kurset. For å få med deg de siste oppdateringene kan du bruke:
