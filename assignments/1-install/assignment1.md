@@ -67,9 +67,11 @@ Sjekk at du er logget på GitHub og åpne gitt URL i din nettleser.
 Oppe til høyre finner du en grønn knapp `Code`. Trykk på den og kopier den URLen du ser i den dialogen som åpner seg.
 
 Lag nå en mappe på din harddisk bak en filsti som er lett å huske, f.eks. `C:\Users\<dinbrukernavn>\ING301\` (eller `/home/<dinbrukernavn>/ING301/` på Linux/Mac). 
-I neste steg kan du åpne et _terminal_ vindu og navigere deg til samme filstien ved å bruke `cd`.
+I neste steg kan du åpne et _terminal_ vindu og navigere deg til samme filstien ved å bruke `cd` (kommandoen for *change directory*).
 
-Du kloner en repository ved å utføre følgende kommando i terminalvinduet:
+**VIKTIG**: *ikke* velg en mappe som er tilkoplet en skytjeneste via eks. OneDrive eller Dropbox. Det kan gi problemer med git og IDE senere.
+
+Du kloner et repository ved å utføre følgende kommando i terminalvinduet:
 
 ```bash
 git clone https://github.com/selabhvl/ing301public
@@ -80,6 +82,8 @@ Repositoriet vil bli oppdatert i løpet av kurset. For å få med deg de siste o
 ```bash
 git pull 
 ```
+
+Hvis du har valgt å installere GitHub Desktop applikasjonen kan du også bruke denne til å klone oppbevaringsplassen.
 
 ## Steg 4: Skrive og teste Python kode
 
