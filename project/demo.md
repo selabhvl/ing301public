@@ -1,6 +1,6 @@
 # Demo-Hus
 
-For å teste din implementasjon på et konkret eksempel skal vi fra nå av baserer på et _demohus_.
+For å teste din implementasjon på et konkret eksempel skal vi fra nå av baserer på et "_demohus_".
 Du finner en plantegning av dette huset nedenfor:
 
 ## Etasje 1
@@ -13,58 +13,23 @@ Du finner en plantegning av dette huset nedenfor:
 
 ## Enheter
 
-På etasjeplanen ble også smarte enheter tegnet inn.
-Aktuatorer er tegnet i oransje og sensorer er tegnet i grønn.
-Tabellen nedenfor gir detaljer hva type sensor/aktuator skjuler seg bak de enkelte tallene.
+Nedenfor finner dere mer detaljert informasjon (om id, produsent og modell) om enhetene i huset:
 
-| Nr. | Typ                 | Produsent                  | Produkt Navn        | Serienummer         |
-|-----|---------------------|----------------------------|---------------------|---------------------|
-| 1   | Smart Lys           | Fritsch Group              | Tresom Bright 1.0   | f11bb4fc-ba74-49cd  |
-| 2   | Smart Lys           | Fritsch Group              | Alphazap 2          | 480dbae8-cce7-46d7  |
-| 3   | Fuktighetssensor    | Bernhard-Roberts           | Andalax             | 4cb686fe-6448-4cf6  |
-| 4   | Smart Lys           | Fritsch Group              | Alphazap 2          | 6a36c71d-4f48-4eb4  |
-| 5   | Smart Lys           | Larkin-Nitzsche            | Quo Lux             | d01130c9-a368-42c6  |
-| 6   | Billader            | Jast, Hansen and Halvorson | Charge It 9000      | 0cae4f01-4ad9-47aa  |
-| 7 | Paneloven           | Hauck-DuBuque              | Voyatouch 42        | d1ef14d2-21ee-4f13  |
-| 8 | Temperatursensor    | Moen Inc                   | Prodder Ute 1.2     | e237beec-2675-4cb0  |
-| 9 | Smart Lys           | Fritsch Group              | Alphazap 2          | f4db4e54-cebe-428d  |
-| 10 | Smart Lys           | Larkin-Nitzsche            | Quo Vadis Lux       | 8d09aa92-fc58-4c6   |
-| 11 | Strømmåler          | Kilback LLC                | Transcof Current    | c8bb5601-e850-4a80  |
-| 12 | Temperatursensor    | Moen Inc                   | Prodder Inne 2.3    | d16d84de-79f1-4f9a  |
-| 13 | Smart Lys           | Fritsch Group              | Alphazap 2          | 390ae474-21fb-4e06  |
-| 14 | Strømmåler          | Ward-Schaefer              | Zaam-Dox NetConnect | 3b06cf0f-8494-458b  |
-| 15 | Smart Stikkontakt   | Kilback LLC                | Konklab 3           | c28b6e75-d565-4678 |
-| 16 | Varmepumpe          | Osinski Inc                | Fintone XCX4AB      | 4eca6387-0767-4e4e |
-| 17 | Luftkvalitetssensor | Hauck-DuBuque              | Sonair Pro          | c76688cc-3692-4aa3 |
-| 18 | Smart Stikkontakt   | Kilback LLC                | Konklab 3           | 	4b9050f3-0ef0-4914 |
-| 19 | Paneloven | Hauck-DuBuque              | Voyatouch 42        |   66373954-2ddd-4807 |
-| 20 | Smart Stikkontakt   | Kilback LLC                | Konklab 3           | 1b34f6ce-94cb-4f7b |
-| 21 | Fuktighetssensor | Bernhard-Roberts           | Namfix Y            |    8ceb53b2-e88f-4e8c |
-| 22 | Luftavfukter | Steuber-Gerlach            | Aerified 42         | ae902f8f-10b4-4738 |
-| 23 | Gulvvarmepanel | Steuber-Gerlach            | Temp Opp Pro 13     | 42f204bf-9944-47a1 |
-| 24 | Paneloven | Hauck-DuBuque              | Otcom 2             | 73902f8f-10b4-4738 | 
-| 25 | Smart Lys | Fritsch Group              | Alphazap 2          | 627ff5f3-f4f5-47bd |
-| 26 | Smart Lys | Fritsch Group              | Alphazap 2          | ebaaadce-2d6b-4623 |
-| 27 |  Varmepumpe          | Osinski Inc                | Fintone XCX2FF      | eed2cba8-eb13-4023 |
-| 28 | Temperatursensor | Moen Inc                   | Prodder Inne 2.3    | 481e94bd-ff50-40ea |
-| 29 | Smart Lys           | Fritsch Group              | Tresom Bright 1.0   | 233064d7-028a-407f |
-| 30 | Smart Lys | Fritsch Group              | Alphazap 2  | 89393440-43cb-4cb5 |
-| 31 | Paneloven | Hauck-DuBuque              | Otcom 2             | be490f21-b9cf-4413 |
+| Identifikator                          | Enhet      |  Produsent       | Modellnavn    | 
+|----------------------------------------|------------|------------------|----------------|
+| 4d5f1ac6-906a-4fd1-b4bf-3a0671e4c4f1   | Smart Lock  | MythicalTech | Guardian Lock 7000 |
+| 8a43b2d7-e8d3-4f3d-b832-7dbf37bf629e   | CO2 sensor  | ElysianTech  | Smoke Warden 1000 |
+| a2f8690f-2b3a-43cd-90b8-9deea98b42a7   | Electricity Meter | MysticEnergy Innovations  | Volt Watch Elite   |
+| 5e13cabc-5c58-4bb3-82a2-3039e4480a6d   | Heat Pump        |  ElysianTech | Thermo Smart 6000    |
+| cd5be4e8-0e6b-4cb5-a21f-819d06cf5fc5   | Motion Sensor |  NebulaGuard Innovations  | MoveZ Detect 69  |
+| 3d87e5c0-8716-4b0b-9c67-087eaaed7b45   | Humidity Sensor | AetherCorp | Aqua Alert 800 |
+| 8d4e4c98-21a9-4d1e-bf18-523285ad90f6   | Smart Oven |   AetherCorp    | Pheonix HEAT 333 | 
+| 9a54c1ec-0cb5-45a7-b20d-2a7349f1b132   | Automatic Garage Door | MythicalTech | Guardian Lock 9000 |
+| c1e8fa9c-4b8d-487a-a1a5-2b148ee9d2d1   | Smart Oven | IgnisTech Solutions     | Ember Heat 3000 |
+| 4d8b1d62-7921-4917-9b70-bbd31f6e2e8e   | Temperature Sensor        | AetherCorp  | SmartTemp 42 | 
+| 7c6e35e1-2d8b-4d81-a586-5d01a03bb02c   | Air Quality Sensor        | CelestialSense Technologies | AeroGuard Pro   | 
+| 1a66c3d6-22b2-446e-bf5c-eb5b9d1a8c79   | Smart Plug | MysticEnergy Innovations                   | FlowState X |
+| 9e5b8274-4e77-4e4e-80d2-b40d648ea02a   | Dehumidifier           |  ArcaneTech Solutions | Hydra Dry 8000     |
+| 6b1c5f6b-37f6-4e3d-9145-1cfbe2f1fc28   | Light Bulp          | Elysian Tech | Lumina Glow 4000 | 
 
 
-## Startverdier
-
-Til slutt: For å kunne gjennomføre noen reproduserbare tester skal enhetene initialiseres slikt:
-Alle aktuatorer bortsett fra nr 14 er slått av i begynnelsen.
-Sensorene skal for det første bare gi en statisk verdi, dvs. at hver gang man spørrer dem om en måleverdi gir de samme resultatet.
-
-| Sensor Mr. | Måleverdi |
-|------------|-----------|
-| 3          | `68 %`    |
-| 8          | `1.3 °C`  |
-| 11         | `0 kWh`   |
-| 12         |  `18.1 °C` |
-| 14         |  `1.5 kWh` |
-| 17         | `0.08 g/m^2` |
-| 21         | `52 %`     |
-| 28         | `16.1 °C` |
