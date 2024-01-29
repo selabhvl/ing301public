@@ -63,13 +63,13 @@ De _fire_ relevante plassene i denne mappestrukturen er markert med kommentarer.
 setter i gang. For å ikke bli overveldet, har vi lagt en steg-for-steg oppskrift hvordan denne oppgaven skal løses:**
 
 1. Begynn med å lese nøye gjennom [Problembeskrivelsen](./index.md) og lag deretter en _domenemodell_ (klassediagramm) av det hele.
-   Du skal lage forskjellige klasser for de foskjellige enhetene. Inkluder også de klassene som allerede finnes i `domain.py`.
+   Du skal lage forskjellige klasser for de foskjellige enhetene. Inkluder også de klassene som allerede finnes i `smarthouse/domain.py`.
    Du kan tegne klassedigramm enten på ark/whiteboard (husk å scanne det etterpå eller ta bildet) eller et grafisk verktøy som [diagrams.net](https://www.diagrams.net/) eller [Figma](https://www.figma.com/).
    Klassediagrammet skal lagres enten som PDF eller bildefil (`.jpg`, `.png`, `.svg`) og lastes opp i roten til repo'en med navn `domainmodel.<filtype>` (dette skal være deres første egen commit!). 
-2. I neste steg skal klassediagrammet dere har laget oversettes til konkrete klasser i Python ved å utvide `domain.py` filen. 
+2. I neste steg skal klassediagrammet dere har laget oversettes til konkrete klasser i Python ved å utvide `smarthouse/domain.py` filen. 
    Dere betyr at dere skal legge til klasser som representer rom, etasjer og de forskjellige type enheter. 
    Tenk på hva slags attributter (dvs. de som settes i konstruktor: `__init__`-funskjonen) og _metodene_ (funksjoner innen en klasse) hver enkelt klasse trenger.
-3. Som neste steg anbefaler vi at dere tar en kikk på klassen `SmartHouse` i `domain.py`: Her finner dere en rekke funksjoner som mangler en korrekt implementasjon.
+3. Som neste steg anbefaler vi at dere tar en kikk på klassen `SmartHouse` i `smarthouse/domain.py`: Her finner dere en rekke funksjoner som mangler en korrekt implementasjon.
     Deres oppgave er å skrive funksjonaliteten til hver enkelt funksjon som det er beskrevet i kommentaren ved å bruke deres nylagte klasser.
 4. Etterpå kan dere begynne å legge inn et "Demo Hus" som er beskrevet på [denne siden](./demo.md). Dette skal gjøres i files `tests/demo_house.py`
     ved å bruke de forskjellige `regiser_`-funskjonene i `SmartHouse` som dere har nettop implementert. 
@@ -93,4 +93,4 @@ I de gitte Unit-testene forventes det at objekter som representerer enheter tilb
 - Alle aktuatorer skal tilby metodene: `turn_on()`, `turn_off()`, `is_active()`. Sistnevnte skal returnere `True` hvis enheten har blitt slått 
  på med `turn_on()`. Tar også hensyn til at visse aktuatorer kan også gis et "`target_value`" (f.eks. panelovn eller varmepumper kan settes til en ønsket temperatur).
 
-Tar gjerne en titt i [testfilen]() for å sjekke hvilke funksjoner forventes av deres domenemodell.
+Tar gjerne en titt i [testfilen](https://github.com/selabhvl/ing301-projectpartA-startcode/blob/main/tests/test_part_a.py) for å sjekke hvilke funksjoner forventes av deres domenemodell.
