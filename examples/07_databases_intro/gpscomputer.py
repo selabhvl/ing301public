@@ -1,4 +1,3 @@
-from _typeshed import Self
 from typing import List
 import random as rnd 
 from datetime import datetime, timedelta
@@ -94,7 +93,7 @@ class RoutePoint(RouteComponent):
         self.prev = prev 
         self.next = next
 
-    def __sub__(self: Self, other: Self) -> float:
+    def __sub__(self, other) -> float:
         return haversine.distance(self.lat, self.long, other.lat, other.long)
 
 class RouteRecorder:
