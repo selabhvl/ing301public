@@ -46,13 +46,13 @@ Mer informasjon om de fire deloppgavene i prosjektet blir lagt ut fortløpende i
 
 I første prosjektsteg skal gruppen legge grunnlag for hele systemet ved å _planlegge_ og _implementere_ en _domenemodell_:
 
-[Se detaljer](./part_A.md)
+[Se detaljer](https://github.com/selabhvl/ing301-projectpartA-startcode)
 
 ### Del B: Datalagring
 
 I neste steg skal gruppen sørge få at informasjon blir lagret permanent på en harddisk når systemet avsluttes og at denne lagrete informasjonen kan leses igjen. Dette skal gjøres via database-teknologi.
 
-[Se detaljer](./part_B.md)
+[Se detaljer](https://github.com/selabhvl/ing301-projectpartB-startcode)
 
 ### Del C: Nettbasert tilgang
 
