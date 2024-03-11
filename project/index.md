@@ -58,6 +58,8 @@ I neste steg skal gruppen sørge få at informasjon blir lagret permanent på en
 
 I dette steget skal gruppen bruke nettverksprotokoller for at smart-hus funksjonaliteten kan tilbys via en web-tjeneste. 
 
+[Se detaljer](https://github.com/selabhvl/ing301-projectpartC-startcode)
+
 ### Del D: Integrasjon med andre enheter
 
 I det siste steget skal gruppen se op hvordan systemet kan koples opp mot de ulike hardware enheter (IoT devices), sensorer og aktuatorer.
