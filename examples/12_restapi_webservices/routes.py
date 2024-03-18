@@ -15,7 +15,7 @@ class Route(BaseModel):
     gps_points: list[GPSPoint]
 
     def get_point(self, pid: int):
-        return self.find_point[pid]
+        return self.gps_points[pid]
 
     def add_point(self, gps_point: GPSPoint) -> GPSPoint:
         self.gps_points.append(gps_point)
@@ -30,12 +30,12 @@ class Routes(BaseModel):
     next_rid: int
     routes: dict[int, Route]
 
-    def get_next_rid(self):
+    def get_next_rid(self) -> int:
         rid = self.next_rid
         self.next_rid += 1
         return rid
 
-    def read_route(self, rid: int):
+    def read_route(self, rid: int) -> Route | None:
         return self.routes.get(rid)
 
     def create_route(self, route: Route) -> Route:
@@ -43,7 +43,7 @@ class Routes(BaseModel):
         self.routes[route.rid] = route
         return route
 
-    def update_route(self, rid, route: Route) -> Route:
+    def update_route(self, rid, route: Route) -> Route | None:
         update_route = self.routes.get(rid)
         if update_route:
             update_route.gps_points = route.gps_points
@@ -51,11 +51,11 @@ class Routes(BaseModel):
         else:
             return None
 
-    def delete_route(self, rid: int):
+    def delete_route(self, rid: int) -> Route:
         route = self.routes.pop(rid)
         return route
 
-    def read_gpspoints(self, rid: int):
+    def read_gpspoints(self, rid: int) -> list[GPSPoint] | None:
         route = self.routes.get(rid)
 
         if route:

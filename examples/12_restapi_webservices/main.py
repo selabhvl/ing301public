@@ -12,7 +12,7 @@ from fastapi import FastAPI, Response, status
 from routes import Routes, Route, GPSPoint
 
 app = FastAPI()
-routes = Routes(next_rid=1, routes=list())
+routes = Routes(next_rid=1, routes={})
 
 
 @app.get("/")
@@ -89,10 +89,10 @@ def read_gps_point(rid: int, pid: int, response: Response):
 
 
 @app.put("/route/{rid}/gpspoint/{pid}")
-def update_point(rid: int, pid: int, gps_point: GPSPoint, response: Response):
-    gps_point = routes.update_gps_point(rid, pid, gps_point)
-    if gps_point:
-        return gps_point
+def update_point(rid: int, pid: int, gps_point: GPSPoint, response: Response)-> GPSPoint | None:
+    gps_point_result  = routes.update_gps_point(rid, pid, gps_point) 
+    if gps_point_result:
+        return gps_point_result
     else:
         response.status_code = status.HTTP_404_NOT_FOUND
 
