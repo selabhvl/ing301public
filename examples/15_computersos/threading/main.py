@@ -20,26 +20,32 @@ sensor.run()
 display.run()
 
 # b) with threading
-# logging.info("Starting multi-threaded system")
+#logging.info("Starting multi-threaded system")
 
-# display.start()
-# sensor.start()
+#sensor_thread = threading.Thread(target=sensor.run)
+#display_thread = threading.Thread(target=display.run)
+
+#sensor_thread.start()
+#display_thread.start()
+
+#display.start()
+#sensor.start()
 
 # f) multiple displays - notify all
 
-# second_display = DisplayDevice(2, measurement)
-# second_display.start()
+#second_display = DisplayDevice(2, measurement)
+#second_display.start()
 
 # c) wait for thread to finish
-# display.join()
-# sensor.join()
-# second_display.join()
+#display.join()
+#sensor.join()
+#second_display.join()
 
 ## d) locks
 
 ## e) condition variables
 
-# logging.info("Stopping multi-threaded system")
+#logging.info("Stopping multi-threaded system")
 
 
 
