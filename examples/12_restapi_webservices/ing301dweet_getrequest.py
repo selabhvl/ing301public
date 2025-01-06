@@ -1,9 +1,8 @@
 # Install the 'requests' module first
 # pip3 install requests
-
 import requests
 
-url = "https://dweet.io:443/get/latest/dweet/for/ing301topic"
+url = "https://dweet.io:443/get/latest/dweet/for/ing301"
 
 payload= {}
 headers = {}

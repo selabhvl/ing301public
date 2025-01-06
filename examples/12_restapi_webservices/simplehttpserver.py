@@ -1,11 +1,9 @@
 # https://www.codementor.io/@joaojonesventura/building-a-basic-http-server-from-scratch-in-python-1cedkg0842
-
-
 import socket
 
 
 # Define socket host and port
-SERVER_HOST = '0.0.0.0'
+SERVER_HOST = '127.0.0.1'
 SERVER_PORT = 8000
 
 # Create socket
@@ -25,8 +23,8 @@ try:
         print(request)
 
         # Send HTTP response
-        # response = 'HTTP/1.0 200 OK\n\nHello World'
-        # client_connection.sendall(response.encode())
+        response = 'HTTP/1.0 200 OK\n\nHello World'
+        client_connection.sendall(response.encode())
 
         client_connection.close()
 
