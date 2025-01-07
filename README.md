@@ -8,8 +8,8 @@ Oppbevaringsplassen inneholder en del kode, eksempler og lenker fra siste år. *
 
 | **Kalenderuke**  | **Dato** | **Tema**                                           | **Literatur/Bakgrunnsmaterial**                              |  **Frister**    |
 |----------|----------|----------------------------------------------------|--------------------------------------------------------------|-----------------|
-| 3        | 14.01.24 | Emneoversikt og Python utviklingsmiljø             | [Get Started](assignments/1-install/assignment1.md)          |                 |
-| 4        | 21.01.24 | Python repetisjon                                  | [Python Repetisjon](weeks/2-get-started/python-overview.md)  | [Oppgave 1]()       |
+| 3        | 14.01.24 | Emneoversikt og Python utviklingsmiljø             | [Get Started](weeks/03/assignment-install.md)|                 |
+| 4        | 21.01.24 | Python repetisjon                                  | [Python Repetisjon](weeks/04/python-overview.md)  | [Oppgave 1]()       |
 | 5        | 28.01.24 | Innføring i objektorientering (OO)                 | Kap. 14 i [Practical Programming](https://pragprog.com/titles/gwpy3/practical-programming-third-edition/)  | [Registrere Prosjektgrupper]() |
 | 6        | 04.02.24 | Objektorientert Analyse og Design                  | Kap 1-3 i [Fowler]() (Kap 3 er mest viktig) | [Oppgave 2: Frist 30.01.]()               |
 | 7        | 11.02.24 | Prosjektarbeid - del A                             |                    |  |
