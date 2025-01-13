@@ -11,16 +11,16 @@ Oppbevaringsplassen inneholder en del kode, eksempler og lenker fra siste år. *
 | 3        | 14.01.24 | **INTRO1**: Emneoversikt og Python utviklingsmiljø | [Get Started](weeks/03/assignment-install.md)                |   [Oppgave 1: Setup (Frist 21.01)](https://hvl.instructure.com/courses/29401/assignments/86192)              |
 | 4        | 21.01.24 | **INTRO2**: Python repetisjon                                  | [Python Repetisjon](weeks/04/python-overview.md)  | [Oppgave 2: Prosjektgrupper (Frist 28.01)]()        |
 | 5        | 28.01.24 | **OO1**: Innføring i objektorientering (OO)                 | Kap. 14 i [Practical Programming](https://pragprog.com/titles/gwpy3/practical-programming-third-edition/)  | [Oppgave 3: Python Wam Up (Frist: 04.02)](https://hvl.instructure.com/courses/29401/assignments/86193) |
-| 6        | 04.02.24 | **OO2**: Objektorientert Analyse og Design                  | Kap 1-3 i [Fowler]() (Kap 3 er mest viktig) |            |
-| 7        | 11.02.24 | **OO3**: Objektorientering: Mønster (Design Patterns)|      | Første Kapittel i _Design Patterns: Elements of Reusable Object-Oriented Software_ ("GoF boken")  |
-| 8        | 18.02.24 | **DB1**: Innføring Databaser                                | Kap. 17 i [Practical Programming](https://pragprog.com/titles/gwpy3/practical-programming-third-edition/):  tom side 353 (før joins)  | |
-| 9        | 25.02.24 | **DB2**: Structured Query Language (SQL)                    | Resten av Kap. 17 i [Practical Programming](https://pragprog.com/titles/gwpy3/practical-programming-third-edition/): fra side 354 til 365 | [Prosjekt Del A (Frist 25.02)]()           |
+| 6        | 04.02.24 | **OO2**: Objektorientert Analyse og Design                  | Kap 1-3 i _UML Destilled_ (Kap 3 er mest viktig) |            |
+| 7        | 11.02.24 | **OO3**: Objektorientering: Mønster (Design Patterns)      | Første Kapittel i _Design Patterns: Elements of Reusable Object-Oriented Software_ ("GoF boken")  | |
+| 8        | 18.02.24 | **DB1**: Innføring Databaser                                | Kap. 17 i [Practical Programming](https://pragprog.com/titles/gwpy3/practical-programming-third-edition/):  tom side 353 (før joins)  |[Prosjekt Del A (Frist 25.02)]() |
+| 9        | 25.02.24 | **DB2**: Structured Query Language (SQL)                    | Resten av Kap. 17 i [Practical Programming](https://pragprog.com/titles/gwpy3/practical-programming-third-edition/): fra side 354 til 365 |            |
 | 10       | 04.03.24 | **DB2**: Databaser: Modelering og Design                    | Kap. 3 i Fundamentals of Database Systems                                                                                            |                 |
-| 11       | 11.03.24 | **NW1**: TCP/IP nettverks protokoll stabel            | Kap. 1-6 i [Introduction to Networking](https://do1.dr-chuck.net/net-intro/EN_us/net-intro.pdf)                                      | | 
-| 12       | 18.03.24 | **NW2**: Nettverksapplikasjoner og socket programmering        | Kap. 7 i [Introduction to Networking](https://do1.dr-chuck.net/net-intro/EN_us/net-intro.pdf)                                        |  [Prosjekt Del B (Frist 18.03)]()    |
+| 11       | 11.03.24 | **NW1**: TCP/IP nettverks protokoll stabel            | Kap. 1-6 i [Introduction to Networking](https://do1.dr-chuck.net/net-intro/EN_us/net-intro.pdf)                                      |[Prosjekt Del B (Frist 18.03)]() | 
+| 12       | 18.03.24 | **NW2**: Nettverksapplikasjoner og socket programmering        | Kap. 7 i [Introduction to Networking](https://do1.dr-chuck.net/net-intro/EN_us/net-intro.pdf)                                        |      |
 | 13       | 25.03.24 | **NW3**: HTTP/REST web tjenester                         | Artikkel: *RESTful Web Services: Principles, Patterns, Emerging Technologies*                                                        |                |
 | 14       | 01.04.24 | **OS1**: Datamaskiner, operativsystemer og tråder | |  |
 | 15       | 08.04.24 | **OS2**: Tingenes internett (IoT) | |                |
-| 16       | 15.04.24 | **Påskeferie**             |    |   |
-| 17       | 22.04.24 | Informasjon om eksamen     |    | [Prosjekt Del C (Frist 22.04)]()   |
+| 16       | 15.04.24 | **Påskeferie**             |    |  [Prosjekt Del C (Frist 22.04)]() |
+| 17       | 22.04.24 | Informasjon om eksamen     |    |    |
 | 18       | 29.04.24 | Prosjektarbeid / Bli ferdig | |[Prosjekt Del D (Frist 06.05)]()                |
