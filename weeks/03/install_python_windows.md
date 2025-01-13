@@ -1,18 +1,40 @@
 # Python Installasjon under Windows
 
-Hvis du bruker Windows 10 og ikke har installert _Python_ er Windows sin [App Store](https://apps.microsoft.com/) den enkleste måten å skaffe seg seg _Python_. Bare følg følgende lenken:
 
-https://apps.microsoft.com/store/detail/python-310/9PJPW5LDXLZ5
+Python er et svært populært programmeringsspråk.
+Dette medfører at det finnes mange forskjellige måter å få Python siden Python integreres i forskjellige programvarer.
+Et resultat av dette er desverre at det kan være litt forvirrende om hvordan man setter opp Python på en bra måte.
 
-og så klikk på _Get in Store_. Windows tar seg av resten.
+Som et referanse med mange tekniske detaljer om oppsett og bruk av Python under Windows, anbefaler vi å ta en kikk [i den offisielle guiden](https://docs.python.org/3/using/windows.html)!
 
-I tillegg anbefales det å installere en moderne _Terminal_ grensesnitt: [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=nb-no&gl=no) er en modern versjon av det gamle `cmd.exe` og kan lastes ned i Microsoft App Store.
+Noen måter å installere Python på:
+- Bruk av [den offisielle _Installer_'en](https://docs.python.org/3/using/windows.html#the-full-installer)
+- gjennom Windows sin [App Store](https://apps.microsoft.com/)
+- gjennom [Anaconda](https://www.anaconda.com/download)
+- gjennom [nuget.org](https://www.anaconda.com/download)
+
+## Python installer 
+
+Vi anbefaler første alternative, altså gjennom Python Installer.
+Du kan laste filen ned [her](https://www.python.org/ftp/python/3.12.8/python-3.12.8-amd64.exe).
+Når .exe filen er lastet ned, kan du utføre den (forutsetter at du har kontroll over datamaskinen din og ikke at den er forvaltet av en forretning eller lignende. Stikkordet: "no group policies!").
+
+![Python Installer Screenhsot](https://docs.python.org/3/_images/win_installer.png)
+
+Du kan bare installere med standardinstillinger ved å trykke på "Install Now", men vi anbefer at du 
+
+- ta vekk krysset ved "Install Lancher for all users"
+- sett krysset ved "Add Ptyhon 3.XX to PATH"
+
+
+Hvis du er på Windows 10, anbefales det i tillegg å installere en moderne _Terminal_ grensesnitt: [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=nb-no&gl=no) er en modern versjon av det gamle `cmd.exe` og kan lastes ned i Microsoft App Store i Windows 10, mens i Windows 11 er det allerede installert fra begynnelsen.
 
 Når du installert begge deler, prøv å åpne Windows Terminal fra _Start_-menyen og så skriver du 
 
 ```bash
 python
 ```
+
 
 Du vil da komme inn i den interaktive _Python_-interpreteren. Du kan teste den ved f. eks. gi dem en regneoppgave:
 ```
@@ -29,10 +51,4 @@ Da skal du være tilbake i det vanlige Terminalet.
 Grattis! Nå er du du klar til å utvikle med Python!
 Vi anbefaler likevel at du laster ned [Visual Studio Code](https://code.visualstudio.com/) eller [JetBrains PyCharm](https://www.jetbrains.com/pycharm/).
 
-## Alternative installasjonsmåten
 
-Hvis du ikke vil bruke App Store installasjonen, så kan du laste ned Python direkte [her](https://www.python.org/ftp/python/3.11.1/python-3.11.1-amd64.exe).
-Den lenken vil laste ned en Installer.exe som vil installere Python på ditt system.
-
-Du kan også bruke [Anaconda](https://www.anaconda.com/) for installere Python på ditt system.
-Denne kommer likevel med en del ekstra kompleksitet og anbefales bare hvis du har brukt dette før!

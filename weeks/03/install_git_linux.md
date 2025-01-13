@@ -1,8 +1,9 @@
 # Git Installasjon under Linux
 
-Denne instruksen baserer seg igjen bare på Ubuntu som Linux distribusjon.
+Git er vanligvis allerede en del av ganske mange Linux distribusjoner.
+Hvis den ikke er der fra før av, se i dokumentasjonen til din _package manager_ hvordan man installerer det.
 
-I Ubuntu installeres Git ved a åpne et Terminal vindu og så skrive:
+I Ubuntu f.eks, kan du installere git slik:
 
 ```bash
 sudo apt-get install git 

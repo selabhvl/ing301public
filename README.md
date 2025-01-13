@@ -21,6 +21,7 @@ Oppbevaringsplassen inneholder en del kode, eksempler og lenker fra siste år. *
 | 13       | 25.03.24 | **NW3**: HTTP/REST web tjenester                         | Artikkel: *RESTful Web Services: Principles, Patterns, Emerging Technologies*                                                        |                |
 | 14       | 01.04.24 | **OS1**: Datamaskiner, operativsystemer og tråder | |  |
 | 15       | 08.04.24 | **OS2**: Tingenes internett (IoT) | |                |
-| 16       | 15.04.24 | **Påskeferie**             |    |  [Prosjekt Del C (Frist 22.04)]() |
+| 16       | | **Påskeferie**             |    |  [Prosjekt Del C (Frist 22.04)]() |
 | 17       | 22.04.24 | Informasjon om eksamen     |    |    |
 | 18       | 29.04.24 | Prosjektarbeid / Bli ferdig | |[Prosjekt Del D (Frist 06.05)]()                |
+| 19       | | _mulige eksamensdatoer i ukene 19-22_ | |
