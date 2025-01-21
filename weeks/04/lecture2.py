@@ -20,11 +20,14 @@ def avg(tall1, tall2):
     print("linje 20")
     return (tall1 + tall2) / 2
 
+a = 3
 
-tall1 = 4.7
-tall2 = 8.91
+
 print("linje 26")
-print(avg(tall1, tall2))
+print(avg(2, 4))
+print(avg(5, 10))
 print("linje 28")
+#print(avg("Hei", "hu"))
 
-
+text_med_linjeskift = "asdj\nhasd"
+print(text_med_linjeskift)
