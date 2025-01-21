@@ -3,6 +3,11 @@
 Ingen slides i dag ...
 Koden er dokumentasjonen :wink:
 
+- varibbler, datatyper
+- kontrollstruktur: if, løkker
+- moduler
+- filer
+
 ## Oppgaver 
 
 - Husk [å danne prosjektgrupper til neste gang](https://hvl.instructure.com/courses/29401/assignments/86194?module_item_id=895306)
