@@ -31,3 +31,21 @@ print("linje 28")
 
 text_med_linjeskift = "asdj\nhasd"
 print(text_med_linjeskift)
+
+liste = [1, 2, 3]
+print(type(liste))
+
+for element in liste:
+    print(element)
+
+print(liste[1:])
+print(liste[:-1])
+
+sannhet = False
+
+if sannhet:
+    print("det stemmer")
+else:
+    print("det stemmer ikke")
+
+
