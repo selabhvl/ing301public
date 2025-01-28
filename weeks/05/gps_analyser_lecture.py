@@ -10,34 +10,49 @@ class Point:
         self.longitude = float(delt_opp[2])
         self.height = float(delt_opp[3])
 
+    def distance_to(self, other):
+        return haversine.distance(self.longitude, self.latitude, other.longitude, other.latitude)
 
-# p = Point("asdfhsdi", 60.1, 5.9, 100.0) # constructor av Point
-# q = Point("34rhweafj", 60.5, 5.8, 8.0)
+    def __sub__(self, other):
+        return self.distance_to(other)
+    
+    def __lt__(self, other):
+        return  self.height < other.height
 
-# print(p.latitude)
-# print(p.longitude)
+
+def read_file(fil):
+    file = open(fil)
+    result = []
+    innhold = file.read()
+    linjer = innhold.split("\n")
+    for linje in linjer[1:]:
+        result.append(Point(linje))
+    file.close()
+    return result
+
 
 
 # filstien vil være annerledes på din maskin
 # også husk på Windows må du erstatte hver enkelt "\" med en dobbelt "\\"
-file = open("/Users/past-madm/Projects/teaching/ing301/ing301public/weeks/04/gpslogs/short.csv")
-innhold = file.read()
-linjer = innhold.split("\n")
-last = Point(linjer[1])
-total_distanse = 0
-max_hoyde = 0
-for linje in linjer[2:]:
-    current = Point(linje)
-    # regne ut distanse
-    distanse = haversine.distance(last.longitude, last.latitude, current.longitude, current.latitude)
-    sist = current
 
-    total_distanse += distanse
+filnavn = "/Users/past-madm/Projects/teaching/ing301/ing301public/weeks/04/gpslogs/short.csv"
+points = read_file(filnavn)
+
+last = points[0]
+total_distanse = 0
+max_hoyde = last
+for current in points[1:]:
+
+    distance = current - last
+
+    # regne ut distanse
+    sist = current
+    total_distanse += distance
+
     # regne maks høyde
-    if current.height > max_hoyde:
-        max_hoyde = current.height
-    #print(linje_delt[3])
-print("Høyste punkt på turen var på " + str(max_hoyde) + "m")
+    if max_hoyde < current:
+        max_hoyde = current
+
+print("Høyste punkt på turen var på " + str(max_hoyde.height) + "m")
 print("Turen var på " + str(round(total_distanse / 1000, 2)) + "km")
 
-file.close()
