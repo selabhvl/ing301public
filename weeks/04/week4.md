@@ -1,12 +1,13 @@
 # Tirsdag 21. januar 2025 (Uke 4)
 
 Ingen slides i dag ...
-Koden er dokumentasjonen :wink:
+[Koden](./gps_analyser_lecture.py) er dokumentasjonen :wink:
 
-- varibbler, datatyper
-- kontrollstruktur: if, løkker
-- moduler
-- filer
+- variabler
+- datatyper: `str`, `int`, `float`, `list`
+- kontrollstruktur: `if`, løkker: `for`
+- moduler (`haversine.py`)
+- filer (`open()`)
 
 ## Oppgaver 
 
