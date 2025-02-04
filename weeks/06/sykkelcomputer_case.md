@@ -28,7 +28,7 @@ På forelesningen skal vi se på hvordan vi kan identifisere klasser og relasjon
 - Undersøke hvordan arv kan brukes ifm. modellering av problemstillingen
 - Begynne å realisere klassene i Python kode
 
-## Utvidelse Uke 5
+## Utvidelse
 
 Vi antar nå at det har kommet inn noen nye/ mer spesifikke krav angående sykkecomputeren.
 Når en rute blir avsluttet skal den automatisk lagrest i en skyløsning (i første runden går vi utpå at vi barer lagrer den som en fil på disk).
