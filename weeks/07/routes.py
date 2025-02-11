@@ -35,7 +35,7 @@ class AggregationStrategy:
         pass
 
 
-class CalculateDistance(AggregationStrategy):
+class TotalDistance(AggregationStrategy):
     
     def start_value(self):
         return 0.0
@@ -53,6 +53,18 @@ class TotalTime(AggregationStrategy):
     def aggregate(self, old_aggregate, point_1, point_2):
         diff = point_2.ts - point_1.ts
         return old_aggregate + diff
+    
+class TotalClimb(AggregationStrategy):
+
+    def start_value(self):
+        return 0.0
+    
+    def aggregate(self, old_aggregate, point_1, point_2):
+        if point_2.height > point_1.height:
+            diff = point_2.height - point_1.height
+            return old_aggregate + diff
+        else:
+            return old_aggregate
 
 
 
@@ -90,10 +102,6 @@ class RoutePoint(Route):
             old_aggregate = self.next.aggregate(strategy)
             return strategy.aggregate(old_aggregate, self, self.next)
 
-  
-
-
-
 
 
 route = EndRoute()
@@ -104,10 +112,14 @@ verdiene.reverse()
 for verdi in verdiene:
     route = route.prepend(geo=Coordinate(verdi[1], verdi[2]), ts=verdi[0], height=verdi[3])
 
-distance = route.aggregate(CalculateDistance())
+distance = route.aggregate(TotalDistance())
 time = route.aggregate(TotalTime())
-print(f"{round(distance / 1000, 2)} km")
-print(time)
+climb = route.aggregate(TotalClimb())
+
+print(f"Distance: {round(distance / 1000, 2)} km")
+print(f"Time: {time}")
+print(f"Speed: {round(distance / 1000 / (time.total_seconds() / 60 / 60), 2)} km/h")
+print(f"Climb: {climb} m")
     
 
    
