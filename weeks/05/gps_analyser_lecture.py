@@ -39,7 +39,7 @@ def read_file(fil):
 # filstien vil være annerledes på din maskin
 # også husk på Windows må du erstatte hver enkelt "\" med en dobbelt "\\"
 
-filnavn = "/Users/past-madm/Projects/teaching/ing301/ing301public/weeks/04/gpslogs/short.csv"
+filnavn = "./weeks/04/gpslogs/short.csv"
 points = read_file(filnavn)
 
 last = points[0]

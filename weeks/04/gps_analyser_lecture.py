@@ -5,7 +5,7 @@ print(haversine.R)
 
 # filstien vil være annerledes på din maskin
 # også husk på Windows må du erstatte hver enkelt "\" med en dobbelt "\\"
-file = open("/Users/past-madm/Projects/teaching/ing301/ing301public/weeks/04/gpslogs/short.csv")
+file = open("./weeks/04/gpslogs/short.csv")
 innhold = file.read()
 linjer = innhold.split("\n")
 sist_lengd = float(linjer[1].split(",")[1])
