@@ -20,6 +20,9 @@ class GpsSensor(Sensor):
         # random location stored as Coordinate
         self.last_measurement = Coordinate(random.random() * 60, random.random() * 5)
 
+    def __repr__(self):
+        return f"{self.last_measurement_timestamp.isoformat()}: ({self.last_measurement.latitude}, {self.last_measurement.longitude})"
+
 class Speedometer(Sensor):
 
     def measure(self):
@@ -69,19 +72,7 @@ for s in c.sensors:
 
 # print current measurements
 for s in c.sensors:
-    print(f"{s.last_measurement_timestamp.isoformat()}: {s.last_measurement}")
+    print(s)
 
 
 
-
-
-
-
-class GPSPoint:
-    pass
-
-class Route:
-    pass
-
-class Display:
-    pass

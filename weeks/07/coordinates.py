@@ -36,13 +36,34 @@ def _compute_a(phi_1: float, phi_2: float, delta_phi: float, delta_delta: float)
 
 
 class Coordinate:
+
+    __slots__ = ["_latitude", "longitude"]
+
+    def _get_latitude(self):
+        print("getter was called")
+        return self._latitude
+    
+    def _set_latitude(self, latitude):
+        raise ValueError("coordinates are immutable")
+
+    latitude = property(fget=_get_latitude, fset=_set_latitude)
     
     def __init__(self, latitude: float, longitude: float):
-        self.latitude = latitude
+        self._latitude = latitude
         self.longitude = longitude
 
+    
+
+ 
     def distance_to(self, other):
         return _distance(self.longitude, self.latitude, other.longitude, other.latitude)
 
     def __sub__(self, other):
         return self.distance_to(other)
+    
+
+
+x = Coordinate(60.124, 5.987)
+print(x.latitude) 
+print(x.longitude)
+x.latitude = 42.124
