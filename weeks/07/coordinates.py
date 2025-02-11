@@ -40,7 +40,6 @@ class Coordinate:
     __slots__ = ["_latitude", "longitude"]
 
     def _get_latitude(self):
-        print("getter was called")
         return self._latitude
     
     def _set_latitude(self, latitude):
@@ -61,9 +60,9 @@ class Coordinate:
     def __sub__(self, other):
         return self.distance_to(other)
     
+    def __repr__(self):
+        return f"({self.latitude}, {self.longitude})"
+    
 
 
-x = Coordinate(60.124, 5.987)
-print(x.latitude) 
-print(x.longitude)
-x.latitude = 42.124
+
