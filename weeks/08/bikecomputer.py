@@ -1,6 +1,6 @@
 import random
 from datetime import datetime, timedelta
-
+import sqlite3
 
 class Point:
 
@@ -11,6 +11,13 @@ class Point:
 
     def __repr__(self):
         return f"{self.timestamp.isoformat()} ({round(self.latitude, 4)}, {round(self.longitude, 4)})"
+
+    def to_json(self):
+        result = {}
+        result["timestamp"] = self.timestamp.isoformat()
+        result["latitude"] = self.latitude
+        result["longitude"] = self.longitude
+        return result
 
 class Route:
 
@@ -23,10 +30,15 @@ class Route:
     def __repr__(self):
         return f"Route ({len(self.points)} segments):\n" + '\n'.join([f"#{i+1}: {p}" for i, p in zip(range(len(self.points)), self.points) ])
 
-    def save(self, filnavn: str):
-        fil = open(filnavn, encoding="utf-8", mode="at")
-        fil.write(self.__repr__())
-        fil.close()
+    def save(self):
+        connection = sqlite3.Connection("test.sqlite")
+        cursor = connection.cursor()
+        for point in self.points:
+            cursor.execute(f"INSERT INTO points VALUES ('{point.timestamp.isoformat()}', {point.latitude}, {point.longitude})")
+        connection.commit()
+        cursor.close()
+        connection.close()
+
 
 
 
@@ -71,7 +83,7 @@ def main():
             elif selected_option ==2:
                 print(route)
             elif selected_option == 3:
-                route.save("database.txt")
+                route.save()
             else:
                 is_active = False
     print("shutting down")
