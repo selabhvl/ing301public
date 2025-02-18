@@ -23,6 +23,11 @@ class Route:
     def __repr__(self):
         return f"Route ({len(self.points)} segments):\n" + '\n'.join([f"#{i+1}: {p}" for i, p in zip(range(len(self.points)), self.points) ])
 
+    def save(self, filnavn: str):
+        fil = open(filnavn, encoding="utf-8", mode="at")
+        fil.write(self.__repr__())
+        fil.close()
+
 
 
 class GpsSensor:
@@ -52,9 +57,9 @@ def main():
     sensor = GpsSensor()
     route = Route()
     while is_active:
-        print("---- Bike Computer ----\nSelect option:\n1. Track route\n2.Show Route\n3.Quit\n")
+        print("---- Bike Computer ----\nSelect option:\n1.Track route\n2.Show Route\n3. Save\n4.Quit\n")
         user_input = input(">>> ")
-        if not user_input.isdigit() and int(user_input) in {1, 2, 3}:
+        if not user_input.isdigit() and int(user_input) in {1, 2, 3, 4}:
             print(f"Unrecognized input: '{user_input}'")
         else:
             selected_option = int(user_input)
@@ -65,6 +70,8 @@ def main():
                 print(f"recorded {no_sample} segments")
             elif selected_option ==2:
                 print(route)
+            elif selected_option == 3:
+                route.save("database.txt")
             else:
                 is_active = False
     print("shutting down")
