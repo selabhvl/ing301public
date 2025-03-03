@@ -8,7 +8,7 @@ print("Employee Database")
 print("Please enter employee id: ",  end="")
 id = input()
 if id != "3":
-    cursor.execute("SELECT name, address FROM employees WHERE id = " + id)
+    cursor.executescript("SELECT name, address FROM employees WHERE id = " + id)
     print("Name\tAddress")
     rows = cursor.fetchall()
     for row in rows:
