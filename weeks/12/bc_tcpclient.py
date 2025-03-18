@@ -46,15 +46,15 @@ def main(server_host, server_port, no_points):
 
 
 if __name__ == "__main__":
-
-    NO_POINTS = 10
-    if len(sys.argv) == 3:
+    if len(sys.argv) == 4:
         server_host = sys.argv[1]
         server_port = int(sys.argv[2])
-        main(server_host, server_port, NO_POINTS)
+        no_points = int(sys.argv[3])
+        main(server_host, server_port, no_points)
     elif len(sys.argv) == 1:
+        NO_POINTS = 10
         main("127.0.0.1", 8000, NO_POINTS)
     else:
-        print("Usage: python3 tcpserver [<serverhost> <serverport>]")
+        print("Usage: python3 bc_tcpclient [<serverhost> <serverport>]")
 
 
