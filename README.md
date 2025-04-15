@@ -18,7 +18,7 @@ Oppbevaringsplassen inneholder en del kode, eksempler og lenker fra siste år. *
 | 10       | 04.03.24 | [**DB3**: Databaser: Modelering og Design](./weeks/10/week10.md) | Kap. 3 i Fundamentals of Database Systems                                                                                            |                 |
 | 11       | 11.03.24 | **NW1**: TCP/IP nettverks protokoll stabel            | Kap. 1-6 i [Introduction to Networking](https://do1.dr-chuck.net/net-intro/EN_us/net-intro.pdf)                                      | | 
 | 12       | 18.03.24 | [**NW2**: Nettverksapplikasjoner og socket programmering](./weeks/12/week12.md) | Kap. 7 i [Introduction to Networking](https://do1.dr-chuck.net/net-intro/EN_us/net-intro.pdf)                                        | [Prosjekt Del B (Frist 25.03)]()     |
-| 13       | 25.03.24 | **NW3**: HTTP/REST web tjenester                         | Artikkel: *RESTful Web Services: Principles, Patterns, Emerging Technologies*                                                        |                |
+| 13       | 25.03.24 | [**NW3**: HTTP/REST web tjenester](./weeks/13/bc_server.py) | Artikkel: *RESTful Web Services: Principles, Patterns, Emerging Technologies*                                                        |                |
 | 14       | 01.04.24 | **OS1**: Datamaskiner, operativsystemer og tråder | |  |
 | 15       | 08.04.24 | **OS2**: Tingenes internett (IoT) | |                |
 | 16       | | **Påskeferie**             |    |  [Prosjekt Del C (Frist 22.04)]() |
