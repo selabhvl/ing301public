@@ -27,8 +27,7 @@ def distance(latitude1: float, longitude1: float, latitude2: float, longitude2: 
 
     return d
 
-
-
+# test
 # Vi åpner en fil
 file = open("weeks/05/gpslog.csv")
 # Hele innhold blir lest inn i en variabel
