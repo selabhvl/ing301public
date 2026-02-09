@@ -9,7 +9,7 @@ Innleveringsfrist: se Canvas.
 Før vi begynner må vi være sikre på at dere alle har installert verktøyene som trengs for programvareutvikling med Python
 
 Det vil si at du må ha
-- Selve [Python](https://www.python.org/) fortolkeren sammen med sitt standardbibliotek. Hvis du har allerede installert Python på din maskin, sjekk at du har installert en versjon som er nyere er likt 3.12
+- Selve [Python](https://www.python.org/) fortolkeren sammen med sitt standardbibliotek. Hvis du har allerede installert Python på din maskin, sjekk at du har installert en versjon som er nyere er eller lik 3.12
 - En [git](https://git-scm.com/)-klient for samarbeid og deling av kode. Mest sannsynligvis vil du også en grafisk klient som f.eks. [GitHub Desktop](https://desktop.github.com/download/) hvis du ikke vil bruke `git` direkte fra kommandolinjen.
 - Et integrert utviklingsmiljø (som også kalles for _IDE_ = "Integrated Development Environment"). Vi anbefaler enten [Visual Studio Code](https://code.visualstudio.com/) eller [PyCharm](https://www.jetbrains.com/pycharm/)
 
@@ -35,8 +35,8 @@ Lenker til instruksjoner for de enkelte operativsystemer finder du nedenfor:
 
 ### IDE og andre grafiske verktøy
 
-OBS! Det er fult mulig å skrive kode i Python i en teksteditor som `vim` eller `emacs` og betjene `git` gjennom kommandolinjen (Windows sitt _Notepad_ anbefales derimot ikke i det hele tatt). 
-Men generelt anbefaler vi at du bruker en IDE og/eller andre verktøy som tilbyr en grafisk brukergrensesnitt (GUI) for å gjøre det enklere!
+Det er fult mulig å skrive kode i Python i en teksteditor som `vim` eller `emacs` og betjene `git` gjennom kommandolinjen (Windows sitt _Notepad_ anbefales derimot ikke i det hele tatt). 
+Men generelt anbefaler vi at du bruker en IDE og/eller andre verktøy som tilbyr en grafisk brukergrensesnitt (GUI) for å gjøre det enklere.
 
 Instruksjoner på hvordan du setter opp disse verktøy for ditt operativsystem finner du bak de enkelte Download-lenker.
 I de fleste tilfeller vil du få en slags _Installer_ som gjør selve oppsett ganske enkelt.
@@ -55,7 +55,7 @@ Hovedforskjellen mellom PyCharm og VS Code er at førstnevnte krever en lisens (
 
 ## Steg 2: Lage GitHub bruker 
 
-Vi skal bruke sky-tjenesten [GitHub](https://github.com)] for å dele eksempel kode for forelesninger og for at dere kan jobbe sammen i grupper om programmering. Du trenger derfor en bruker på github. Om du allerede har en github brukerkonto kan du hoppe direkte til neste steg.
+Vi skal bruke sky-tjenesten [GitHub](https://github.com) for å dele eksempel kode for forelesninger og for at dere kan jobbe sammen i grupper om programmering. Du trenger derfor en bruker på GitHub. Om du allerede har en github brukerkonto kan du hoppe direkte til neste steg.
 
 Først, gå til https://github.com/ i din nettleser! På hovedsiden trykker du nå på _Sign Up_. Du blir bedt til å gi fra deg en epost adresse (Du kan bruke din HVL-epost-adresse) og sette et password. Pass på at lagrer dine pålogginsinformasjon på et sikkert sted (f.eks. ved å bruke en _Password Manager_).
 
