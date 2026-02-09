@@ -19,4 +19,4 @@ git
 
 Hvis installasjonen har fungerer så vil du få et lengre output som forklarer de forskjellige sub-kommandoer du kan bruke (Vi skal snakke om dem senere :wink:).
 
-I tillegg kan du installlere [GitHub](https://desktop.github.com/) som tilbyr en grafisk brukergrensesnitt (GUI) for å jobbe med git.
+I tillegg kan du installlere [GitHub Desktop](https://desktop.github.com/) som tilbyr en grafisk brukergrensesnitt (GUI) for å jobbe med git.

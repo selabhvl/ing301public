@@ -95,7 +95,7 @@ Hvis du har valgt å installere GitHub Desktop applikasjonen kan du også bruke 
 Til slutt skal vi teste om din Python installasjon virker som den skal.
 Du skal nå åpne din IDE og så åpne `ing301public` mappen i den (i VS Code finner du en knapp "open folder" og i PyCharm finner du en knapp "open project").
 Når du åpner mappen kommer et spørsmål om du stoler på innholdet: her sier du bare "ja" :wink:.
-Etterå kan du navigere til filen `/weeks/03/testinstall.py` i filtræet på venstresiden og kjører den ved å trykke på den _store grønne knappen_.
+Etterå kan du navigere til filen `testinstall.py` i filtræet på venstresiden og kjører den ved å trykke på den _store grønne knappen_.
 Du burde da se noe som:
 
 ```
