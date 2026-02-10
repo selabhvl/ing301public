@@ -37,7 +37,7 @@ Som du ser kan du avslutte fortolkeren ved å skrive `quit()`.
 
 Det å utvikle større programmer direkte i fortolkeren kan raskt bli svært uoversiktlig. 
 Derfor skriver man Python kode vanligvis i filer. 
-En slik fil blir kalt _script_. 
+En slik fil blir kalt et _script_. 
 Et script er en vanlig tekstfil med et navn som slutter på `.py` og inneholder en sekvens av Python kommandoer.
 
 
@@ -97,7 +97,7 @@ I programmeringsspråk sin verden så kaller men ofte disse for _konstanter_.
 
 Men hvorfor kunne vi direkte skrive skrive `2`, men for å skrive en tekst så måtte vi bruke `""` rundt?! 
 Det er fordi de har forskjellige typer! 
-Kanskje du husker når realfaglæreren maste med hvilket enhet når hen spurte etter eks. lengde, hastighet, eller kraf. 
+Kanskje du husker når realfaglæreren maste med hvilket enhet når hen spurte etter eks. lengde, hastighet, eller kraft. 
 Like som du ikke kan bare plusse på en hastighet med en elektrisk spenning så har verdier i programmeringsspråk forskjellige _"enheter"_, eller _typer_ som vi kaller dem.
 
 Heldigvis er mengden av disse elementære typene relativt liten.
@@ -423,7 +423,7 @@ Filer er den primære måten å lagre informasjon permanent på en datamaskin.
 Python tilbyr funksjoner for å _lese fra_ filer og _skrive til_ filer.
 
 ```python
-file = open('ing301public/week2-introduction/week2.md', 'r')  # Du kan tilpasse filstien til en fil på din maskin
+file = open('ing301public/weeks/04/week4.md', 'r')  # Du kan tilpasse filstien til en fil på din maskin
 for line in file:
     print(line)  # skriver ut alle linjer i en gitt fil
 file.close()  # Husk denne linjen fo å unngå _Memory Leaks_
