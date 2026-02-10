@@ -4,9 +4,7 @@ Welcome to the official **ING301** public repository.
 This repository contains an up-to-date overview of the course schedule (current instance: _Vår 2026_), source code examples
 from the lectures and "starter code" for various exercises.
 
-## Aktuell oversikt - vil bli oppdatert etterhvert utover semestret.
-
-## Aktuell oversikt - vil bli oppdatert etterhvert utover semestret.
+## Aktuell oversikt - kan  bli oppdatert etterhvert utover semestret.
 
 | **Uke**  | **Dato** | **Tema**                                           | **Literatur/Bakgrunnsmaterial**                              |  **Frister**    |
 |----------|----------|----------------------------------------------------|--------------------------------------------------------------|-----------------|
