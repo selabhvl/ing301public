@@ -20,7 +20,7 @@ from the lectures and "starter code" for various exercises.
 | 12       | 17.03.26 | Work on Project B           | 
 | 13       | 24.03.26 | **NW1**: The TCP/IP Networking Model and Socket Programming            | Chap. 1-7 in [Introduction to Networking](https://do1.dr-chuck.net/net-intro/EN_us/net-intro.pdf)                                                  | Project B | 
 | 14       | | **Easter Break**             |    |   |
-| 15       | 06.04.26 | **NW2**: HTTP/REST web services: servers and clients | Artikkel: *RESTful Web Services: Principles, Patterns, Emerging Technologies*                                                        |                |
-| 16       | 13.04.26 | Work on Project C | |  |
+| 15       | 07.04.26 | **NW2**: HTTP/REST web services: servers and clients | Artikkel: *RESTful Web Services: Principles, Patterns, Emerging Technologies*                                                        |                |
+| 16       | 14.04.26 | Work on Project C | |  |
 | 17       | 21.04.24 | Work on Project C | |    Project C|
 | 18       | 28.04.24 | Information about the exam  | |                |
