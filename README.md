@@ -23,4 +23,4 @@ from the lectures and "starter code" for various exercises.
 | 15       | 06.04.26 | **NW2**: HTTP/REST web services: servers and clients | Artikkel: *RESTful Web Services: Principles, Patterns, Emerging Technologies*                                                        |                |
 | 16       | 13.04.26 | Work on Project C | |  |
 | 17       | 21.04.24 | Work on Project C | |    Project C|
-| 18       | 28.04.24 | Exam Questions and Answers | |                |
+| 18       | 28.04.24 | Information about the exam  | |                |
