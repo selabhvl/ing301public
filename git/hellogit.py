@@ -1,1 +1,1 @@
-print("Starting with Git")
+print("Getting event more started with Git")
