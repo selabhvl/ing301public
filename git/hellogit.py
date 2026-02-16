@@ -1,1 +1,1 @@
-print("Getting event more started with Git")
+print("Getting even more started with Git")
