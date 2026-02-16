@@ -1,0 +1,1 @@
+print("Getting started with Git")
