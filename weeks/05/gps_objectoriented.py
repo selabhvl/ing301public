@@ -2,7 +2,7 @@ import haversine
 
 class GPSPoint:
 
-    def __init__(self, linje):
+    def __init__(self, linje: str):
         linje_delt = linje.split(",")
         self.time = linje_delt[0]
         self.lat = float(linje_delt[1])
@@ -12,7 +12,7 @@ class GPSPoint:
     def say_hi(self):
         return "Hi from " + str(id(self))
     
-    def distance(self, other):
+    def distance(self, other: GPSPoint):
         return haversine.distance(self.lat, self.long, other.lat, other.lat)
 
 file = open("weeks/05/gpslog.csv")
@@ -58,4 +58,5 @@ for linje in linjer[2:]:
 # Avslutte med å skrive informasjon til skjerm
 print("Høyste punkt på turen var på " + str(max_hoyde) + "m")
 print("Turen var på " + str(round(total_distanse / 1000, 2)) + "km")
+
 

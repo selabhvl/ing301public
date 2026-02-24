@@ -1,4 +1,4 @@
-# Case Description: Sykkelcomputer
+## Case Description: Sykkelcomputer
 
 En avansert sykkelcomputer består typisk av en eller flere ulike sensorer, 
 eksempelvis en _GPS sensor_ som periodisk registrer posisjon i form av lengde- og breddegrad samt tidspunkt og høyde. 
