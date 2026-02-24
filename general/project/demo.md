@@ -5,11 +5,11 @@ Du finner en plantegning av dette huset nedenfor:
 
 ## Etasje 1
 
-![Etasjeplan Etasje 1](../resources/images/DemoHusFloorplan1.svg)
+![Etasjeplan Etasje 1](../../resources/images/DemoHusFloorplan1.svg)
 
 ## Etasje 2
 
-![Etasjeplane Etasje 2](../resources/images/DemoHusFloorplan2.svg)
+![Etasjeplane Etasje 2](../../resources/images/DemoHusFloorplan2.svg)
 
 ## Enheter
 
