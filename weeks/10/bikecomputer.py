@@ -31,13 +31,9 @@ class Route:
         return f"Route ({len(self.points)} segments):\n" + '\n'.join([f"#{i+1}: {p}" for i, p in zip(range(len(self.points)), self.points) ])
 
     def save(self):
-        connection = sqlite3.Connection("test.sqlite")
-        cursor = connection.cursor()
-        for point in self.points:
-            cursor.execute(f"INSERT INTO points VALUES ('{point.timestamp.isoformat()}', {point.latitude}, {point.longitude})")
-        connection.commit()
-        cursor.close()
-        connection.close()
+        # TODO: implement
+        print("Sorry! Not yet implemented")
+        return
 
 
 
@@ -69,7 +65,7 @@ def main():
     sensor = GpsSensor()
     route = Route()
     while is_active:
-        print("---- Bike Computer ----\nSelect option:\n1.Track route\n2.Show Route\n3. Save\n4.Quit\n")
+        print("---- Bike Computer ----\nSelect option:\n1. Track route\n2. Show Route\n3. Save\n4.Quit\n")
         user_input = input(">>> ")
         if not user_input.isdigit() and int(user_input) in {1, 2, 3, 4}:
             print(f"Unrecognized input: '{user_input}'")
