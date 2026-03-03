@@ -1,5 +1,7 @@
 import random
 from datetime import datetime, timedelta
+import json
+import pickle
 import sqlite3
 
 class Point:
@@ -31,8 +33,42 @@ class Route:
         return f"Route ({len(self.points)} segments):\n" + '\n'.join([f"#{i+1}: {p}" for i, p in zip(range(len(self.points)), self.points) ])
 
     def save(self):
-        # TODO: implement
-        print("Sorry! Not yet implemented")
+        # Skrive til CSV
+        fil = open("route.csv", "wt")
+        fil.write("timestamp,latitude,longitude\n")
+        for p in self.points:
+            fil.write(f"{p.timestamp},{p.latitude},{p.longitude}\n")
+        fil.close()
+        print("Written to route.csv!")
+        # skrive til JSON
+        fil = open('route.json', "w+")
+        json_points = []
+        for p in self.points:
+            json_points.append(p.to_json())
+        json_objekt = {
+            "points": json_points
+        }
+        json.dump(json_objekt, fil, indent=3)
+        fil.close()
+        print("Written to route.json")
+        # Write pickle
+        fil = open('route.picke', "wb")
+        pickle.dump(self, fil)
+        fil.close()
+        print("Written to route.pickle")
+        # Write to sqlite
+        connection = sqlite3.Connection("route.sqlite")
+        cursor = connection.cursor()
+
+        cursor.execute("CREATE TABLE routes(timestamp text, latitude number, longitude number )")
+
+        for p in self.points:
+            cursor.execute(f"INSERT INTO routes VALUES ('{p.timestamp}', {p.latitude}, {p.longitude})")
+
+        cursor.close()
+        connection.commit()
+        connection.close()
+        print("written to route.sqlite")
         return
 
 
@@ -64,6 +100,10 @@ def main():
     is_active = True
     sensor = GpsSensor()
     route = Route()
+    # TODO: her kunne jeg lastet inn CSV
+    fil = open("route.picke", "rb")
+    route = pickle.load(fil)
+    fil.close()
     while is_active:
         print("---- Bike Computer ----\nSelect option:\n1. Track route\n2. Show Route\n3. Save\n4.Quit\n")
         user_input = input(">>> ")
