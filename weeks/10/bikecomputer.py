@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 import json
 import pickle
 import sqlite3
+from pathlib import Path
 
 class Point:
 
@@ -52,11 +53,13 @@ class Route:
         fil.close()
         print("Written to route.json")
         # Write pickle
-        fil = open('route.picke', "wb")
+        fil = open('route.pickle', "wb")
         pickle.dump(self, fil)
         fil.close()
         print("Written to route.pickle")
         # Write to sqlite
+        if Path("route.sqlite").exists():
+            Path("route.sqlite").unlink()
         connection = sqlite3.Connection("route.sqlite")
         cursor = connection.cursor()
 
@@ -100,12 +103,29 @@ def main():
     is_active = True
     sensor = GpsSensor()
     route = Route()
-    # TODO: her kunne jeg lastet inn CSV
-    fil = open("route.picke", "rb")
-    route = pickle.load(fil)
-    fil.close()
+    # Lese fra pickle
+    # fil = open("route.picke", "rb")
+    # route = pickle.load(fil)
+    # fil.close()
+    
+    # Lese fra sqlite
+    connection = sqlite3.Connection("route.sqlite")
+    cursor = connection.cursor()
+    try:
+        cursor.execute("SELECT timestamp, latitude, longitude FROM routes")
+        for row in cursor.fetchall():
+            timestamp = datetime.fromisoformat(row[0])
+            latitude = row[1]
+            longitude = row[2]
+            route.add(Point(timestamp, latitude, longitude))
+    except sqlite3.OperationalError:
+        print("No existing route found in route.sqlite")
+    finally:
+        cursor.close()
+        connection.close()
+
     while is_active:
-        print("---- Bike Computer ----\nSelect option:\n1. Track route\n2. Show Route\n3. Save\n4.Quit\n")
+        print("---- Bike Computer ----\nSelect option:\n1. Track route\n2. Show Route\n3. Save\n4. Quit\n")
         user_input = input(">>> ")
         if not user_input.isdigit() and int(user_input) in {1, 2, 3, 4}:
             print(f"Unrecognized input: '{user_input}'")

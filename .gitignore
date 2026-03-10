@@ -131,3 +131,10 @@ dmypy.json
 
 # IntelliJ Project Files
 .idea/
+
+# conent example files
+test.txt
+route.sqlite
+route.picke
+route.json
+route.csv
