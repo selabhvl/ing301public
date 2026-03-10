@@ -3,9 +3,9 @@
 De obligatoriske innleveringene i ING301 er basert på et større sammenhengende prosjekt: 
 Dere skal bygge et system som kan styre et "_Smart Home_", sammenlignbar med f.eks. [Home Assistant](https://www.home-assistant.io/).
 
-![Smart Home Infografikk](../resources/images/smart-home.jpg)
+![Smart Home Infografikk](../../resources/images/smart-home.jpg)
 
-## Intro
+## Introduksjon
 
 _Smarthus_ er et begrep som dekker forskjellige typer av _hjemmeautomatisering_.
 Dette er basert på "_intelligente_" enheter (_Internet of Things (IoT)_ devices) som kan kommuniserere gjennom nettverksteknologier og dermed muliggjør bla. overvåkning, regulering og optimalisering.
@@ -22,11 +22,11 @@ Etasjer har et _etasjenummer_. Arealet til en etasje kan beregnes ved å summere
 Desto videre forvalter systemet _enheter_ (_devices_).
 En enhet registreres med et _identifikasjonummer_ og dens produktegenskaper, dvs. _produsentnavn_, _modellnavn_ og hva for en enhet det dreier seg om (varmeovn, lyspære, strømmåler, osv.).
 I tillegg kan enheten gis et _huskenavn_ (f.eks. "Varmepumpe Bad"). 
-En enheten må registreres i ett rom i huset.
+En enhet må registreres i ett rom i huset.
 
 Vi skiller mellom to type enheter: _sensorer_ og _aktuatorer_. 
 
-Eksempler på sensorer er temperturmålere, luftfuktighetsmålere, strømforbruksmålere, CO2 målere, bevegelsessensorer osv.
+Eksempler på sensorer er temperaturmålere, luftfuktighetsmålere, strømforbruksmålere, CO2 målere, bevegelsessensorer osv.
 En sensor må ha en funksjon som leverer den siste _måleverdien_ og historien av tidligere måleverdiene.
 En måleverdi består av _dato_, _klokkeslett_, _verdi_ (numerisk) og _måleenhet_ (f.eks. `°C` for temperatur, `%` for luftfuktighet osv.).
 
@@ -42,7 +42,7 @@ Til syvende og sist må det nevnes at noen enheter både viser sensor og aktutor
 
 Mer informasjon om de fire deloppgavene i prosjektet blir lagt ut fortløpende i kursforløpet. Prosjektet kan løses i grupper med opp til 3 personer.
 
-### Del A: Domenemodell og grunnlegende Funksjonaliteter
+### Del A: Domenemodell og grunnlegende funksjonalitet
 
 I første prosjektsteg skal gruppen legge grunnlag for hele systemet ved å _planlegge_ og _implementere_ en _domenemodell_:
 
@@ -54,13 +54,9 @@ I neste steg skal gruppen sørge få at informasjon blir lagret permanent på en
 
 [Se detaljer](https://github.com/selabhvl/ing301-projectpartB-startcode)
 
-### Del C: Nettbasert tilgang
+### Del CD: Nettbasert tilgang
 
-I dette steget skal gruppen bruke nettverksprotokoller for at smart-hus funksjonaliteten kan tilbys via en web-tjeneste. 
+I dette steget skal gruppen bruke nettverksprotokoller for at smart-hus funksjonaliteten kan tilbys via en web-tjeneste. Dette inkludere å kunne hente informasjon fra og kontrollere de ulike hardware enheter (IoT devices), sensorer og aktuatorer via sky-tjenester.
 
-[Se detaljer](https://github.com/selabhvl/ing301-projectpartC-startcode)
-
-### Del D: Integrasjon med andre enheter
-
-I det siste steget skal gruppen se op hvordan systemet kan koples opp mot de ulike hardware enheter (IoT devices), sensorer og aktuatorer.
+Detaljer kommer senere.
 

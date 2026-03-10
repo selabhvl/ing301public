@@ -17,7 +17,7 @@ from the lectures and "starter code" for various exercises.
 | 9        | 24.02.26 | **OO3**: Object-oriented Programming Wrap-up - Project A | |  
 | 10        | 03.03.26 | **DB1**: Files and Introduction to Databases | Chap. 17 in [Practical Programming](https://pragprog.com/titles/gwpy3/practical-programming-third-edition/):  until page 353 (before "joins")  | Project A |
 | 11       | 10.03.26 | **DB2**: Databases and Structured Query Language (SQL) - Project B | Chap. 17 in [Practical Programming](https://pragprog.com/titles/gwpy3/practical-programming-third-edition/): from page 354 until 365, and  Chap. 3 in _Fundamentals of Database Systems_                            |            |
-| 12       | 17.03.26 | Work on Project B           | 
+| 12       | 17.03.26 | Help Project A and work on Project B           | 
 | 13       | 24.03.26 | **NW1**: The TCP/IP Networking Model and Socket Programming            | Chap. 1-7 in [Introduction to Networking](https://do1.dr-chuck.net/net-intro/EN_us/net-intro.pdf)                                                  | Project B | 
 | 14       | | **Easter Break**             |    |   |
 | 15       | 07.04.26 | **NW2**: HTTP/REST web services: servers and clients | Artikkel: *RESTful Web Services: Principles, Patterns, Emerging Technologies*                                                        |                |
