@@ -1,6 +1,6 @@
 import socket
 
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket = socket.socket()
 
 server_address = "127.0.0.1"
 server_port = 9002
