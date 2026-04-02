@@ -4,7 +4,6 @@
 from gpspoint import GPSPoint
 import random
 
-
 class GPSSensor:
 
     def __init__(self, pid : int = 1):
