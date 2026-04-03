@@ -4,7 +4,6 @@ import json
 
 from gpspoint import GPSPoint
 
-
 def main(server_host, server_port):
 
     # create and bind socket for incoming TCP connections
@@ -24,8 +23,8 @@ def main(server_host, server_port):
             connection, addr = welcome_socket.accept()
 
             # server will wait here ...
-
             print(f"Client connected from {addr}")
+
             # receive first four bytes which specifies len of bytes for the route
             route_len_bytes = connection.recv(4)
 
@@ -67,12 +66,13 @@ def main(server_host, server_port):
         if welcome_socket:
             welcome_socket.close()
 
-
 if __name__ == "__main__":
+
     if len(sys.argv) == 3:
         server_host = sys.argv[1]
         server_port = int(sys.argv[2])
         main(server_host, server_port)
+
     elif len(sys.argv) == 1:
         server_host = "127.0.0.1"
         server_port = 8000
