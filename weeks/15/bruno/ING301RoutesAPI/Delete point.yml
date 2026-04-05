@@ -1,0 +1,15 @@
+info:
+  name: Delete point
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: http://127.0.0.1:8000/route/1/gpspoint/2
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

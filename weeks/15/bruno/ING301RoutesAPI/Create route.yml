@@ -1,0 +1,20 @@
+info:
+  name: Create route
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: http://127.0.0.1:8000/route
+  body:
+    type: json
+    data: |-
+      { "rid": null,  
+        "gps_points": []}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
