@@ -1,0 +1,15 @@
+info:
+  name: latest
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: https://dweetr.io/get/latest/dweet/for/ing301
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
