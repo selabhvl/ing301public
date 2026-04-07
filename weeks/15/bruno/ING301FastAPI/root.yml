@@ -1,11 +1,11 @@
 info:
-  name: Read route
+  name: root
   type: http
-  seq: 2
+  seq: 1
 
 http:
   method: GET
-  url: http://127.0.0.1:8000/route/1
+  url: http://127.0.0.1:8000/
   auth: inherit
 
 settings:
